@@ -20,29 +20,44 @@
     var CONFIG = {"hostname":"holichang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="向死而生的生命都在热烈地生长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cheshire Cat">
-<meta property="og:url" content="https://holichang.github.io/index.html">
+  <meta name="description" content="[TOC] 笔记：1.端口什么是端口： 本地操作系统会给那些有需求的进程分配协议端口 （protocal port，即我们常说的端口），每个协议端口由一个正整数标识，如：80，139，445，等等。当目的主机接收到数据报后，将根据报文首部的目的端口 号，把数据发送到相应端口，而与此端口相对应的那个进程将会领取数据并等待下一组数据的到来。 端口分类：   在Internet上，按照协议类型分类，端口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="https://holichang.github.io/2020/03/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Cheshire Cat">
-<meta property="og:description" content="向死而生的生命都在热烈地生长">
+<meta property="og:description" content="[TOC] 笔记：1.端口什么是端口： 本地操作系统会给那些有需求的进程分配协议端口 （protocal port，即我们常说的端口），每个协议端口由一个正整数标识，如：80，139，445，等等。当目的主机接收到数据报后，将根据报文首部的目的端口 号，把数据发送到相应端口，而与此端口相对应的那个进程将会领取数据并等待下一组数据的到来。 端口分类：   在Internet上，按照协议类型分类，端口">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:%5CFront-End-Note%5Cimage%5C1571194707(1).png">
+<meta property="og:image" content="d:%5CFront-End-Note%5Cimage%5Chttps%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.jpg">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200221232507221.png">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200221232944521.png">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200228155417210.png">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200310230631141.png">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200310234233723.png">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312105726881.png">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312122312572.png">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312124716664.png">
+<meta property="og:image" content="c:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312130504383.png">
+<meta property="article:published_time" content="2020-03-12T05:27:46.000Z">
+<meta property="article:modified_time" content="2020-03-12T05:30:30.802Z">
 <meta property="article:author" content="柴郡猫">
+<meta property="article:tag" content="http,浏览器">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:%5CFront-End-Note%5Cimage%5C1571194707(1).png">
 
-<link rel="canonical" href="https://holichang.github.io/">
+<link rel="canonical" href="https://holichang.github.io/2020/03/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false
+    isHome : false,
+    isPost : true
   };
 </script>
 
-  <title>Cheshire Cat</title>
+  <title>计算机网络 | Cheshire Cat</title>
   
 
 
@@ -142,311 +157,10 @@
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holichang.github.io/2020/03/12/JavaScript%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="柴郡猫">
-      <meta itemprop="description" content="向死而生的生命都在热烈地生长">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cheshire Cat">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/12/JavaScript%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">JavaScript笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-12 13:28:21 / 修改时间：13:31:08" itemprop="dateCreated datePublished" datetime="2020-03-12T13:28:21+08:00">2020-03-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <p>[TOC]</p>
-<h4 id="1-全角和半角："><a href="#1-全角和半角：" class="headerlink" title="1.全角和半角："></a>1.全角和半角：</h4><p>全角：是一种电脑字符，是指一个全角字符占用两个标准字符(或两个半角字符)的位置。全角占两个字节。</p>
-<p>半角：是指一个字符占用一个标准的字符位置。半角占一个字节。</p>
-<p>全角和半角主要是针对标点符号来说的，全角标点占两个字节，半角占一个字节。不管是半角还是全角，汉字都要占两个字节。</p>
-<p><strong>JS判断输入的文字是全角还是半角</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">"中文；;a"</span>;</span><br><span class="line">alert(str.match(<span class="regexp">/[\u0000-\u00ff]/g</span>));   <span class="comment">//半角 </span></span><br><span class="line">alert(str.match(<span class="regexp">/[\u4e00-\u9fa5]/g</span>));   <span class="comment">//中文 </span></span><br><span class="line">alert(str.match(<span class="regexp">/[\uff00-\uffff]/g</span>));   <span class="comment">//全角</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>JS找到全角空格和半角空格</strong></p>
-<p>str.charCodeAt()==32 ||str.charCodeAt()==12288</p>
-<p><strong>JS对全角与半角的相互转化：charCodeAt()  fromCharCode()</strong></p>
-<p>全角空格为12288，半角空格为32</p>
-<p>其他字符半角(33-126)与全角(65281-65374)的对应关系是：均相差65248</p>
-<p>全角空格：/\u3000/g    </p>
-<p>半角空格：/\u0020/g</p>
-<h4 id="2-JSON："><a href="#2-JSON：" class="headerlink" title="2.JSON："></a>2.JSON：</h4><p><code>JSON.stringfy()</code>:将对象转为JSON字符串</p>
-<p><code>JSON.parse</code>：将JSON字符串转为对象</p>
-<h4 id="3-回调函数"><a href="#3-回调函数" class="headerlink" title="3.回调函数"></a>3.回调函数</h4><h4 id="4-文本框提示："><a href="#4-文本框提示：" class="headerlink" title="4.文本框提示："></a>4.文本框提示：</h4><p>用keyup, keypress, keydown以及oninput四个事件分别来测试对于用户输入的事件监听，并在事件响应函数中增加console.log(‘event handle’)。并尝试以下输入方式，观察提示框内容变化的情况，以及console的输出情况：</p>
-<ul>
-<li><p>一个字母一个字母的输入</p>
-</li>
-<li><p>一个字母一个字母输入，同时加上按回车键，ESC键，上下左右键</p>
-</li>
-<li><p>按住某个字母键不动</p>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">keyup</th>
-<th align="center">keypress</th>
-<th align="center">keydown</th>
-<th align="center">oninput</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">一个字母一个字母输入</td>
-<td align="center">响应一次</td>
-<td align="center">响应一次</td>
-<td align="center">响应一次</td>
-<td align="center">响应一次</td>
-</tr>
-<tr>
-<td align="center">加上回车键</td>
-<td align="center">响应一次</td>
-<td align="center">响应一次</td>
-<td align="center">响应一次</td>
-<td align="center">没有响应</td>
-</tr>
-<tr>
-<td align="center">加上ESC键</td>
-<td align="center">响应一次</td>
-<td align="center">没有响应</td>
-<td align="center">响应一次</td>
-<td align="center">没有响应</td>
-</tr>
-<tr>
-<td align="center">加上下左右键</td>
-<td align="center">响应一次</td>
-<td align="center">没有响应</td>
-<td align="center">响应一次</td>
-<td align="center">没有响应</td>
-</tr>
-<tr>
-<td align="center">按住某个字母键不动</td>
-<td align="center">响应一次</td>
-<td align="center">持续响应</td>
-<td align="center">持续响应</td>
-<td align="center">持续响应</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<p>keypress和keydown显示的文本有延迟，不显示最后一个按键</p>
-<p>（1）KeyDown触发后，不一定触发KeyUp，当KeyDown 按下后，拖动鼠标，那么将不会触发KeyUp事件。</p>
-<p>（2）KeyPress主要用来捕获数字(<strong>注意：包括Shift+数字的符号</strong>)、字母（<strong>注意：包括大小写</strong>）、小键盘等除了F1-12、SHIFT、Alt、Ctrl、Insert、Home、PgUp、Delete、End、PgDn、ScrollLock、Pause、NumLock、{菜单键}、{开始键}和方向键外的ANSI字符</p>
-<p>（3）KeyDown 和KeyUp 通常可以捕获键盘除了PrScrn所有按键(这里不讨论特殊键盘的特殊键）</p>
-<p>（4）KeyPress 只能捕获单个字符</p>
-<p>（5）KeyDown 和KeyUp 可以捕获组合键。</p>
-<p>（6）KeyPress 可以捕获单个字符的大小写</p>
-<p>（7）KeyDown和KeyUp 对于单个字符捕获的KeyValue 都是一个值，也就是不能判断单个字符的大小写。</p>
-<p>（8）KeyPress 不区分小键盘和主键盘的数字字符。</p>
-<p>（9）KeyDown 和KeyUp 区分小键盘和主键盘的数字字符。</p>
-<p>（10）其中PrScrn 按键KeyPress、KeyDown和KeyUp 都不能捕获。</p>
-<p>（11）在使用键盘的时候，通常会使用到CTRL+SHIFT+ALT 类似的组合键功能。对于此，我们如何来判定？</p>
-<p>​     通过KeyUp 事件能够来处理（这里说明一下为什么不用KeyDown，因为在判定KeyDown的时候，CTRL、SHIFT和ALT 属于一直按下状态，然后再加另外一个键是不能准确捕获组合键，所以使用KeyDown 是不能准确判断出的，要通过KeyUp 事件来判定 ）</p>
-<h4 id="5-Web安全之XSS攻防"><a href="#5-Web安全之XSS攻防" class="headerlink" title="5.Web安全之XSS攻防"></a>5.Web安全之XSS攻防</h4><p><strong>跨站脚本攻击(Cross Site Scripting)</strong>，缩写为XSS。恶意攻击者往Web页面里插入恶意Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。</p>
-<p><a href="https://blog.csdn.net/ganyingxie123456/article/details/70230486" target="_blank" rel="noopener">原文</a></p>
-<h4 id="6-innerText和innerHTML之间的转义"><a href="#6-innerText和innerHTML之间的转义" class="headerlink" title="6.innerText和innerHTML之间的转义"></a>6.innerText和innerHTML之间的转义</h4><p>innerText:包含子结点的所有文本内容</p>
-<p>innerHTML：不只是文本内容，还包含子节点的标签</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(temp.textContent != <span class="literal">undefined</span> ) ? (temp.textContent = html) : (temp.innerText = html);</span><br></pre></td></tr></table></figure>
-
-<p>textContent：谷歌,火狐支持,IE8不支持；innerText：谷歌,火狐,IE8都支持<br>判断这个属性的类型 是不是undefined,就知道浏览器是否支持</p>
-<p>innerHTML在左边时，字符串会被自动编码如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">innerHTML=&amp;lt;b&amp;gt;<span class="comment">//会被转为&lt;b&gt;</span></span><br><span class="line">str=innerHTML;<span class="comment">//innerHTML中的&lt;b&gt;标签被转为&amp;lt;b&amp;gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="7-相关方法"><a href="#7-相关方法" class="headerlink" title="7.相关方法"></a>7.相关方法</h4><p>select() 方法用于选取input密码域或文本域中的文本</p>
-<p>focus()方法用于使输入框获得焦点</p>
-<p>对于<select>标签：</p>
-<p>selectedIndex:设置或返回下拉列表中被选项目的索引号。</p>
-<p><strong>方法：</strong></p>
-<p>add():向下拉列表添加一个选项。</p>
-<p>blur():从下拉列表移开焦点。</p>
-<p>focus():在下拉列表上设置焦点。</p>
-<p>remove():从下拉列表中删除一个选项。</p>
-<h4 id="8-获取上一个节点和下一个节点"><a href="#8-获取上一个节点和下一个节点" class="headerlink" title="8.获取上一个节点和下一个节点"></a>8.获取上一个节点和下一个节点</h4><p>previousSibling 属性返回元素节点之前的兄弟节点（包括文本节点、注释节点）；</p>
-<p>previousElementSibling 属性只返回元素节点之前的兄弟元素节点（不包括文本节点、注释节点）；</p>
-<p>nextSibling 属性返回元素节点之后的兄弟节点（包括文本节点、注释节点）；</p>
-<p>nextElementSibling 属性只返回元素节点之后的兄弟元素节点（不包括文本节点、注释节点）；</p>
-<h4 id="9-innerHTML和outerHTML"><a href="#9-innerHTML和outerHTML" class="headerlink" title="9.innerHTML和outerHTML"></a>9.innerHTML和outerHTML</h4><p>innerHTML 设置或获取位于对象起始和结束标签内的HTML</p>
-<p>outerHTML设置或获取对象及其内容的HTML形式</p>
-<h4 id="10-html中的name，id和value"><a href="#10-html中的name，id和value" class="headerlink" title="10.html中的name，id和value"></a>10.html中的name，id和value</h4><p><strong>value 和 name</strong></p>
-<p>1.name是控件的名称（多个控件可以取同一个名称），value是控件的值</p>
-<p>2.并不是所有控件的value都会显示出来，比如 checkbox, radio, hidden；</p>
-<p>3.定义控件的 name和value 就可以在服务器上获取这个控件和它的值;</p>
-<p>4.你没看到 submit 的name，并不表示浏览器忽略了它的 name，在提交之前它也被浏览器定义了 name，在服务器上一样可以得到它的 name 和 value；</p>
-<p>5.控件不定义name/value也可以显示，只是为了方便在服务器接收和区别，才定义它的 name/value，当然按钮的 value 不光是存放它的值，也用来显示</p>
-<p><a href="https://www.cnblogs.com/jamesf/p/4751722.html" target="_blank" rel="noopener">name 和id</a></p>
-<h4 id="11-SVG"><a href="#11-SVG" class="headerlink" title="11.SVG"></a>11.SVG</h4><h5 id="11-1-XML：是独立于软件和硬件的信息传输工具。"><a href="#11-1-XML：是独立于软件和硬件的信息传输工具。" class="headerlink" title="11.1 XML：是独立于软件和硬件的信息传输工具。"></a>11.1 XML：是独立于软件和硬件的信息传输工具。</h5><p><strong>(1)XML和HTML：</strong></p>
-<p>XML 被设计用来传输和存储数据。HTML 被设计用来显示数据</p>
-<p>XML没有任何行为</p>
-<p>XML仅仅是纯文本</p>
-<p>XML的标签是没有预定义的，可以发明自己的标签</p>
-<p><strong>（2）XML的用途</strong></p>
-<p>XML把数据从HTML分离；XML简化数据共享，简化数据传输，简化平台变更，使数据更有用，用于创建新的Internet语言</p>
-<p><strong>（3）XML验证：DTD</strong>（document type definition）</p>
-<p>DTD 的作用是定义 XML 文档的结构。它使用一系列合法的元素来定义文档结构：</p>
-<p><strong>（4）如何通过JS读写XML</strong></p>
-<h5 id="11-2-SVG"><a href="#11-2-SVG" class="headerlink" title="11.2 SVG"></a>11.2 SVG</h5><p>SVG 是使用 XML 来描述二维图形和绘图程序的语言。</p>
-<p>SVG 文件可通过以下标签嵌入 HTML 文档：<embed>、<object> 或者 <iframe>。</p>
-<p><embed>标签定义嵌入的内容，比如插件，使H5中的新标签</p>
-<p>SVG的代码可以直接嵌入到HTML页面中，或您可以直接链接到SVG文件。</p>
-<h5 id="11-3-JS动态写入SVG："><a href="#11-3-JS动态写入SVG：" class="headerlink" title="11.3 JS动态写入SVG："></a>11.3 JS动态写入SVG：</h5><p><strong>外部SVG：</strong></p>
-<p>（1）通过object、embed或者iframe标签将SVG文件引入到HTML页面:其中的内容会有完全属于自己的document对象，可以用<strong>getSVGDocument()</strong>方法获取SVG文档对象</p>
-<p>（2）如果使用object或iframe引入SVG文档，除了<code>getSVGDocument()</code>，还可以使用<code>contentDocument</code>属性来获取其引入文档对应的document对象。区别在于如果是引入的不是SVG文件，而是XML或者HTML等等，<code>contentDocuement</code>依然会返回对象，而<code>getSVGDocument()</code>则返回<code>null</code>。</p>
-<p>（3）SVG元素对象都需要通过调用<a href="https://developer.mozilla.org/en-US/docs/Web/API/element.setAttribute" target="_blank" rel="noopener"><code>setAttribute()</code></a>方法来设定属性值</p>
-<p><strong>要求：满足同源策略（Same-origin-policy）</strong></p>
-<p>同源策略指的是三个相同</p>
-<ul>
-<li>协议相同</li>
-<li>域名相同</li>
-<li>端口相同</li>
-</ul>
-<p>如果非同源，那么以下的行为将会受到限制；1，<strong>cookie，localStorage</strong>     2，<strong>ajax</strong> </p>
-<h4 id="12-AJAX"><a href="#12-AJAX" class="headerlink" title="12.AJAX"></a>12.AJAX</h4><h5 id="XMLHttpRequest对象的三个属性："><a href="#XMLHttpRequest对象的三个属性：" class="headerlink" title="XMLHttpRequest对象的三个属性："></a>XMLHttpRequest对象的三个属性：</h5><p>onreadystatechange:存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</p>
-<p>readyState:存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</p>
-<p>0: 请求未初始化</p>
-<p>1: 服务器连接已建立</p>
-<p>2: 请求已接收</p>
-<p>3: 请求处理中</p>
-<p>4: 请求已完成，且响应已就绪</p>
-<p>status:200: “OK”;404: 未找到页面</p>
-<p>xmlhttp.responseText:返回的文本文件</p>
-<p>xmlhttp.open()</p>
-<p>xmlhttp.send()</p>
-<h4 id="13-HTML5-本地存储五种方案"><a href="#13-HTML5-本地存储五种方案" class="headerlink" title="13 HTML5 本地存储五种方案"></a>13 HTML5 本地存储五种方案</h4><h5 id="13-1-Web-Storage-API"><a href="#13-1-Web-Storage-API" class="headerlink" title="13.1 Web Storage API"></a>13.1 Web Storage API</h5><p>源：origin，同源策略</p>
-<p><strong>（1）localStorage：</strong></p>
-<p><code>localStorage</code> 中的键值对总是以字符串的形式存储。</p>
-<p><code>localStorage.setItem()</code></p>
-<p><code>localStorage.getItem()</code></p>
-<p><code>localStorage.removeItem()</code></p>
-<p><code>localStorage.clear()</code></p>
-<p><strong>（2）sessionStorage：</strong></p>
-<p><strong>（3）通过StorageEvent响应存储的变化</strong></p>
-<p>无论何时，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Storage" target="_blank" rel="noopener"><code>Storage</code></a> 对象发生变化时（即创建/更新/删除数据项时，重复设置相同的键值不会触发该事件，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Storage/clear" target="_blank" rel="noopener"><code>Storage.clear()</code></a> 方法至多触发一次该事件），<code>StorageEvent</code> 事件会触发。在同一个页面内发生的改变不会起作用——在<strong>相同域名</strong>下的<strong>其他</strong>页面（如一个新标签或 iframe）发生的改变才会起作用。在其他域名下的页面不能访问相同的 Storage 对象。</p>
-<p>当前页面使用的storage被其他页面修改时会触发StorageEvent事件. </p>
-<p>**[事件在同一个域下的不同页面之间触发，即在A页面注册了storge的监听处理，只有在跟A同域名下的B页面操作storage对象，A页面才会被触发storage事件] **</p>
-<p>事件属性：</p>
-<p><img src="E:%5CFront-End-Note%5Cimage%5C1570695196(1).png" alt="1570695196(1)"></p>
-<h5 id="13-2-Cookie-曾一度用于客户端存储，逐渐被淘汰"><a href="#13-2-Cookie-曾一度用于客户端存储，逐渐被淘汰" class="headerlink" title="13.2 Cookie(曾一度用于客户端存储，逐渐被淘汰)"></a>13.2 Cookie(曾一度用于客户端存储，逐渐被淘汰)</h5><p><strong>（1）HTTP Cookie（也叫Web Cookie或浏览器Cookie）</strong></p>
-<p>Cookie主要用于以下三个方面：</p>
-<p><strong>会话状态管理</strong>（如用户登录状态、购物车、游戏分数或其它需要记录的信息）</p>
-<p><strong>个性化设置</strong>（如用户自定义设置、主题等）</p>
-<p><strong>浏览器行为跟踪</strong>（如跟踪分析用户行为等）</p>
-<p><strong>HttpOnly</strong>:为避免跨域脚本 (XSS) 攻击，通过JavaScript的 Document.cookie API无法访问带有 HttpOnly 标记的Cookie，它们<strong>只应该发送给服务端</strong>。如果包含服务端 Session 信息的 Cookie 不想被客户端 JavaScript 脚本调用，那么就应该为其设置 HttpOnly 标记。</p>
-<p>JavaScript可以通过跨站脚本攻击（XSS）的方式来窃取Cookie。</p>
-<p><strong>安全：</strong></p>
-<p>会话劫持和XSS；跨站请求伪造（CSRF）</p>
-<p><strong>（2）document.cookie</strong></p>
-<p><code>docCookies.setItem(name, value[, end[, path[, domain[, secure]]]])</code></p>
-<p><code>docCookies.getItem(name)</code></p>
-<p><code>docCookies.removeItem(name[, path],domain)</code></p>
-<p><code>docCookies.hasItem(name)</code></p>
-<p><code>docCookies.keys()</code></p>
-<p>路径限制并<strong>不能</strong>阻止从其他路径访问cookie. 使用简单的DOM即可轻易地绕过限制(比如创建一个指向限制路径的, 隐藏的<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe" target="_blank" rel="noopener">iframe</a>, 然后访问其 <code>contentDocument.cookie</code> 属性). 保护cookie不被非法访问的唯一方法是将它放在另一个域名/子域名之下, 利用<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="noopener">同源策略</a>保护其不被读取.</p>
-<p>document.cookie的键和值中不能使用；，=以及空格，要用escape()函数进行编码，取出值后用unescape()解码</p>
-<h5 id="13-3-IndexedDB"><a href="#13-3-IndexedDB" class="headerlink" title="13.3 IndexedDB"></a>13.3 IndexedDB</h5><h4 id="14-event-preventDefault"><a href="#14-event-preventDefault" class="headerlink" title="14.event.preventDefault()"></a>14.event.preventDefault()</h4><p>告诉<a href="https://developer.mozilla.org/en-US/docs/Glossary/user_agent" target="_blank" rel="noopener">user agent</a>：如果此事件没有被显式处理，那么它默认的动作也不要做（因为默认是要做的）。</p>
-<p><code>event.stopPropagation()</code>:阻止捕获和冒泡阶段中当前事件的进一步传播</p>
-<h4 id="15-进程与线程"><a href="#15-进程与线程" class="headerlink" title="15.进程与线程"></a>15.进程与线程</h4><p><strong>进程：</strong>CPU资源分配的最小单位，是能拥有资源和独立运行的最小单位（任一时刻，CPU总是运行一个进程，其他进程处于非运行状态）</p>
-<p><strong>线程：</strong>CPU调度的最小单位，是建立在进程基础上的一次程序运行单位，属于单个的程序执行流，是一个进程中代码的不同执行路线</p>
-<p>一个进程中可以拥有多个线程，同一进程下的各个线程之间共享程序的内存空间（包括代码段、数据集、堆等）及一些进程级的资源。虽然不同进程之间也可以通信，不过代价较大。（可以在电脑的任务管理器中查看进程）</p>
-<p><strong>浏览器是多进程的</strong></p>
-<p><strong>概述：</strong></p>
-<p>（1）浏览器之所以能够运行，是因为系统给它的进程分配了资源（cpu和内存）</p>
-<p>（2）每打开一个tab页，就创建了一个独立的浏览器进程，每个进程相互独立</p>
-<p><strong>多进程的好处：</strong></p>
-<p>（1）不会因为一个tab页崩溃，导致其他tab页也被影响</p>
-<p>（2）相对于线程，进程之间是不共享资源和地址空间的，所以也不会存在太多的安全问题</p>
-<p><strong>浏览器包含的进程种类：</strong></p>
-<p>（1）Browser进程——浏览器的主进程，负责协调、主控，只有一个</p>
-<p>（2）第三方插件进程——每种类型的插件对应一个进程，仅当使用该插件时才创建</p>
-<p>（3）GPU进程——最多一个，用于3D绘制等</p>
-<p>（4）浏览器渲染进程——也就是浏览器内核</p>
-<p><strong>浏览器内核是多线程的：</strong></p>
-<p><strong>常驻线程：</strong></p>
-<p>（1）GUI 渲染线程——负责渲染浏览器界面，解析HTML，CSS，当界面需要重排、重绘或由于某种操作引发回流时,该线程就会执行。<strong>但需要注意 GUI渲染线程与JS引擎是互斥的，当JS引擎执行时GUI线程会被挂起，GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。</strong></p>
-<p>（2）JavaScript引擎线程——负责处理Javascript脚本程序：是基于事件驱动单线程执行的，JS引擎一直等待着任务队列中任务的到来，然后加以处理，浏览器无论什么时候都只有一个JS线程在运行JS程序。</p>
-<p>（3）定时触发器线程——处理setInterval与setTimeout任务</p>
-<p>（4）事件触发线程——处理事件消息，控制事件循环：当一个事件被触发时该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理。这些事件可来自JavaScript引擎当前执行的代码块如setTimeOut、也可来自浏览器内核的其他线程如鼠标点击、AJAX异步请求等，但由于JS的单线程关系所有这些事件都得排队等待JS引擎处理。</p>
-<p>（5）异步http请求线程——处理XMLHttpRequest异步请求</p>
-<p><strong>js为什么会阻塞页面加载</strong></p>
-<p>（1）由于GUI渲染线程与JavaScript执行线程是互斥的关系，当浏览器在执行JavaScript程序的时候，GUI渲染线程会被保存在一个队列中，直到JS程序执行完成，才会接着执行。</p>
-<p>（2）因此如果JS执行的时间过长，这样就会造成页面的渲染不连贯，导致页面渲染加载阻塞的感觉</p>
-<p><strong>JS是单线程的</strong></p>
-<p>引用阮一峰老师的回答 —&gt;  JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</p>
-<p>所以，为了避免复杂性，从一诞生，JavaScript就是单线程。</p>
-<p><strong>单线程和异步</strong> </p>
-<p>看过很多关于 JavaScript 单线程与异步的介绍，大多数都引用这一类例子来说明：单线程就是排队，前一个任务不完成后一个就不能开始，也就是常说的串行。 饭店点餐，所有人排队，A顾客点完之后，厨房开始做，做完后A领到餐后，B再开始点餐，厨房又开始做…周而复始，这就是同步，点餐的时候厨房是闲着的，做菜的时候前台是闲着的。即单线程。所有人都能够很好的理解，这样做效率太低了！</p>
-<p>　　换个思路，A点完餐后，到一旁等着，服务员将菜单递给厨房，厨房开始做，然后继续服务B顾客，当A顾客的餐做好之后，A来队伍里插个队，把餐领走。 听到这里，效率高了很多嘛，整个餐厅没有浪费一点工作力，大家都各司其事。然后作者就下了结论，这就是 JavaScript 的单线程与异步。</p>
-<p><strong>JS中的异步操作：</strong></p>
-<p>（1）定时器都是异步操作</p>
-<p>（2）事件绑定都是异步操作</p>
-<p>（3）AJAX中一般我们都采用异步操作（也可以同步）</p>
-<p>（4）回掉函数可以理解为异步（不是严谨的异步操作）</p>
-<h4 id="17-Flash和JS通过什么类如何交互？"><a href="#17-Flash和JS通过什么类如何交互？" class="headerlink" title="17.Flash和JS通过什么类如何交互？"></a>17.Flash和JS通过什么类如何交互？</h4><p>Flash提供了<strong>ExternalInterface</strong>接口与JavaScript通信，ExternalInterface有两个方法，<strong>call和addCallback</strong>：</p>
-<ul>
-<li><strong>ExternalInterface.addCallback</strong>(“在js里可调用的flash方法名”,flash内方法) //在flash中通过这个方法公开 在js中可调用的flash内的方法;</li>
-<li><strong>ExternalInterface.call</strong>(“js方法”,传给js的参数) //在flash里调用js里的方法</li>
-</ul>
-<h4 id="18-apply和call：提供参数的方式不同"><a href="#18-apply和call：提供参数的方式不同" class="headerlink" title="18. apply和call：提供参数的方式不同"></a>18. apply和call：提供参数的方式不同</h4><p>（1）基本使用方法：可以只写一次这个方法然后在另一个对象中继承它，而不用在新对象中重复写该方法。</p>
-<p><code>Function.apply(obj,argu)</code></p>
-<p>obj:这个对象将代替Function类里的this对象，即调用这个函数的对象（非严格模式下如果用null或undefined则会替代为全局环境）</p>
-<p>argu:要传入函数的参数数组，也可以是类数组</p>
-<p><code>Function.call(obj,[param1[,param2[,…[,paramN]]]])</code></p>
-<p>后面是要传入函数的参数列表</p>
-<p><strong>（2）apply的一些巧妙用法</strong></p>
-<blockquote>
-<p><strong>用apply将数组添加到另一个数组</strong></p>
-<p>不同于concat(另建了一个副本，并没有改变原数组)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">var</span> arr1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">&gt;<span class="keyword">var</span> arr2=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">&gt;arr1.push.apply(arr1,arr2);</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用apply和内置函数</strong></p>
-<p>如：<code>Math.max()</code>,<code>Math.min()</code></p>
-<p><strong>使用apply来链接构造器：</strong></p>
-</blockquote>
-<h4 id="19-bind"><a href="#19-bind" class="headerlink" title="19.bind"></a>19.bind</h4>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://holichang.github.io/2020/03/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -460,8 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-title-link" itemprop="url">计算机网络</a>
+          计算机网络
         </h1>
 
         <div class="post-meta">
@@ -486,7 +199,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>[TOC]</p>
+        <p>[TOC]</p>
 <h3 id="笔记："><a href="#笔记：" class="headerlink" title="笔记："></a>笔记：</h3><h4 id="1-端口"><a href="#1-端口" class="headerlink" title="1.端口"></a>1.端口</h4><p><strong>什么是端口：</strong></p>
 <p>本地操作系统会给那些有需求的进程分配协议端口 （protocal port，即我们常说的端口），每个协议端口由一个正整数标识，如：80，139，445，等等。当目的主机接收到数据报后，将根据报文首部的目的端口 号，把数据发送到相应端口，而与此端口相对应的那个进程将会领取数据并等待下一组数据的到来。</p>
 <p><strong>端口分类：</strong></p>
@@ -1227,24 +940,36 @@
 <p>CGI：通用网关接口：是指Web服务器在接收到客户端发来的请求后转发给程序的一组机制</p>
 <p><img src="C:%5CUsers%5CLihang%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312130504383.png" alt="image-20200312130504383"></p>
 <h4 id="11-web的攻击技术"><a href="#11-web的攻击技术" class="headerlink" title="11. web的攻击技术"></a>11. web的攻击技术</h4>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/http-%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag"># http,浏览器</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/12/JavaScript%E7%AC%94%E8%AE%B0/" rel="next" title="JavaScript笔记">
+      JavaScript笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -1295,6 +1020,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#笔记："><span class="nav-number">1.</span> <span class="nav-text">笔记：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-端口"><span class="nav-number">1.1.</span> <span class="nav-text">1.端口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-127-0-0-1与0-0-0-0"><span class="nav-number">1.2.</span> <span class="nav-text">2.127.0.0.1与0.0.0.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Http与Https"><span class="nav-number">1.3.</span> <span class="nav-text">3.Http与Https</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-区别"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3Https的优缺点"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.3Https的优缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-WebSocket-基于HTML5规范"><span class="nav-number">1.4.</span> <span class="nav-text">4.WebSocket(基于HTML5规范)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-session-记录一系列状态"><span class="nav-number">1.5.</span> <span class="nav-text">5.session:记录一系列状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-关于浏览器中使用JS跨域获取数据"><span class="nav-number">1.6.</span> <span class="nav-text">6.关于浏览器中使用JS跨域获取数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-文档类型和浏览器模式"><span class="nav-number">1.7.</span> <span class="nav-text">7.文档类型和浏览器模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-五大主流浏览器及四大内核"><span class="nav-number">1.8.</span> <span class="nav-text">8.五大主流浏览器及四大内核</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图解HTTP"><span class="nav-number">2.</span> <span class="nav-text">图解HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-了解web及网络基础"><span class="nav-number">2.1.</span> <span class="nav-text">1. 了解web及网络基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-简单的HTTP协议"><span class="nav-number">2.2.</span> <span class="nav-text">2. 简单的HTTP协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-HTTP报文内的HTTP信息"><span class="nav-number">2.3.</span> <span class="nav-text">3. HTTP报文内的HTTP信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-返回结果的http状态码（常用14种）"><span class="nav-number">2.4.</span> <span class="nav-text">4. 返回结果的http状态码（常用14种）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-与http协作的web服务器"><span class="nav-number">2.5.</span> <span class="nav-text">5. 与http协作的web服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-http首部"><span class="nav-number">2.6.</span> <span class="nav-text">6. http首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-确保web安全的https"><span class="nav-number">2.7.</span> <span class="nav-text">7. 确保web安全的https</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-确认访问用户身份的认证"><span class="nav-number">2.8.</span> <span class="nav-text">8. 确认访问用户身份的认证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-基于http的功能追加协议"><span class="nav-number">2.9.</span> <span class="nav-text">9. 基于http的功能追加协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-构建web内容的技术"><span class="nav-number">2.10.</span> <span class="nav-text">10. 构建web内容的技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-web的攻击技术"><span class="nav-number">2.11.</span> <span class="nav-text">11. web的攻击技术</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

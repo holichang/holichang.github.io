@@ -8,7 +8,26 @@
   <entry>
     <title>面经——CSS</title>
     <url>/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h4 id="1-盒模型"><a href="#1-盒模型" class="headerlink" title="1.盒模型"></a>1.盒模型</h4><h4 id="2-BFC-块状模式上下文"><a href="#2-BFC-块状模式上下文" class="headerlink" title="2. BFC:块状模式上下文"></a>2. BFC:块状模式上下文</h4><h4 id="3-布局"><a href="#3-布局" class="headerlink" title="3. 布局"></a>3. 布局</h4><p><strong>flex布局</strong></p>
+<p><strong>浮动布局，浮动清除</strong></p>
+<p><strong>z-index的定位方法</strong></p>
+<p><strong>三栏布局</strong></p>
+<blockquote>
+<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong></p>
+</blockquote>
+<p><strong>垂直居中的方法</strong></p>
+<blockquote>
+<p><strong>如何实现图片在某个容器中居中？</strong></p>
+<p><strong>有一个width:300,height:300的div，怎么实现在屏幕上垂直水平居中？</strong></p>
+</blockquote>
+<h4 id="4-display属性"><a href="#4-display属性" class="headerlink" title="4.display属性"></a>4.display属性</h4><p><strong>block，inline，inline-block的区别</strong></p>
+<h4 id="2-画一条0-5px的线"><a href="#2-画一条0-5px的线" class="headerlink" title="2. 画一条0.5px的线"></a>2. 画一条0.5px的线</h4><h4 id="3-link标签和import标签的区别"><a href="#3-link标签和import标签的区别" class="headerlink" title="3. link标签和import标签的区别"></a>3. link标签和import标签的区别</h4><h4 id="4-transition和animation的区别"><a href="#4-transition和animation的区别" class="headerlink" title="4. transition和animation的区别"></a>4. transition和animation的区别</h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-说一下块元素和行内元素"><a href="#9-说一下块元素和行内元素" class="headerlink" title="9. 说一下块元素和行内元素"></a>9. 说一下块元素和行内元素</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="12-双边距重叠问题（外边距折叠）"><a href="#12-双边距重叠问题（外边距折叠）" class="headerlink" title="12. 双边距重叠问题（外边距折叠）"></a>12. 双边距重叠问题（外边距折叠）</h4><h4 id="13-position属性"><a href="#13-position属性" class="headerlink" title="13. position属性"></a>13. position属性</h4><h4 id="14-浮动清除"><a href="#14-浮动清除" class="headerlink" title="14. 浮动清除"></a>14. 浮动清除</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="18-三栏布局的实现方式"><a href="#18-三栏布局的实现方式" class="headerlink" title="18. 三栏布局的实现方式"></a>18. 三栏布局的实现方式</h4><blockquote>
+<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong></p>
+</blockquote>
+<h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="22-box-sizing"><a href="#22-box-sizing" class="headerlink" title="22.box-sizing"></a>22.box-sizing</h4><h4 id="23-css预处理器有什么？"><a href="#23-css预处理器有什么？" class="headerlink" title="23.css预处理器有什么？"></a>23.css预处理器有什么？</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4>]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
   </entry>
   <entry>
     <title>面经——HTML_浏览器</title>

@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"holichang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="向死而生的生命都在热烈地生长">
+  <meta name="description" content="1. AJAX是什么？AJAX &#x3D; 异步 JavaScript 和 XML。 AJAX 是一种用于创建快速动态网页的技术。 通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。 传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。 2.怎么用AJAX？2.1 创建XMLHttpRequest对象老版">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面经——JavaScript">
-<meta property="og:url" content="https://holichang.github.io/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/index.html">
+<meta property="og:title" content="使用AJAX">
+<meta property="og:url" content="https://holichang.github.io/2020/03/22/%E4%BD%BF%E7%94%A8AJAX/index.html">
 <meta property="og:site_name" content="Cheshire Cat">
-<meta property="og:description" content="向死而生的生命都在热烈地生长">
+<meta property="og:description" content="1. AJAX是什么？AJAX &#x3D; 异步 JavaScript 和 XML。 AJAX 是一种用于创建快速动态网页的技术。 通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。 传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。 2.怎么用AJAX？2.1 创建XMLHttpRequest对象老版">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-17T04:28:13.000Z">
-<meta property="article:modified_time" content="2020-03-17T04:28:13.195Z">
+<meta property="article:published_time" content="2020-03-22T01:50:03.000Z">
+<meta property="article:modified_time" content="2020-03-22T12:21:03.845Z">
 <meta property="article:author" content="柴郡猫">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://holichang.github.io/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/">
+<link rel="canonical" href="https://holichang.github.io/2020/03/22/%E4%BD%BF%E7%94%A8AJAX/">
 
 
 <script id="page-configurations">
@@ -44,7 +45,7 @@
   };
 </script>
 
-  <title>面经——JavaScript | Cheshire Cat</title>
+  <title>使用AJAX | Cheshire Cat</title>
   
 
 
@@ -153,7 +154,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holichang.github.io/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/">
+    <link itemprop="mainEntityOfPage" href="https://holichang.github.io/2020/03/22/%E4%BD%BF%E7%94%A8AJAX/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -166,7 +167,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          面经——JavaScript
+          使用AJAX
         </h1>
 
         <div class="post-meta">
@@ -175,8 +176,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-17 12:28:13" itemprop="dateCreated datePublished" datetime="2020-03-17T12:28:13+08:00">2020-03-17</time>
+              <time title="创建时间：2020-03-22 09:50:03 / 修改时间：20:21:03" itemprop="dateCreated datePublished" datetime="2020-03-22T09:50:03+08:00">2020-03-22</time>
             </span>
 
           
@@ -190,7 +192,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h4 id="1-AJAX是什么？"><a href="#1-AJAX是什么？" class="headerlink" title="1. AJAX是什么？"></a>1. AJAX是什么？</h4><p>AJAX = 异步 JavaScript 和 XML。</p>
+<p>AJAX 是一种用于创建快速动态网页的技术。</p>
+<p>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+<p>传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。</p>
+<h4 id="2-怎么用AJAX？"><a href="#2-怎么用AJAX？" class="headerlink" title="2.怎么用AJAX？"></a>2.怎么用AJAX？</h4><h5 id="2-1-创建XMLHttpRequest对象"><a href="#2-1-创建XMLHttpRequest对象" class="headerlink" title="2.1 创建XMLHttpRequest对象"></a>2.1 创建XMLHttpRequest对象</h5><p>老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">  <span class="comment">//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span></span><br><span class="line">  xmlhttp= <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="comment">// IE6, IE5 浏览器执行代码</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-1-向服务器发送请求"><a href="#2-1-向服务器发送请求" class="headerlink" title="2.1 向服务器发送请求"></a>2.1 向服务器发送请求</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(method,url,<span class="keyword">async</span>);   <span class="comment">// 规定请求的类型、URL以及是否异步处理请求</span></span><br><span class="line"><span class="comment">//  method:请求方法：GET或POST</span></span><br><span class="line"><span class="comment">//  url:文件在服务器上的位置</span></span><br><span class="line"><span class="comment">//  async：true（异步）或false（同步）</span></span><br><span class="line">xmlhttp.setRequestHeader(<span class="string">"首部字段"</span>,<span class="string">"首部字段值"</span>)</span><br><span class="line">xmlhttp.send(str);   <span class="comment">// 将请求发送到服务器</span></span><br><span class="line"><span class="comment">//  str:仅用于POST请求</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-服务器响应"><a href="#2-2-服务器响应" class="headerlink" title="2.2 服务器响应"></a>2.2 服务器响应</h4><p>如果来自服务器的响应是XML，而且需要作为XML对象进行解析，使用<code>responseXML</code></p>
+<p>如果来自服务器的响应并非XML，使用<code>xmlhttp.responseText</code></p>
+<h5 id="2-3-监听readyState事件，响应已就绪时处理响应结果"><a href="#2-3-监听readyState事件，响应已就绪时处理响应结果" class="headerlink" title="2.3 监听readyState事件，响应已就绪时处理响应结果"></a>2.3 监听readyState事件，响应已就绪时处理响应结果</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>readyState：存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</p>
+<ul>
+<li>0: 请求未初始化</li>
+<li>1: 服务器连接已建立</li>
+<li>2: 请求已接收</li>
+<li>3: 请求处理中</li>
+<li>4: 请求已完成，且响应已就绪</li>
+</ul>
+<p>status：200：“OK”，404：未找到页面</p>
+<h4 id="3-通过JQuery使用AJAX"><a href="#3-通过JQuery使用AJAX" class="headerlink" title="3. 通过JQuery使用AJAX"></a>3. 通过JQuery使用AJAX</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;<span class="attr">name</span>:value, <span class="attr">name</span>:value, ... &#125;)</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -198,6 +224,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
 
         
 
@@ -205,13 +234,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/" rel="prev" title="面经——CSS">
-      <i class="fa fa-chevron-left"></i> 面经——CSS
+    <a href="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/" rel="prev" title="面经——JavaScript">
+      <i class="fa fa-chevron-left"></i> 面经——JavaScript
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/22/%E4%BD%BF%E7%94%A8AJAX/" rel="next" title="使用AJAX">
-      使用AJAX <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -271,6 +297,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-AJAX是什么？"><span class="nav-text">1. AJAX是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-怎么用AJAX？"><span class="nav-text">2.怎么用AJAX？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-创建XMLHttpRequest对象"><span class="nav-text">2.1 创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-向服务器发送请求"><span class="nav-text">2.1 向服务器发送请求</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-服务器响应"><span class="nav-text">2.2 服务器响应</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-监听readyState事件，响应已就绪时处理响应结果"><span class="nav-text">2.3 监听readyState事件，响应已就绪时处理响应结果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-通过JQuery使用AJAX"><span class="nav-text">3. 通过JQuery使用AJAX</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

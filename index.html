@@ -151,6 +151,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://holichang.github.io/2020/03/22/%E4%BD%BF%E7%94%A8AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="柴郡猫">
+      <meta itemprop="description" content="向死而生的生命都在热烈地生长">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cheshire Cat">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/22/%E4%BD%BF%E7%94%A8AJAX/" class="post-title-link" itemprop="url">使用AJAX</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-22 09:50:03 / 修改时间：20:21:03" itemprop="dateCreated datePublished" datetime="2020-03-22T09:50:03+08:00">2020-03-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1-AJAX是什么？"><a href="#1-AJAX是什么？" class="headerlink" title="1. AJAX是什么？"></a>1. AJAX是什么？</h4><p>AJAX = 异步 JavaScript 和 XML。</p>
+<p>AJAX 是一种用于创建快速动态网页的技术。</p>
+<p>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+<p>传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。</p>
+<h4 id="2-怎么用AJAX？"><a href="#2-怎么用AJAX？" class="headerlink" title="2.怎么用AJAX？"></a>2.怎么用AJAX？</h4><h5 id="2-1-创建XMLHttpRequest对象"><a href="#2-1-创建XMLHttpRequest对象" class="headerlink" title="2.1 创建XMLHttpRequest对象"></a>2.1 创建XMLHttpRequest对象</h5><p>老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">  <span class="comment">//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span></span><br><span class="line">  xmlhttp= <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="comment">// IE6, IE5 浏览器执行代码</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-1-向服务器发送请求"><a href="#2-1-向服务器发送请求" class="headerlink" title="2.1 向服务器发送请求"></a>2.1 向服务器发送请求</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(method,url,<span class="keyword">async</span>);   <span class="comment">// 规定请求的类型、URL以及是否异步处理请求</span></span><br><span class="line"><span class="comment">//  method:请求方法：GET或POST</span></span><br><span class="line"><span class="comment">//  url:文件在服务器上的位置</span></span><br><span class="line"><span class="comment">//  async：true（异步）或false（同步）</span></span><br><span class="line">xmlhttp.setRequestHeader(<span class="string">"首部字段"</span>,<span class="string">"首部字段值"</span>)</span><br><span class="line">xmlhttp.send(str);   <span class="comment">// 将请求发送到服务器</span></span><br><span class="line"><span class="comment">//  str:仅用于POST请求</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-服务器响应"><a href="#2-2-服务器响应" class="headerlink" title="2.2 服务器响应"></a>2.2 服务器响应</h4><p>如果来自服务器的响应是XML，而且需要作为XML对象进行解析，使用<code>responseXML</code></p>
+<p>如果来自服务器的响应并非XML，使用<code>xmlhttp.responseText</code></p>
+<h5 id="2-3-监听readyState事件，响应已就绪时处理响应结果"><a href="#2-3-监听readyState事件，响应已就绪时处理响应结果" class="headerlink" title="2.3 监听readyState事件，响应已就绪时处理响应结果"></a>2.3 监听readyState事件，响应已就绪时处理响应结果</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>readyState：存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</p>
+<ul>
+<li>0: 请求未初始化</li>
+<li>1: 服务器连接已建立</li>
+<li>2: 请求已接收</li>
+<li>3: 请求处理中</li>
+<li>4: 请求已完成，且响应已就绪</li>
+</ul>
+<p>status：200：“OK”，404：未找到页面</p>
+<h4 id="3-通过JQuery使用AJAX"><a href="#3-通过JQuery使用AJAX" class="headerlink" title="3. 通过JQuery使用AJAX"></a>3. 通过JQuery使用AJAX</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;<span class="attr">name</span>:value, <span class="attr">name</span>:value, ... &#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://holichang.github.io/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -383,7 +465,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-18 02:11:40" itemprop="dateModified" datetime="2020-03-18T02:11:40+08:00">2020-03-18</time>
+                <time title="修改时间：2020-03-25 00:31:52" itemprop="dateModified" datetime="2020-03-25T00:31:52+08:00">2020-03-25</time>
               </span>
 
           
@@ -493,12 +575,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>

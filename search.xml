@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>使用AJAX</title>
+    <url>/2020/03/22/%E4%BD%BF%E7%94%A8AJAX/</url>
+    <content><![CDATA[<h4 id="1-AJAX是什么？"><a href="#1-AJAX是什么？" class="headerlink" title="1. AJAX是什么？"></a>1. AJAX是什么？</h4><p>AJAX = 异步 JavaScript 和 XML。</p>
+<p>AJAX 是一种用于创建快速动态网页的技术。</p>
+<p>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+<p>传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。</p>
+<h4 id="2-怎么用AJAX？"><a href="#2-怎么用AJAX？" class="headerlink" title="2.怎么用AJAX？"></a>2.怎么用AJAX？</h4><h5 id="2-1-创建XMLHttpRequest对象"><a href="#2-1-创建XMLHttpRequest对象" class="headerlink" title="2.1 创建XMLHttpRequest对象"></a>2.1 创建XMLHttpRequest对象</h5><p>老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">  <span class="comment">//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span></span><br><span class="line">  xmlhttp= <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="comment">// IE6, IE5 浏览器执行代码</span></span><br><span class="line">  xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-1-向服务器发送请求"><a href="#2-1-向服务器发送请求" class="headerlink" title="2.1 向服务器发送请求"></a>2.1 向服务器发送请求</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xmlhttp.open(method,url,<span class="keyword">async</span>);   <span class="comment">// 规定请求的类型、URL以及是否异步处理请求</span></span><br><span class="line"><span class="comment">//  method:请求方法：GET或POST</span></span><br><span class="line"><span class="comment">//  url:文件在服务器上的位置</span></span><br><span class="line"><span class="comment">//  async：true（异步）或false（同步）</span></span><br><span class="line">xmlhttp.setRequestHeader(<span class="string">"首部字段"</span>,<span class="string">"首部字段值"</span>)</span><br><span class="line">xmlhttp.send(str);   <span class="comment">// 将请求发送到服务器</span></span><br><span class="line"><span class="comment">//  str:仅用于POST请求</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-服务器响应"><a href="#2-2-服务器响应" class="headerlink" title="2.2 服务器响应"></a>2.2 服务器响应</h4><p>如果来自服务器的响应是XML，而且需要作为XML对象进行解析，使用<code>responseXML</code></p>
+<p>如果来自服务器的响应并非XML，使用<code>xmlhttp.responseText</code></p>
+<h5 id="2-3-监听readyState事件，响应已就绪时处理响应结果"><a href="#2-3-监听readyState事件，响应已就绪时处理响应结果" class="headerlink" title="2.3 监听readyState事件，响应已就绪时处理响应结果"></a>2.3 监听readyState事件，响应已就绪时处理响应结果</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=xmlhttp.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>readyState：存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</p>
+<ul>
+<li>0: 请求未初始化</li>
+<li>1: 服务器连接已建立</li>
+<li>2: 请求已接收</li>
+<li>3: 请求处理中</li>
+<li>4: 请求已完成，且响应已就绪</li>
+</ul>
+<p>status：200：“OK”，404：未找到页面</p>
+<h4 id="3-通过JQuery使用AJAX"><a href="#3-通过JQuery使用AJAX" class="headerlink" title="3. 通过JQuery使用AJAX"></a>3. 通过JQuery使用AJAX</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;<span class="attr">name</span>:value, <span class="attr">name</span>:value, ... &#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>面经——JavaScript</title>
     <url>/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/</url>
     <content><![CDATA[]]></content>
@@ -139,11 +171,9 @@
 <p>304 Not Modified（与重定向无关）：表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况，不包含任何响应的主体部分(<strong>如协商缓存机制中的：If-Modified-Since和If-None-Match</strong>)</p>
 <p>307 Temporary Redirect（临时重定向）：与302有着相同含义，遵守浏览器标准，不会从POST变为GET</p>
 <p><strong>4XX：Client Error（客户端错误状态码）：服务器无法处理请求</strong></p>
-<blockquote>
 <p>400 Bad Request：表示请求报文中存在语法错误</p>
 <p>401 Unauthorized：表示发送的请求需要有通过HTTP认证的认证信息，另外若之前已进行过一次HTTP请求，则表示用户认证失败</p>
 <p>403 Forbidden：表明对请求资源的访问被服务器拒绝了</p>
-</blockquote>
 <p>404 Not Found：表明服务器上无法找到请求的资源（也可以在服务器端拒绝请求且不想说明理由时使用）</p>
 <p>412 Precondition Failed :先决条件失败</p>
 <p><strong>5XX：Server Error（服务器错误状态码）：服务器处理请求出错</strong></p>
@@ -151,7 +181,98 @@
 <p>503 Service Unavailable：表明服务器端暂时处于超负载或正在进行停机维护，现在无法处理请求</p>
 <h4 id="9-fetch发送2次请求的原因"><a href="#9-fetch发送2次请求的原因" class="headerlink" title="9. fetch发送2次请求的原因"></a>9. fetch发送2次请求的原因</h4><p>fetch发送post请求的时候，总是发送2次，第一次状态码是204，第二次才成功？</p>
 <p>原因很简单，因为你用fetch的post请求的时候，导致fetch 第一次发送了一个Options请求，询问服务器是否支持修改的请求头，如果服务器支持，则在第二次中发送真正的请求</p>
-<h4 id><a href="#" class="headerlink" title></a></h4>]]></content>
+<h4 id="10-Web跨域请求及解决方案"><a href="#10-Web跨域请求及解决方案" class="headerlink" title="10. Web跨域请求及解决方案"></a>10. Web跨域请求及解决方案</h4><p><strong>10.1 跨域请求：（是浏览器的同源策略所导致的）</strong>就是指当前发起请求的域与所请求资源所在的域不同</p>
+<p><strong>同域：</strong>协议+域名+端口均相同</p>
+<blockquote>
+<p>主域名：csdn.net</p>
+<p>子域名：blog.csdn.net</p>
+<p>URL的构成：http：//主机名.域名（端口号、参数、查询等可选）</p>
+<p>域名的级别：</p>
+<p>如：<a href="http://www.sina.com.cn:其中sina.com.cn为新浪Web服务器的域名，该域名是三级域名">www.sina.com.cn:其中sina.com.cn为新浪Web服务器的域名，该域名是三级域名</a></p>
+</blockquote>
+<p><strong>浏览器的同源策略（SOP:Same-origin Policy）：</strong>为了防止XSS,CSRF(Cross-site request forgery:跨站请求伪造)：<a href="https://www.cnblogs.com/itsuibi/p/10752868.html" target="_blank" rel="noopener">攻击的具体解释</a></p>
+<blockquote>
+<p><strong>CSRF攻击需要满足的条件：</strong></p>
+<p>（1）登录受信任网站A，并在本地生成Cookie。（如果用户没有登录网站A，那么网站B在诱导的时候，请求网站A的api接口时，会提示你登录）</p>
+<p>（2）在不登出A的情况下，访问危险网站B（其实是利用了网站A的漏洞）。</p>
+<p>CSRF攻击是源于WEB的隐式身份验证机制！WEB的身份验证机制虽然可以保证一个请求是来自于某个用户的浏览器，但却无法保证该请求是用户批准发送的</p>
+<p><strong>XSS攻击</strong>的核心原理是：不需要你做任何的登录认证，它会通过合法的操作（比如在url中输入、在评论框中输入），向你的页面注入脚本（可能是js、hmtl代码块等）。</p>
+<p>最后导致的结果可能是：</p>
+<p>盗用Cookie破坏页面的正常结构，插入广告等恶意内容D-doss攻击</p>
+<p>XSS的防范方式：</p>
+<p>（1）编码：将用户输入的数据以纯文本形式输出，不会引起JS执行</p>
+<p>（2）过滤：移除用户输入的和事件相关的属性。如onerror可以自动触发攻击，还有onclick等。（总而言是，过滤掉一些不安全的内容）移除用户输入的Style节点、Script节点、Iframe节点。（尤其是Script节点，它可是支持跨域的呀，一定要移除）。</p>
+<p>（3）校正：避免直接对HTML Entity进行解码。使用DOM Parse转换，校正不配对的DOM标签。</p>
+<p><strong>CSRF和XSS的区别：</strong></p>
+<p>区别一：</p>
+<p>CSRF：需要用户先登录网站A，获取 cookie。XSS：不需要登录。</p>
+<p>区别二：（原理的区别）</p>
+<p>CSRF：是利用网站A本身的漏洞，去请求网站A的api。XSS：是向网站 A 注入 JS代码，然后执行 JS 里的代码，篡改网站A的内容。</p>
+</blockquote>
+<p>同源策略（Same origin policy）是一种约定，<strong>它是浏览器最核心也是最基本的安全功能</strong>。同源策略限制了来自不同源（相对于当前页面而言）的document或script，对当前document的某些属性进行读取或是设置，举例来说，A网站（<a href="http://www.aaa.com）上有某个脚本，在B网站（www.bbb.com）未曾加载该脚本时，该脚本不能读取或是修改B网站的DOM节点数据。" target="_blank" rel="noopener">www.aaa.com）上有某个脚本，在B网站（www.bbb.com）未曾加载该脚本时，该脚本不能读取或是修改B网站的DOM节点数据。</a></p>
+<p>在浏览器中，<code>&lt;img&gt;、&lt;iframe&gt;、&lt;link&gt;</code>等标签都可以跨域加载资源，而不受同源策略的限制。这些带“src”的标签每次加载时，实际上是由浏览器发起了一次GET请求。不同于XMLHttpRequest的是，通过src属性加载的资源，浏览器限制了JavaScript的权限，使其不能读写返回的内容。</p>
+<p><strong>出于安全考虑，浏览器会限制从JS脚本发起的跨源HTTP请求。 例如，</strong>XMLHttpRequest和Fetch API都遵循同源策略。</p>
+<blockquote>
+<p><strong>Fetch API:</strong></p>
+</blockquote>
+<p>在同源策略影响下，域名A向域名B发送Ajax请求，或操作Cookie、LocalStorage、indexDB等数据,或操作dom，js就会受到限制，但请求css，js等静态资源不受限制</p>
+<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.png" alt="浏览器同源策略"></p>
+<blockquote>
+<p>浏览器同源策略主要的限制范围:</p>
+<p>（1） Cookie、LocalStorage、sessionStorage和 IndexDB 无法读取。<br>（2） DOM 节点无法读取和设置。<br>（3） AJAX 请求不能发送。</p>
+</blockquote>
+<p><strong>10.2 跨域问题的解决方案</strong>：<a href="https://segmentfault.com/a/1190000017312269" target="_blank" rel="noopener">参考</a></p>
+<p><strong>解决跨域的思路</strong></p>
+<ul>
+<li>被调用方解决： 被调用方解决-支持跨域（根据http协议关于跨域方面的要求，增加响应头信息，告诉浏览器允许被跨域调用）（因为在发生跨域请求时首先调用方发送一个预检请求（OPTIONS请求），这个请求就会被带上允许跨越的请求头信息）</li>
+<li>调用方解决：使用代理做调用解决跨域问题-隐藏跨域（利用nginx的反向代理，使访问同一个域名不同的资源路径会代理到不同的服务器上，每个跨域的请求都会带上origin请求头字段，因为访问的资源都是同域名下的，所以不会产生跨越问题）</li>
+</ul>
+<p><strong>（1）JSONP跨域：JSON是一种数据格式，JSONP是一种数据调用的方式</strong></p>
+<p>jsonp就是利用了script标签的src属性是没有跨域的限制的，从而达到跨域访问的目的。因此它的最基本原理就是：动态添加一个<code>&lt;script&gt;</code>标签来实现。<a href="https://blog.csdn.net/hansexploration/article/details/80314948" target="_blank" rel="noopener">详细解释</a>，可以使用ajax中包装的jsonp</p>
+<blockquote>
+<p>ajax与jsonp的异同：</p>
+<p>1、ajax和jsonp这两种技术在调用方式上”看起来”很像，目的也一样，都是请求一个url，然后把服务器返回的数据进行处理，因此jquery和ext等框架都把jsonp作为ajax的一种形式进行了封装。</p>
+<p>2、但ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，而jsonp的核心则是动态添加</p>
+</blockquote>
+<p>jsonp缺点：只能使用get请求，不推荐使用</p>
+<p><strong>（2）CORS（Cross-Origin Resource Sharing）跨域资源共享：使用较广泛</strong></p>
+<p>跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器 让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。</p>
+<p>Cross-Origin Resource Sharing跨域资源共享,应该算是现在比较推荐的跨域处理方案.不仅适用于各种Method,而且更加方便和简单<br>目前，所有浏览器都支持该功能，IE浏览器不能低于IE10。</p>
+<p>CORS分为两类：简单请求和非简单请求，<a href="https://www.cnblogs.com/tag6254/p/10357744.html" target="_blank" rel="noopener">详细介绍看这里</a> ，如：</p>
+<p><strong>简单请求：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;cors HTTP&#x2F;1.1</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.png" alt="浏览器同源策略"></p>
+<p><strong>非简单请求</strong>会发出一次预检测请求，返回码是204，预检测通过才会真正发出请求，这才返回200。这里通过前端发请求的时候增加一个额外的headers来触发非简单请求。</p>
+<p><strong>（3）window.postMessage</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">otherWindow.postMessage(message, targetOrigin, [transfer]);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>otherwindow:其他窗口的一个引用，比如iframe的contentWindow属性、执行<a href="https://developer.mozilla.org/en-US/docs/DOM/window.open" target="_blank" rel="noopener">window.open</a>返回的窗口对象、或者是命名过或数值索引的<a href="https://developer.mozilla.org/en-US/docs/DOM/window.frames" target="_blank" rel="noopener">window.frames</a>。</p>
+</blockquote>
+<p>postMessage是HTML5 XMLHttpRequest Level 2中的API，且是为数不多可以跨域操作的window属性之一，它可用于解决以下方面的问题：</p>
+<ul>
+<li>iframe嵌套页面跨域通信</li>
+<li>页面和其打开的新窗口的通信</li>
+<li>多窗口之间消息传递</li>
+</ul>
+<p>用法：<br>postMessage(data,origin)方法接受两个参数，</p>
+<p>data：需要传递的数据，html5规范支持任意基本类型或可复制的对象，但部分浏览器只支持字符串，所以传参时最好用JSON.stringify()序列化。<br>origin：协议+主机+端口号，也可以设置为”*”，表示可以传递给任意窗口，如果要指定和当前窗口同源的话设置为”/“。</p>
+<p><strong>（4）document.domain：只适合主域名相同，但子域名不同的iframe跨域</strong></p>
+<p>实现原理：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。</p>
+<p><strong>（5）window.name</strong>：<a href="https://www.cnblogs.com/zhuzhenwei918/p/7403796.html" target="_blank" rel="noopener">参考</a></p>
+<p>只要是在同一窗口打开的，即使窗口的location发生的变化，window.name也不会改变，因此可以将跨域资源的数据以JSON.Stringfy的格式传入window.name，再将其location改为同源，即可获取数据</p>
+<p><strong>（6）WebSocket协议跨域：websoket协议天然支持跨域</strong></p>
+<p><strong>（7）Nginx代理跨域</strong></p>
+<p>想一下，如果我们请求的时候还是用前端的域名，然后有个东西帮我们把这个请求转发到真正的后端域名上，不就避免跨域了吗？这时候，Nginx出场了。</p>
+<blockquote>
+<p>Nginx介绍：</p>
+<p><strong>正向代理：</strong>正向代理最大的特点是客户端非常明确要访问的服务器地址；服务器只清楚请求来自哪个代理服务器，而不清楚来自哪个具体的客户端；<strong>正向代理模式屏蔽或者隐藏了真实客户端信息</strong>。</p>
+<p><strong>反向代理：</strong>主要用于服务器集群分布式部署的情况下，反向代理隐藏了服务器的信息！</p>
+<p><strong>负载均衡</strong></p>
+</blockquote>
+<p>例如<code>www.a.com/index.html</code>页面去调用<code>www.b.com/service.jsp</code>，可以通过写一个接口<code>www.a.com/service.jsp</code>,由这个接口在后端去调用<code>www.b.com/service.jsp</code>并取到返回值，然后再返回给index.html。</p>
+]]></content>
       <tags>
         <tag>http</tag>
       </tags>

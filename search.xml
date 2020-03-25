@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>微信小程序开发</title>
+    <url>/2020/03/25/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>详解对象原型</title>
+    <url>/2020/03/25/%E8%AF%A6%E8%A7%A3%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>如何建立表格</title>
+    <url>/2020/03/25/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E8%A1%A8%E6%A0%BC/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>辨析let,const与var</title>
+    <url>/2020/03/25/%E8%BE%A8%E6%9E%90let-const%E4%B8%8Evar/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>使用AJAX</title>
     <url>/2020/03/22/%E4%BD%BF%E7%94%A8AJAX/</url>
     <content><![CDATA[<h4 id="1-AJAX是什么？"><a href="#1-AJAX是什么？" class="headerlink" title="1. AJAX是什么？"></a>1. AJAX是什么？</h4><p>AJAX = 异步 JavaScript 和 XML。</p>
@@ -31,11 +51,6 @@
       <tags>
         <tag>JavaScript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>面经——JavaScript</title>
-    <url>/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>面经——CSS</title>
@@ -242,7 +257,7 @@
 <p><strong>简单请求：</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;cors HTTP&#x2F;1.1</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.png" alt="浏览器同源策略"></p>
+<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CORS%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82.png" alt="CORS简单请求"></p>
 <p><strong>非简单请求</strong>会发出一次预检测请求，返回码是204，预检测通过才会真正发出请求，这才返回200。这里通过前端发请求的时候增加一个额外的headers来触发非简单请求。</p>
 <p><strong>（3）window.postMessage</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">otherWindow.postMessage(message, targetOrigin, [transfer]);</span><br></pre></td></tr></table></figure>
@@ -274,7 +289,7 @@
 <p>例如<code>www.a.com/index.html</code>页面去调用<code>www.b.com/service.jsp</code>，可以通过写一个接口<code>www.a.com/service.jsp</code>,由这个接口在后端去调用<code>www.b.com/service.jsp</code>并取到返回值，然后再返回给index.html。</p>
 ]]></content>
       <tags>
-        <tag>http</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
 </search>

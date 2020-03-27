@@ -37,8 +37,9 @@
 <meta property="og:image" content="https://holichang.github.io/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/POST%E4%B8%8EGET.png">
 <meta property="og:image" content="https://holichang.github.io/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.png">
 <meta property="og:image" content="https://holichang.github.io/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CORS%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20160503104416135">
 <meta property="article:published_time" content="2020-03-17T04:25:33.000Z">
-<meta property="article:modified_time" content="2020-03-25T10:57:42.642Z">
+<meta property="article:modified_time" content="2020-03-27T16:56:39.804Z">
 <meta property="article:author" content="柴郡猫">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -195,7 +196,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-25 18:57:42" itemprop="dateModified" datetime="2020-03-25T18:57:42+08:00">2020-03-25</time>
+                <time title="修改时间：2020-03-28 00:56:39" itemprop="dateModified" datetime="2020-03-28T00:56:39+08:00">2020-03-28</time>
               </span>
 
           
@@ -408,7 +409,48 @@
 <p><strong>负载均衡</strong></p>
 </blockquote>
 <p>例如<code>www.a.com/index.html</code>页面去调用<code>www.b.com/service.jsp</code>，可以通过写一个接口<code>www.a.com/service.jsp</code>,由这个接口在后端去调用<code>www.b.com/service.jsp</code>并取到返回值，然后再返回给index.html。</p>
-
+<h4 id="11-从在浏览器输入url到页面显示经过的过程："><a href="#11-从在浏览器输入url到页面显示经过的过程：" class="headerlink" title="11.从在浏览器输入url到页面显示经过的过程："></a>11.从在浏览器输入url到页面显示经过的过程：</h4><p><a href="https://juejin.im/post/5cc573c85188252e741ccbb6" target="_blank" rel="noopener">参考</a></p>
+<h4 id="12-浏览器页面渲染流程"><a href="#12-浏览器页面渲染流程" class="headerlink" title="12. 浏览器页面渲染流程"></a>12. 浏览器页面渲染流程</h4><p><a href="https://blog.csdn.net/qq_32657025/article/details/79569213" target="_blank" rel="noopener">参考原文</a></p>
+<h5 id="12-1浏览器从HTTP服务器获取html文档，到呈现页面给用户，会经过以下几个步骤："><a href="#12-1浏览器从HTTP服务器获取html文档，到呈现页面给用户，会经过以下几个步骤：" class="headerlink" title="12.1浏览器从HTTP服务器获取html文档，到呈现页面给用户，会经过以下几个步骤："></a>12.1浏览器从HTTP服务器获取html文档，到呈现页面给用户，会经过以下几个步骤：</h5><p><strong>（1）解析文档构建DOM树</strong></p>
+<p>浏览器的解析内容可以分为三个部分：</p>
+<p>HTML/XHTML/SVG：解析这三种文件后，会生成DOM树（DOM Tree）<br>CSS：解析样式表，生成CSS规则树（CSS Rule Tree）<br>JavaScript：解析脚本，通过DOM API和CSSOM API操作DOM Tree和CSS Rule Tree，与用户进行交互。<br>以上三类文件的执行顺序会根据其在文档中的位置及其标签属性的不同而有异同，具体在后文进行讨论。</p>
+<p><strong>（2）构建渲染树</strong><br>解析文档完成后，浏览器引擎会将 CSS Rule Tree 附着到DOM Tree 上，并根据DOM Tree 和 CSS Rule Tree构造 Rendering Tree（渲染树）。此处需要注意：</p>
+<p>Render Tree和DOM Tree的区别在于，类似Head或display：node之类的东西不会放在渲染树中；<br>将CSS Rule Tree匹配到DOM Tree需要解析CSS的选择器，为了提高该过程的性能，DOM树应该尽量小，CSS Selector应该尽量使用id和class，避免过度层叠。<br><strong>（3）布局与绘制渲染树</strong><br>解析position, overflow, z-index等等属性，计算每一个渲染树节点的位置和大小，此过程被称为reflow。最后调用操作系统的Native GUI API完成绘制（repain）。注意：</p>
+<p>渲染树的节点，在Gecko中称为frame，而在webkit中称为renderer；<br>reflow和repaint是两个不同的概念，其区别会在后文进行探讨。</p>
+<h5 id="12-2-脚本和样式文件对页面渲染的影响："><a href="#12-2-脚本和样式文件对页面渲染的影响：" class="headerlink" title="12.2 脚本和样式文件对页面渲染的影响："></a>12.2 脚本和样式文件对页面渲染的影响：</h5><p>浏览器从服务器获取文档并从上到下进行解析，在脚本文件标签不包含defer和async属性的情况下，会按照如下规则执行文档内容：</p>
+<p>（1）解析html文档，遇到HTML标签时，构建DOM树<br>（2）在构建DOM的过程中，如果遇到外联的样式声明或脚本声明，则暂停文档解析，创建新的网络连接，开始下载样式文件和脚本文件<br>（3）样式文件下载完成后，构建CSS Rule DOM，脚本文件下载完成后，解释并立即执行。<br>（4）构建DOM的同时，结合CSS规则树完成页面渲染。<br>（5）如果DOM树先于CSS规则树构建完成，则在CSS规则树构建完成后，页面会发生一次重绘，将新构建的CSS规则应用于渲染树。<br><strong>脚本文件对文档解析的影响：</strong><br>在这个过程中，脚本文件的下载和执行是与文档解析同步进行的，脚本文件的下载和执行都会阻塞文档的解析，如果控制得不好，在用户体验上就会造成一定程度的影响。<br><strong>脚本文件的defer和async属性</strong><br>为了防止脚本加载使浏览器页面阻塞，妨碍用户体验。应该合理使用<code>&lt;script&gt;</code>标签的defer属性和async属性。这两个属性用于调整脚本的下载和执行顺序，使其不阻塞页面加载。</p>
+<p><strong>defer：开启新的线程下载脚本文件，并使脚本在文档解析完成后执行。</strong></p>
+<p>（1）defer只适用于外联脚本，如果script标签没有指定src属性，只是内联脚本，不要使用defer<br>（2）如果有多个声明了defer的脚本，则会按顺序下载和执行<br>（3）defer脚本会在DOMContentLoaded和load事件之前执行</p>
+<p><strong>async：异步下载脚本文件，下载完毕立即解释执行代码。 HTML5的新增属性。</strong></p>
+<p>（1）只适用于外联脚本，这一点和defer一致<br>（2）如果有多个声明async的脚本，其下载和执行都是异步的，不能确保彼此的先后顺序<br>（3）async会在load事件之前执行，但并不能确保与DOMContentLoaded的执行先后顺序</p>
+<p>下面这张图清楚的阐述了<code>&lt;script&gt;</code>脚本在无任何特殊属性、具有defer属性、具有async属性三种情况下的下载执行与文档解析的关系。其中绿色带包文档解析线程；蓝色代表脚本下载线程；红色代表脚本执行线程。</p>
+<p><img src="https://img-blog.csdn.net/20160503104416135" alt="img"></p>
+<p>综上所述，defer属性和async属性都能防止脚本下载阻塞页面渲染。如果脚本之间没有依赖关系，可以使用async属性，如果脚本之间有依赖关系，应使用defer属性。如果同时使用async和defer属性，后者不起作用，浏览器行为由async属性决定。如果不想使用这两个属性，也可将<script>标签防止在<code>&lt;/body&gt;</code>之前，达到同样的效果。</p>
+<p><strong>CSS对页面渲染的影响：</strong><br>前端页面渲染时会根据DOM结构生成一个DOM树,然后加上CSS样式生成渲染树。如果CSS文件放在<code>&lt;head&gt;</code>标签中，则CSS Rule Tree会先于DOM树完成构建，之后浏览器就可以边构建DOM树边完成渲染；反之，CSS文件放在所有页面标签之后，比如<code>&lt;body/&gt;</code>之前，那么当DOM树构建完成了，渲染树才构建，浏览器不得不再重新渲染整个页面，这样造成了资源的浪费。而且页面还可能会出现闪跳的感觉，或者白屏或者布局混乱或者样式很丑，直到CSS加载完成，页面重绘才能恢复正常。<br>因此，一般来讲，css标签应放在标签之间。但如果css文件较大，会让首页白屏时间更长，所以并不是说把css都放顶部是一个完美的方法。权衡利弊，应该把必须的css（js）放顶部，把不那么重要的css（js）放底部.</p>
+<h5 id="12-3-回流和重绘"><a href="#12-3-回流和重绘" class="headerlink" title="12.3 回流和重绘"></a>12.3 回流和重绘</h5><p><strong>reflow（回流）</strong><br>DOM结构中的各个元素都有自己的盒子模型，浏览器根据各样式计算元素的尺寸和位置，构建渲染树的过程称之为reflow。当渲染树节点的尺寸，布局，隐藏属性发生改变时，会触发reflow操作，重新构建Render Tree。每个页面在第一次加载的时候，会发生一次回流。<br>完成回流后，浏览器会重新绘制受影响的部分到屏幕中，因此，<strong>回流必定会导致重绘</strong>。</p>
+<p><strong>repain（重绘）</strong><br>当各种盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来后，浏览器便把这些元素都按照各自的特性进行绘制，于是页面的内容出现了，这个过程称之为repaint。</p>
+<p><strong>会触发reflow的操作：</strong><br>Reflow 的成本比 Repaint 的成本高得多。DOM Tree 里的每个结点都会有 reflow 方法，一个结点的 reflow 很有可能导致子结点，甚至父点以及同级结点的 reflow。在一些高性能的电脑上也许还没什么，但是如果 reflow 发生在手机上，那么这个过程是非常痛苦和耗电的。所以，下面这些动作会触发reflow操作，有很大可能会是成本比较高的。</p>
+<blockquote>
+<p>增加、删除、修改 DOM 结点<br>移动 DOM 的位置<br>绘制动画<br>修改 CSS 样式<br>Resize 窗口的时候或是滚动<br>修改网页的默认字体<br>注：display:none 会触发 reflow，而 visibility:hidden 只会触发 repaint，因为没有发现位置变化</p>
+</blockquote>
+<p><strong>如何能将Reflow对性能的影响减到最小呢？</strong></p>
+<p>（1）不要一条一条地修改 DOM 的样式。与其这样，还不如预先定义好 css 的 class，然后修改 DOM 的 className;<br>（2）把 DOM 离线后修改。如: 使用 documentFragment 对象在内存里操作 DOM； 先把 DOM 设置为 display:none (有一次 repaint)，然后你想怎么改就怎么改。比如修改 100 次，然后再把他显示出来；克隆一个DOM 节点到内存里，然后想怎么改就怎么改，改完后，和在线的进行交换。<br>（3）千万不要使用 table 布局。因为可能很小的一个小改动会造成整个 table 的重新布局。</p>
+<blockquote>
+<p><strong>table标签的缺点：</strong></p>
+</blockquote>
+<h5 id="12-4-onload事件和DOMContentLoaded事件"><a href="#12-4-onload事件和DOMContentLoaded事件" class="headerlink" title="12.4 onload事件和DOMContentLoaded事件"></a>12.4 onload事件和DOMContentLoaded事件</h5><p>DOMContentLoaded事件是当初始HTML文档完全被加载和解析（即所有的DOM完全解析）时触发的，无需要等待样式表，图片，子框架完成加载。而onload事件要等页面所有元素，包括图片以及脚本等全部加载完成才触发，因此它比DOMContentLoaded要更晚执行。<br>在页面的图片很多，网络不好的情况下，从用户访问到onload触发可能需要很长的时间，此时如果在onload中加入许多初始化的动作, 必然会影响用户的体验。这事使用DOMContentLoaded事件代替onload事件是更合适的。</p>
+<blockquote>
+<p><strong>思考：我们为什么一再强调将css放在头部，将js文件放在尾部</strong></p>
+<p>在面试的过程中，经常会有人在回答页面的优化中提到将js放到body标签底部，原因是因为浏览器生成Dom树的时候是一行一行读HTML代码的，script标签放在最后面就不会影响前面的页面的渲染。那么问题来了，既然Dom树完全生成好后页面才能渲染出来，浏览器又必须读完全部HTML才能生成完整的Dom树，script标签不放在body底部是不是也一样，因为dom树的生成需要整个文档解析完毕。</p>
+<p>其实现代浏览器为了更好的用户体验,渲染引擎将尝试尽快在屏幕上显示的内容。它不会等到所有HTML解析之前开始构建和布局渲染树。部分的内容将被解析并显示。也就是说浏览器能够渲染不完整的dom树和cssom，尽快的减少白屏的时间。假如我们将js放在header，js将阻塞解析dom，dom的内容会影响到First Paint，导致First Paint延后。所以说我们会将js放在后面，以减少First Paint的时间，但是不会减少DOMContentLoaded被触发的时间。</p>
+</blockquote>
+<h5 id="12-5-如何优化图片的加载"><a href="#12-5-如何优化图片的加载" class="headerlink" title="12.5 如何优化图片的加载"></a>12.5 如何优化图片的加载</h5><p><strong>图片懒加载：</strong></p>
+<p><strong>原理：</strong></p>
+<p>先将img标签的src链接设为同一张图片（比如空白图片），然后给img标签设置自定义属性（比如 data-src）,然后将真正的图片地址存储在data-src中，当JS监听到该图片元素进入可视窗口时，将自定义属性中的地址存储到src属性中。达到懒加载的效果。</p>
+<p><strong>这样做能防止页面一次性向服务器发送大量请求，导致服务器响应面，页面卡顿崩溃等。</strong></p>
+<p>重点：如何判断元素进入了可视窗口？</p>
+<h4 id="13-web缓存："><a href="#13-web缓存：" class="headerlink" title="13. web缓存："></a>13. web缓存：</h4><p><a href="https://www.cnblogs.com/liluxiang/p/9377539.html" target="_blank" rel="noopener">参考：</a></p>
+</script></p>
     </div>
 
     
@@ -489,7 +531,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-http和https"><span class="nav-text">1.http和https</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-谈一下TCP"><span class="nav-text">2. 谈一下TCP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-WebSocket的实现和应用"><span class="nav-text">3.WebSocket的实现和应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-HTTP请求的方式："><span class="nav-text">4.HTTP请求的方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-简单说一下HTTP2-0"><span class="nav-text">5.简单说一下HTTP2.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-一个图片url访问后直接下载怎样实现？"><span class="nav-text">6.一个图片url访问后直接下载怎样实现？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-说一下web-Quality（无障碍）"><span class="nav-text">7.说一下web Quality（无障碍）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-补充400和401、403状态码"><span class="nav-text">8.补充400和401、403状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-fetch发送2次请求的原因"><span class="nav-text">9. fetch发送2次请求的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Web跨域请求及解决方案"><span class="nav-text">10. Web跨域请求及解决方案</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-http和https"><span class="nav-text">1.http和https</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-谈一下TCP"><span class="nav-text">2. 谈一下TCP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-WebSocket的实现和应用"><span class="nav-text">3.WebSocket的实现和应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-HTTP请求的方式："><span class="nav-text">4.HTTP请求的方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-简单说一下HTTP2-0"><span class="nav-text">5.简单说一下HTTP2.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-一个图片url访问后直接下载怎样实现？"><span class="nav-text">6.一个图片url访问后直接下载怎样实现？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-说一下web-Quality（无障碍）"><span class="nav-text">7.说一下web Quality（无障碍）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-补充400和401、403状态码"><span class="nav-text">8.补充400和401、403状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-fetch发送2次请求的原因"><span class="nav-text">9. fetch发送2次请求的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Web跨域请求及解决方案"><span class="nav-text">10. Web跨域请求及解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-从在浏览器输入url到页面显示经过的过程："><span class="nav-text">11.从在浏览器输入url到页面显示经过的过程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-浏览器页面渲染流程"><span class="nav-text">12. 浏览器页面渲染流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#12-1浏览器从HTTP服务器获取html文档，到呈现页面给用户，会经过以下几个步骤："><span class="nav-text">12.1浏览器从HTTP服务器获取html文档，到呈现页面给用户，会经过以下几个步骤：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-2-脚本和样式文件对页面渲染的影响："><span class="nav-text">12.2 脚本和样式文件对页面渲染的影响：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -505,12 +547,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>

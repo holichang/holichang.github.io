@@ -68,7 +68,89 @@
   <entry>
     <title>面经——CSS</title>
     <url>/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/</url>
-    <content><![CDATA[<h4 id="1-盒模型"><a href="#1-盒模型" class="headerlink" title="1.盒模型"></a>1.盒模型</h4><h4 id="2-BFC-块状模式上下文"><a href="#2-BFC-块状模式上下文" class="headerlink" title="2. BFC:块状模式上下文"></a>2. BFC:块状模式上下文</h4><h4 id="3-布局"><a href="#3-布局" class="headerlink" title="3. 布局"></a>3. 布局</h4><p><strong>flex布局</strong></p>
+    <content><![CDATA[<h4 id="1-盒模型"><a href="#1-盒模型" class="headerlink" title="1.盒模型"></a>1.盒模型</h4><p>CSS盒子模型：网页设计中CSS技术所使用的一种思维模型。</p>
+<p>CSS盒子模型组成：外边距（margin）、边框（border）、内边距（padding）、内容（content）。</p>
+<p>CSS盒子模型分为：标准W3C盒子模型，IE盒子模型，注意在两种模型中宽（width）和高（height）包括属性的不同。</p>
+<p><strong>标准W3C盒子模型：</strong></p>
+<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/D:%5CmyBlog%5Csource_posts%5C%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS%5CW3C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png" alt="W3C盒子模型"></p>
+<p>W3C模型中：</p>
+<p>　　　　　　CSS中的宽（width）=内容（content）的宽</p>
+<p>　　　　　　CSS中的高（height）=内容（content）的高</p>
+<p><strong>IE盒子模型：</strong></p>
+<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/D:%5CmyBlog%5Csource_posts%5C%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS%5CIE%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png" alt="IE盒子模型"></p>
+<p>IE模型中：</p>
+<p>　　　　　　CSS中的宽（width）=内容（content）的宽+（border+padding）*2</p>
+<p>　　　　　　CSS中的高（height）=内容（content）的高+（border+padding）*2</p>
+<p><strong>boxsizing取值：</strong></p>
+<p>content-box：默认值，盒子的宽度或高度为总尺度（margin+border+padding+元素内容）</p>
+<p>border-box：盒子的宽度或高度为元素内容的宽度或高度</p>
+<p>inherit：元素继承父元素的盒子模型模式</p>
+<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/D:%5CmyBlog%5Csource_posts%5C%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS%5C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png" alt="盒子模型"></p>
+<h4 id="2-DOM中的各种宽度、高度"><a href="#2-DOM中的各种宽度、高度" class="headerlink" title="2. DOM中的各种宽度、高度"></a>2. DOM中的各种宽度、高度</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>offsetWidth</td>
+<td>只读：width+padding-left+padding-right+border-left+border-right+元素的垂直滚动条宽度（如果存在且渲染）</td>
+</tr>
+<tr>
+<td>offsetHeight</td>
+<td>只读：height+padding-top+padding-bottom+border-top+border-bottom+元素的水平滚动条高度（如果存在且渲染）</td>
+</tr>
+<tr>
+<td>offsetLeft</td>
+<td>只读：父容器的padding-left+子元素的margin-left</td>
+</tr>
+<tr>
+<td>offsetTop</td>
+<td>只读：父容器的padding-top+子元素的margin-top</td>
+</tr>
+<tr>
+<td>clientWidth</td>
+<td>只读：width+padding-left+padding-right-垂直滚动条的宽度（如果存在）</td>
+</tr>
+<tr>
+<td>clientHeight</td>
+<td>只读： height + padding-top+padding-bottom - 水平滚动条的高度 (如果存在)</td>
+</tr>
+<tr>
+<td>clientLeft</td>
+<td>只读：border-left-width</td>
+</tr>
+<tr>
+<td>clientTop</td>
+<td>只读：border-top-width</td>
+</tr>
+<tr>
+<td>scrollWidth</td>
+<td>与scrollHeight类似</td>
+</tr>
+<tr>
+<td>scrollHeight</td>
+<td>该值等于该元素在不使用滚动条的情况下为了适应视口中所用内容所需的最小高度。 没有垂直滚动条的情况下，scrollHeight值与元素视图填充所有内容所需要的最小值<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight" target="_blank" rel="noopener"><code>clientHeight</code></a>相同。包括元素的padding，但不包括元素的border和margin。scrollHeight也包括 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::before" target="_blank" rel="noopener"><code>::before</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::after" target="_blank" rel="noopener"><code>::after</code></a>这样的伪元素。</td>
+</tr>
+<tr>
+<td>scrollLeft</td>
+<td></td>
+</tr>
+<tr>
+<td>scrollTop</td>
+<td>一个元素的 <code>scrollTop</code> 值是这个元素的<strong>内容顶部</strong>（卷起来的）到它的视口可见内容（的顶部）的距离的度量。当一个元素的内容没有产生垂直方向的滚动条，那么它的 <code>scrollTop</code> 值为<code>0</code>。</td>
+</tr>
+</tbody></table>
+<p><strong>几个API函数</strong></p>
+<p>网页可见区域宽： document.body.clientWidth;<br>网页可见区域高： document.body.clientHeight;<br>网页可见区域宽： document.body.offsetWidth (包括边线的宽);<br>网页可见区域高： document.body.offsetHeight (包括边线的宽);<br>网页正文全文宽： document.body.scrollWidth;<br>网页正文全文高： document.body.scrollHeight;<br>网页被卷去的高： document.body.scrollTop;<br>网页被卷去的左： document.body.scrollLeft;<br>网页正文部分上： window.screenTop;<br>网页正文部分左： window.screenLeft;<br>屏幕分辨率的高： window.screen.height;<br>屏幕分辨率的宽： window.screen.width;<br>屏幕可用工作区高度： window.screen.availHeight</p>
+<blockquote>
+<p>element.offsetTop：距父元素的距离，循环直到页面顶端，获取图片和页面顶端的距离</p>
+<p>document.documentElement.scrollTop||document.body.scrollTop:卷起的高度</p>
+<p>document.documentElement.clientHeight:属于DOM：可视区域的高度（不包括包括水平滚动栏和工具栏的高度）</p>
+<p>window.innerHeight:属于BOM：获得的是可视区域的高度，同时包括横向滚动条的高度。(IE8以及低版本浏览器不支持)</p>
+</blockquote>
+<h4 id="2-BFC-块状模式上下文"><a href="#2-BFC-块状模式上下文" class="headerlink" title="2. BFC:块状模式上下文"></a>2. BFC:块状模式上下文</h4><h4 id="3-布局"><a href="#3-布局" class="headerlink" title="3. 布局"></a>3. 布局</h4><p><strong>flex布局</strong></p>
 <p><strong>浮动布局，浮动清除</strong></p>
 <p><strong>z-index的定位方法</strong></p>
 <p><strong>三栏布局</strong></p>
@@ -335,11 +417,34 @@
 <p>在面试的过程中，经常会有人在回答页面的优化中提到将js放到body标签底部，原因是因为浏览器生成Dom树的时候是一行一行读HTML代码的，script标签放在最后面就不会影响前面的页面的渲染。那么问题来了，既然Dom树完全生成好后页面才能渲染出来，浏览器又必须读完全部HTML才能生成完整的Dom树，script标签不放在body底部是不是也一样，因为dom树的生成需要整个文档解析完毕。</p>
 <p>其实现代浏览器为了更好的用户体验,渲染引擎将尝试尽快在屏幕上显示的内容。它不会等到所有HTML解析之前开始构建和布局渲染树。部分的内容将被解析并显示。也就是说浏览器能够渲染不完整的dom树和cssom，尽快的减少白屏的时间。假如我们将js放在header，js将阻塞解析dom，dom的内容会影响到First Paint，导致First Paint延后。所以说我们会将js放在后面，以减少First Paint的时间，但是不会减少DOMContentLoaded被触发的时间。</p>
 </blockquote>
-<h5 id="12-5-如何优化图片的加载"><a href="#12-5-如何优化图片的加载" class="headerlink" title="12.5 如何优化图片的加载"></a>12.5 如何优化图片的加载</h5><p><strong>图片懒加载：</strong></p>
+<h5 id="12-5-如何优化图片的加载"><a href="#12-5-如何优化图片的加载" class="headerlink" title="12.5 如何优化图片的加载"></a>12.5 如何优化图片的加载</h5><p><strong>图片懒加载：</strong><a href="https://zhuanlan.zhihu.com/p/55311726" target="_blank" rel="noopener">参考</a></p>
 <p><strong>原理：</strong></p>
 <p>先将img标签的src链接设为同一张图片（比如空白图片），然后给img标签设置自定义属性（比如 data-src）,然后将真正的图片地址存储在data-src中，当JS监听到该图片元素进入可视窗口时，将自定义属性中的地址存储到src属性中。达到懒加载的效果。</p>
-<p><strong>这样做能防止页面一次性向服务器发送大量请求，导致服务器响应面，页面卡顿崩溃等。</strong></p>
-<p>重点：如何判断元素进入了可视窗口？</p>
+<p><strong>这样做能防止页面一次性向服务器发送大量请求，导致服务器响应慢，页面卡顿崩溃等。</strong></p>
+<p>实现懒加载有四个步骤，如下：<br>1.加载loading图片<br>2.判断哪些图片要加载【重点】<br>3.隐形加载图片，先在内存中加载不显示<br>4.替换真图片</p>
+<blockquote>
+<p><strong>几个API函数</strong></p>
+<p>页可见区域宽： document.body.clientWidth;<br>网页可见区域高： document.body.clientHeight;<br>网页可见区域宽： document.body.offsetWidth (包括边线的宽);<br>网页可见区域高： document.body.offsetHeight (包括边线的宽);<br>网页正文全文宽： document.body.scrollWidth;<br>网页正文全文高： document.body.scrollHeight;<br>网页被卷去的高： document.body.scrollTop;<br>网页被卷去的左： document.body.scrollLeft;<br>网页正文部分上： window.screenTop;<br>网页正文部分左： window.screenLeft;<br>屏幕分辨率的高： window.screen.height;<br>屏幕分辨率的宽： window.screen.width;<br>屏幕可用工作区高度： window.screen.availHeight</p>
+</blockquote>
+<p><img src="D:%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD.jpg" alt="图片懒加载"></p>
+<p><strong>第一种方法：</strong></p>
+<p>使用：</p>
+<p>element.offsetTop：距父元素的距离，循环直到页面顶端，获取图片和页面顶端的距离</p>
+<p>document.documentElement.scrollTop||document.body.scrollTop:卷起的高度</p>
+<p>document.documentElement.clientHeight:属于DOM：可视区域的高度（不包括包括水平滚动栏和工具栏的高度）</p>
+<p>window.innerHeight:属于BOM：获得的是可视区域的高度，同时包括横向滚动条的高度。(IE8以及低版本浏览器不支持)</p>
+<p>代码实现：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;图片懒加载&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;style&gt;</span></span><br><span class="line"><span class="regexp">        img &#123;</span></span><br><span class="line"><span class="regexp">            display: block;</span></span><br><span class="line"><span class="regexp">            width: 100%;</span></span><br><span class="line"><span class="regexp">            height: 300px;</span></span><br><span class="line"><span class="regexp">            margin-bottom: 20px;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>style&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">    &lt;img data-src="./im</span>ages/<span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">2.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">3.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">4.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">5.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">6.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">7.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">8.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">9.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">10.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;img data-src="</span>./images/<span class="number">2.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">    var imgs = document.querySelectorAll('img');</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    //offsetTop是元素与offsetParent的距离，循环获取直到页面顶部</span></span><br><span class="line"><span class="string">    function getTop(e) &#123;</span></span><br><span class="line"><span class="string">    var T = e.offsetTop;</span></span><br><span class="line"><span class="string">    while(e = e.offsetParent) &#123;</span></span><br><span class="line"><span class="string">    T += e.offsetTop;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    return T;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    function lazyLoad(imgs) &#123;</span></span><br><span class="line"><span class="string">    var H = document.documentElement.clientHeight;//获取可视区域高度</span></span><br><span class="line"><span class="string">    var S = document.documentElement.scrollTop || document.body.scrollTop;</span></span><br><span class="line"><span class="string">    for (var i = 0; i &lt; imgs.length; i++) &#123;</span></span><br><span class="line"><span class="string">    if (H + S &gt; getTop(imgs[i])) &#123;</span></span><br><span class="line"><span class="string">    imgs[i].src = imgs[i].getAttribute('data-src');</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    window.onload = window.onscroll = function () &#123; //onscroll()在滚动条滚动的时候触发</span></span><br><span class="line"><span class="string">    lazyLoad(imgs);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第二种方法：</strong>使用API</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">getBoundingClientRect()<span class="comment">//获取元素的大小及位置，返回值是一个DOMRect对象</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="getBoundingClientRect.jpg" alt="getBoundingClientRect"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> bound = el.getBoundingClientRect();</span><br><span class="line"><span class="keyword">var</span> clientHeight = <span class="built_in">window</span>.innerHeight;<span class="comment">//这个和前面获取可视区高度的效果一样，只是兼容性问题</span></span><br><span class="line">bound.top&lt;=clientHeight<span class="comment">//图片在可视区域内</span></span><br></pre></td></tr></table></figure>
+
+<p>完整代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> imgs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'img'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//用来判断bound.top&lt;=clientHeight的函数，返回一个bool值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isIn</span>(<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bound = el.getBoundingClientRect();</span><br><span class="line">    <span class="keyword">var</span> clientHeight = <span class="built_in">window</span>.innerHeight;</span><br><span class="line">    <span class="keyword">return</span> bound.top &lt;= clientHeight;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//检查图片是否在可视区内，如果不在，则加载</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">Array</span>.from(imgs).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">el</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(isIn(el))&#123;</span><br><span class="line">            loadImg(el);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImg</span>(<span class="params">el</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!el.src)&#123;</span><br><span class="line">        <span class="keyword">var</span> source = el.dataset.src;</span><br><span class="line">        el.src = source;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onload = <span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//onscroll()在滚动条滚动的时候触发</span></span><br><span class="line">    check();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="13-web缓存："><a href="#13-web缓存：" class="headerlink" title="13. web缓存："></a>13. web缓存：</h4><p><a href="https://www.cnblogs.com/liluxiang/p/9377539.html" target="_blank" rel="noopener">参考：</a></p>
 </script></p>]]></content>
       <tags>

@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://holichang.github.io/2020/03/25/%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91/">
+    <link itemprop="mainEntityOfPage" href="https://holichang.github.io/2020/03/25/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -222,7 +222,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/25/%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91/" class="post-title-link" itemprop="url">事件触发</a>
+            <a href="/2020/03/25/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/" class="post-title-link" itemprop="url">事件触发</a>
         </h1>
 
         <div class="post-meta">
@@ -234,6 +234,13 @@
 
               <time title="创建时间：2020-03-25 21:30:05" itemprop="dateCreated datePublished" datetime="2020-03-25T21:30:05+08:00">2020-03-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-28 22:49:03" itemprop="dateModified" datetime="2020-03-28T22:49:03+08:00">2020-03-28</time>
+              </span>
 
           
 
@@ -246,7 +253,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h3 id="1-闭包"><a href="#1-闭包" class="headerlink" title="1. 闭包"></a>1. 闭包</h3><h3 id="2-对象"><a href="#2-对象" class="headerlink" title="2. 对象"></a>2. 对象</h3><h4 id="对象深度克隆的简单实现"><a href="#对象深度克隆的简单实现" class="headerlink" title="对象深度克隆的简单实现"></a>对象深度克隆的简单实现</h4><h4 id="js监听对象属性的改变"><a href="#js监听对象属性的改变" class="headerlink" title="js监听对象属性的改变"></a>js监听对象属性的改变</h4><h3 id="3-混合对象“类”"><a href="#3-混合对象“类”" class="headerlink" title="3. 混合对象“类”"></a>3. 混合对象“类”</h3><h3 id="4-原型"><a href="#4-原型" class="headerlink" title="4. 原型"></a>4. 原型</h3><h3 id="5-异步"><a href="#5-异步" class="headerlink" title="5.  异步"></a>5.  异步</h3><h3 id="6-回调"><a href="#6-回调" class="headerlink" title="6. 回调"></a>6. 回调</h3><h3 id="7-如何解决异步回调地狱？"><a href="#7-如何解决异步回调地狱？" class="headerlink" title="7. 如何解决异步回调地狱？"></a>7. 如何解决异步回调地狱？</h3><h3 id="8-前端中的事件流"><a href="#8-前端中的事件流" class="headerlink" title="8. 前端中的事件流"></a>8. 前端中的事件流</h3><h3 id="9-图片的预加载和懒加载"><a href="#9-图片的预加载和懒加载" class="headerlink" title="9. 图片的预加载和懒加载"></a>9. 图片的预加载和懒加载</h3><h4 id="9-2-JS的各种位置，比如clientHeight-scrollHeight-offsetHeight-以及scrollTop-offsetTop-clientTop的区别"><a href="#9-2-JS的各种位置，比如clientHeight-scrollHeight-offsetHeight-以及scrollTop-offsetTop-clientTop的区别" class="headerlink" title="9.2 JS的各种位置，比如clientHeight,scrollHeight,offsetHeight,以及scrollTop,offsetTop,clientTop的区别"></a>9.2 JS的各种位置，比如clientHeight,scrollHeight,offsetHeight,以及scrollTop,offsetTop,clientTop的区别</h4><h3 id="10-事件"><a href="#10-事件" class="headerlink" title="10. 事件"></a>10. 事件</h3><h4 id="10-1-冒泡"><a href="#10-1-冒泡" class="headerlink" title="10.1 冒泡"></a>10.1 冒泡</h4><h4 id="10-2-捕获"><a href="#10-2-捕获" class="headerlink" title="10.2 捕获"></a>10.2 捕获</h4><h4 id="10-3-如何让事件先冒泡后捕获？"><a href="#10-3-如何让事件先冒泡后捕获？" class="headerlink" title="10.3 如何让事件先冒泡后捕获？"></a>10.3 如何让事件先冒泡后捕获？</h4><h4 id="10-4-事件委托"><a href="#10-4-事件委托" class="headerlink" title="10.4 事件委托"></a>10.4 事件委托</h4><h4 id="10-5-mouseover-和mouseenter的区别"><a href="#10-5-mouseover-和mouseenter的区别" class="headerlink" title="10.5 mouseover 和mouseenter的区别"></a>10.5 mouseover 和mouseenter的区别</h4><h3 id="11-this"><a href="#11-this" class="headerlink" title="11. this"></a>11. this</h3><h4 id="11-1-new操作符做了哪些事情"><a href="#11-1-new操作符做了哪些事情" class="headerlink" title="11.1 new操作符做了哪些事情"></a>11.1 new操作符做了哪些事情</h4><h4 id="11-2-改变函数内部this指针的指向函数（bind-apply-call的区别）"><a href="#11-2-改变函数内部this指针的指向函数（bind-apply-call的区别）" class="headerlink" title="11.2 改变函数内部this指针的指向函数（bind,apply,call的区别）"></a>11.2 改变函数内部this指针的指向函数（bind,apply,call的区别）</h4><h3 id="12-JS拖拽功能的实现"><a href="#12-JS拖拽功能的实现" class="headerlink" title="12. JS拖拽功能的实现"></a>12. JS拖拽功能的实现</h3><h3 id="13-JS的节流和防抖"><a href="#13-JS的节流和防抖" class="headerlink" title="13. JS的节流和防抖"></a>13. JS的节流和防抖</h3><h3 id="14-JS的垃圾回收机制"><a href="#14-JS的垃圾回收机制" class="headerlink" title="14. JS的垃圾回收机制"></a>14. JS的垃圾回收机制</h3><h3 id="15-AJAX解决浏览器缓存问题"><a href="#15-AJAX解决浏览器缓存问题" class="headerlink" title="15. AJAX解决浏览器缓存问题"></a>15. AJAX解决浏览器缓存问题</h3><h3 id="16-eval是做什么的-（欺骗词法）"><a href="#16-eval是做什么的-（欺骗词法）" class="headerlink" title="16. eval是做什么的?（欺骗词法）"></a>16. eval是做什么的?（欺骗词法）</h3><p><strong>eval(str)：</strong>它的功能是将对应的字符串解析成js并执行，可以在运行期修改书写期的词法作用域:</p>
+<p><strong>with(obj）：</strong>with可以将一个没有或有多个属性的对象处理为一个完全隔离的词法作用域，因此这个对象的属性也会被处理为定义在这个作用域中的词法标识符</p>
+<p><strong>eval()函数如果接受了含有一个或多个声明的代码，就会修改其所处的词法作用域，而with()声明实际上是根据你传给它的对象凭空创建了一个新的词法作用域</strong></p>
+<p><strong>为什么不推荐使用eval()和with()?</strong></p>
+<p>(1)欺骗词法会导致性能下降</p>
+<p>(2)会被严格模式所限制，with被完全禁止，而在保留核心功能的前提下，间接或非安全地使用eval()也被禁止了</p>
+<p><strong>为什么会导致性能下降？</strong></p>
+<p>JS引擎会在编译阶段进行数项的性能优化，其中有些优化依赖于能够根据代码的词法进行静态分析，并预先确定所有变量和函数的定义位置，才能在执行过程中快速找到标识符。但如果引擎在代码中发现了eval()和with()，在悲观情况下可能会做不到任何优化。</p>
+<p><strong>引擎无法在编译时对作用域查找进行优化，因为引擎只能谨慎地认为这样的优化是无效的</strong></p>
+<h3 id="17-如何理解前端模块化？"><a href="#17-如何理解前端模块化？" class="headerlink" title="17. 如何理解前端模块化？"></a>17. 如何理解前端模块化？</h3><h4 id="17-1-说一下Commonjs-AMD-CMD"><a href="#17-1-说一下Commonjs-AMD-CMD" class="headerlink" title="17.1 说一下Commonjs,AMD,CMD"></a>17.1 说一下Commonjs,AMD,CMD</h4><h3 id="18-实现一个once函数，传入函数参数只执行一次"><a href="#18-实现一个once函数，传入函数参数只执行一次" class="headerlink" title="18. 实现一个once函数，传入函数参数只执行一次"></a>18. 实现一个once函数，传入函数参数只执行一次</h3><h3 id="19-Promise"><a href="#19-Promise" class="headerlink" title="19. Promise"></a>19. Promise</h3><h4 id="将原声的ajax封装成promise"><a href="#将原声的ajax封装成promise" class="headerlink" title="将原声的ajax封装成promise"></a>将原声的ajax封装成promise</h4><h3 id="20-如何实现一个私有变量，用getName方法可以访问，不能直接访问"><a href="#20-如何实现一个私有变量，用getName方法可以访问，不能直接访问" class="headerlink" title="20. 如何实现一个私有变量，用getName方法可以访问，不能直接访问"></a>20. 如何实现一个私有变量，用getName方法可以访问，不能直接访问</h3><h3 id="21-重排和重绘"><a href="#21-重排和重绘" class="headerlink" title="21. 重排和重绘"></a>21. 重排和重绘</h3><p>重排（重构/回流/reflow）：当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建, 这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候。</p>
+<p>重绘（repaint或redraw）：当盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来之后，浏览器便把这些元素都按照各自的特性绘制一遍，将内容呈现在页面上。重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。</p>
+<p>触发重绘的条件：改变元素外观属性。如：color，background-color等。</p>
+<p>注意：table及其内部元素可能需要多次计算才能确定好其在渲染树中节点的属性值，比同等元素要多花两倍时间，这就是我们尽量避免使用table布局页面的原因之一。</p>
+<p>重绘和重排的关系：在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，该过程称为重绘。所以，<strong>重排必定会引发重绘，但重绘不一定会引发重排。</strong></p>
+<h3 id="22-const、let、var"><a href="#22-const、let、var" class="headerlink" title="22. const、let、var"></a>22. const、let、var</h3><h4 id="22-1-let-和-var-的区别："><a href="#22-1-let-和-var-的区别：" class="headerlink" title="22.1 let 和 var 的区别："></a>22.1 let 和 var 的区别：</h4><p>（1）let有块作用域，所声明的变量只在let命令所在的代码块内有效（for循环：<em>JavaScript引擎内部可以记住上一次循环的值</em>）</p>
+<p>（2）let不存在变量提升：let:报错ReferenceError  var:输出undefined</p>
+<p>（3）let暂时性死区：ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。“暂时性死区”也意味着<code>typeof</code>不再是一个百分之百安全的操作。</p>
+<p>（4）let不允许在相同作用域内重复声明同一个变量</p>
+<h4 id="22-2-为什么需要块级作用域？"><a href="#22-2-为什么需要块级作用域？" class="headerlink" title="22.2 为什么需要块级作用域？"></a>22.2 为什么需要块级作用域？</h4><p><strong>场景一：</strong>内层变量可能会覆盖外层变量；</p>
+<p><strong>场景二：</strong>用来计数的循环变量泄露为全局变量</p>
+<h4 id="22-3-const命令"><a href="#22-3-const命令" class="headerlink" title="22.3 const命令"></a>22.3 const命令</h4><p>（1）<code>const</code>声明的变量不得改变值，这意味着，<code>const</code>一旦声明变量，就必须立即初始化，不能留到以后赋值。</p>
+<p>（2）<code>const</code>的作用域与<code>let</code>命令相同：只在声明所在的块级作用域内有效</p>
+<p>（3）const命令声明的常量也不提升，也存在暂时性死区</p>
+<p>（4）const声明的常量同样不可以重复声明</p>
+<p><code>const</code>实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。对于将对象声明为常量，该常量所存储的地址不能变，但对象本身可以变。可以用Object.freeze()方法将对象冻结</p>
+
       
     </div>
 
@@ -607,7 +639,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 16:48:59" itemprop="dateModified" datetime="2020-03-28T16:48:59+08:00">2020-03-28</time>
+                <time title="修改时间：2020-03-28 22:49:16" itemprop="dateModified" datetime="2020-03-28T22:49:16+08:00">2020-03-28</time>
               </span>
 
           
@@ -833,7 +865,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 16:47:49" itemprop="dateModified" datetime="2020-03-28T16:47:49+08:00">2020-03-28</time>
+                <time title="修改时间：2020-03-28 22:49:10" itemprop="dateModified" datetime="2020-03-28T22:49:10+08:00">2020-03-28</time>
               </span>
 
           

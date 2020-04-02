@@ -31,7 +31,138 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> MyModules=(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">module</span>=&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">define</span>(<span class="params">name,deps,impl</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;deps.length;i++)&#123;</span><br><span class="line">            deps[i]=<span class="built_in">module</span>[deps[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        modules[name]=impl.apply(impl,deps)</span><br><span class="line">        <span class="comment">//引入需要的依赖</span></span><br><span class="line">    &#125;<span class="comment">//该函数用于向管理中添加模块</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">module</span>[name];</span><br><span class="line">    &#125;<span class="comment">//通过名称获取模块</span></span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        define:define,</span><br><span class="line">        <span class="keyword">get</span>:<span class="keyword">get</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line">//下面为使用方法：[]为新定义的模块需要引入的依赖模块列表</span><br><span class="line">MyModules.define("bar",[],function()&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">who</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'let me introduce:'</span>+who;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        hello:hello</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">MyModules.define(<span class="string">"foo"</span>,[<span class="string">"bar"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">bar</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hungry=<span class="string">"hippo"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">awesome</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(bar.hello(hungry).toUpperCase());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>&#123;</span><br><span class="line">        awesome:awesome</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> bar=MyModules.get(<span class="string">"bar"</span>);</span><br><span class="line"><span class="keyword">var</span> foo=MyModules.get(<span class="string">"foo"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">	bar.hello(<span class="string">"hippo"</span>)</span><br><span class="line">);<span class="comment">//let me introduce: hippo</span></span><br><span class="line">foo.awesome();<span class="comment">//LET ME INTRODUCE:HIPPO</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>当函数可以记住并访问所在的词法作用域，即使函数是在当前词法作用域之外执行，这时就产生了闭包</strong></p>
-<h3 id="2-对象"><a href="#2-对象" class="headerlink" title="2. 对象"></a>2. 对象</h3><h4 id="对象深度克隆的简单实现"><a href="#对象深度克隆的简单实现" class="headerlink" title="对象深度克隆的简单实现"></a>对象深度克隆的简单实现</h4><h4 id="js监听对象属性的改变"><a href="#js监听对象属性的改变" class="headerlink" title="js监听对象属性的改变"></a>js监听对象属性的改变</h4><h3 id="3-混合对象“类”"><a href="#3-混合对象“类”" class="headerlink" title="3. 混合对象“类”"></a>3. 混合对象“类”</h3><h3 id="4-原型"><a href="#4-原型" class="headerlink" title="4. 原型"></a>4. 原型</h3><h3 id="5-异步"><a href="#5-异步" class="headerlink" title="5. 异步"></a>5. 异步</h3><h4 id="5-1-浏览器的进程与线程："><a href="#5-1-浏览器的进程与线程：" class="headerlink" title="5.1 浏览器的进程与线程："></a>5.1 浏览器的进程与线程：</h4><p><strong>5.1.1 进程：</strong></p>
+<h3 id="2-对象"><a href="#2-对象" class="headerlink" title="2. 对象"></a>2. 对象</h3><h4 id="对象深度克隆的简单实现"><a href="#对象深度克隆的简单实现" class="headerlink" title="对象深度克隆的简单实现"></a>对象深度克隆的简单实现</h4><h4 id="js监听对象属性的改变"><a href="#js监听对象属性的改变" class="headerlink" title="js监听对象属性的改变"></a>js监听对象属性的改变</h4><h4 id="2-1-理解对象"><a href="#2-1-理解对象" class="headerlink" title="2.1 理解对象"></a>2.1 理解对象</h4><h5 id="2-1-1-属性类型"><a href="#2-1-1-属性类型" class="headerlink" title="2.1.1 属性类型"></a>2.1.1 属性类型</h5><p>ES5中有两种属性：数据属性和访问器属性</p>
+<p><strong>数据属性</strong>：数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有4个描述其行为的特性：</p>
+<p>[[Configurable]]:表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。</p>
+<p>[[Enumerable]]：表示能否通过for-in循环返回属性。</p>
+<p>[[Writable]]：表示能否修改属性的值。</p>
+<p>[[Value]]：包含这个属性的值。</p>
+<p><strong>要修改属性默认的特性：</strong>ES5的<strong>Object.defineProperty()</strong>方法（三个参数：属性所在的对象、属性的名字、描述符对象）使用如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person=&#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person,<span class="string">"name"</span>,&#123;</span><br><span class="line">    writable:<span class="literal">false</span>;</span><br><span class="line">    value:<span class="string">"Nicholas"</span>;</span><br><span class="line">&#125;)</span><br><span class="line">alert(person.name);<span class="comment">//"Nicholas"</span></span><br><span class="line">person.name=<span class="string">"Greg"</span>;</span><br><span class="line">alert(person.name);<span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure>
+
+<p>可以多次调用Object.defineProperty()方法修改同一个属性，但在把configurable特性设置为false之后就会有限制了。同时，<strong>在调用Object.defineProperty()方法创建一个新属性时，如果不指定，configurable，enumerable和writable特性的默认值都是false</strong>,如果调用Object.defineProperty()方法是修改已定义属性的特性，则无此限制。</p>
+<p><strong>访问器属性</strong>（常用方法：设置一个属性的值会导致其他属性发生变化）</p>
+<p>访问器属性不包含数据值，它包含一对getter函数和setter函数（不过这两个函数都不是必需的）。在读取访问器属性时，会调用getter函数，这个函数负责返回有效的值，在写入访问器属性时，会调用setter函数并传入新值，这个函数负责决定如何处理数据。访问器属性有如下4个特性：</p>
+<p>[[Configurable]]:表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为数据属性。</p>
+<p>[[Enumerable]]：表示能否通过for-in循环返回属性。</p>
+<p>[[Get]]：在读取属性时调用的函数。默认值为undefined。</p>
+<p>[[Set]]：在写入属性时调用的函数。默认值为undefined。</p>
+<p><strong>访问器属性不能直接定义，必须使用</strong>Object.defineProperty()来定义。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> book=&#123;</span><br><span class="line">    _year:<span class="number">2004</span>,</span><br><span class="line">    edition:<span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(book,<span class="string">"year"</span>,&#123;</span><br><span class="line">    <span class="keyword">get</span>:function()&#123;</span><br><span class="line">        <span class="keyword">return</span> book._year;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>:function(newValue)&#123;</span><br><span class="line">        <span class="keyword">if</span>(newValue&gt;<span class="number">2004</span>)&#123;</span><br><span class="line">            <span class="keyword">this</span>._year=newValue;</span><br><span class="line">            <span class="keyword">this</span>.edition=newValue<span class="number">-2004</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">book.year=<span class="number">2005</span>;</span><br><span class="line">alert(book.edition);<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-1-2-定义多个属性"><a href="#2-1-2-定义多个属性" class="headerlink" title="2.1.2 定义多个属性"></a>2.1.2 定义多个属性</h5><p>Object.defineProperties()方法:可以一次性定义多个属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperties(book,&#123;</span><br><span class="line">    _year:&#123;</span><br><span class="line">        writable:<span class="literal">true</span>,</span><br><span class="line">        value:<span class="number">2004</span></span><br><span class="line">    &#125;,</span><br><span class="line">    edition:&#123;</span><br><span class="line">        writable:<span class="literal">true</span>;</span><br><span class="line">        value:<span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    year:&#123;</span><br><span class="line">        <span class="keyword">get</span>:function()&#123;</span><br><span class="line">            <span class="keyword">return</span> book._year;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span>:function(newValue)&#123;</span><br><span class="line">            <span class="keyword">if</span>(newValue&gt;<span class="number">2004</span>)&#123;</span><br><span class="line">                <span class="keyword">this</span>._year=newValue;</span><br><span class="line">                <span class="keyword">this</span>.edition=newValue<span class="number">-2004</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-1-3-读取属性的特性"><a href="#2-1-3-读取属性的特性" class="headerlink" title="2.1.3 读取属性的特性"></a>2.1.3 读取属性的特性</h5><p><strong>Object.getOwnPropertyDescriptor()</strong>方法：取得给定属性的描述符。接收两个参数：属性所在的对象和要读取其描述符的属性名称，如：(接上段代码)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> descriptor=<span class="built_in">Object</span>.getOwnPropertyDescriptor(book,<span class="string">"_year"</span>);</span><br><span class="line">alert(descriptor.value);<span class="comment">//2004</span></span><br><span class="line">alert(descriptor.configurable);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>ES5的Object.getOwnPropertyDescriptor（）方法只能用于实例属性，要取得原型属性的描述符，必须直接在原型对象上调用该方法。</strong></p>
+<p>在JavaScript 中，可以针对任何对象——包括 DOM 和BOM 对象，使用Object.getOwnProperty-Descriptor()方法。支持这个方法的浏览器有IE9+、Firefox 4+、Safari 5+、Opera 12+和Chrome。</p>
+<h4 id="2-2创建对象"><a href="#2-2创建对象" class="headerlink" title="2.2创建对象"></a>2.2创建对象</h4><h5 id="2-2-1-工厂模式："><a href="#2-2-1-工厂模式：" class="headerlink" title="2.2.1 工厂模式："></a>2.2.1 工厂模式：</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> person=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">   person.name=name;</span><br><span class="line">   person.age=age;</span><br><span class="line">   person.job=job;</span><br><span class="line">   person.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'my name is'</span>+<span class="keyword">this</span>.name)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> person;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1=createPerson(<span class="string">"Nicholas"</span>,<span class="number">29</span>,<span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2=createPerson(<span class="string">"Greg"</span>,<span class="number">27</span>,<span class="string">"Doctor"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>用函数来封装以特定接口创建对象的细节（虽然解决了创建多个相似对象的问题，但没有解决对象识别的问题,即怎么知道一个对象的类型）</p>
+<h5 id="2-2-2-构造函数模式"><a href="#2-2-2-构造函数模式" class="headerlink" title="2.2.2 构造函数模式"></a>2.2.2 构造函数模式</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">    <span class="keyword">this</span>.job=job;</span><br><span class="line">    <span class="keyword">this</span>.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>,<span class="number">29</span>,<span class="string">"Software Engineer"</span>);</span><br><span class="line"><span class="keyword">var</span> person2=<span class="keyword">new</span> Person(<span class="string">"Greg"</span>,<span class="number">23</span>,<span class="string">"Doctor"</span>);</span><br><span class="line">alert(person1.constructor==Person);<span class="comment">//true</span></span><br><span class="line">alert(person1 <span class="keyword">instanceof</span> Person);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>构造函数模式和工厂模式的区别：</strong></p>
+<p>（1）没有显式地创建一个新对象</p>
+<p>（2）直接将属性和方法赋给了新对象</p>
+<p>（3）没有return语句</p>
+<p><strong>使用new操作符调用构造函数实际会经历以下步骤：</strong></p>
+<p>（1）创建一个新对象</p>
+<p>（2）这个新对象会被执行[[Prototype]]连接；</p>
+<p>（3）将构造函数的作用域赋给新对象（因此this就指向了这个对象）</p>
+<p>（4）执行构造函数中的代码（为这个新对象添加属性）</p>
+<p>（5）返回新对象</p>
+<p><strong>创建自定义的构造函数意味着将来可以将它的实例标识为一种特定的类型；而这正是构造函数模式胜过工厂模式的地方。</strong>在这个例子中，person1 和person2 之所以同时是Object 的实例，是因为所有对象均继承自Object</p>
+<p><strong>构造函数模式存在的问题</strong>：每个方法都要在每个实例重新创建一遍</p>
+<h5 id="2-2-3-原型模式"><a href="#2-2-3-原型模式" class="headerlink" title="2.2.3 原型模式"></a>2.2.3 原型模式</h5><blockquote>
+<p>在所有实现中都无法访问[[prototype]]或<em>proto</em></p>
+</blockquote>
+<p><strong>构造函数，原型和实例的关系：</strong></p>
+<p>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针。</p>
+<p><strong>（1）理解原型对象</strong>：prototype是通过调用构造函数而创建的那个对象实例的原型对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name=<span class="string">"Nicholas"</span>;</span><br><span class="line">Person.prototype.age=<span class="number">29</span>;</span><br><span class="line">Person.prototype.job=<span class="string">"Software Engineer"</span>;</span><br><span class="line">Person.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName();<span class="comment">//"Nicholas"</span></span><br><span class="line"><span class="comment">//person1._proto_为Person.prototype</span></span><br></pre></td></tr></table></figure>
+
+<p>在默认情况下，所有原型对象都会自动获得一个constructor(构造函数)属性，这个属性是一个指向prototype属性所在函数的指针。Person.prototype.constructor指向Person</p>
+<p><img src="/2020/03/25/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/D:%5CFront-End-Note%5Cimage%5C%E5%8E%9F%E5%9E%8B.png" alt="原型"></p>
+<p>明确一点：<strong>这个连接存在于实例与构造函数的原型对象之间</strong>，而不是存在于实例与构造函数之间（即person1与Person.prototype之间的联系）person1内部有一个指向Person.prototype的指针（<code>[[prototype]]</code>或<code>_proto_</code>：虽然在所有实现中都无法访问到，但可以通过<code>isprototypeOf()</code>来确定是否是某实例的原型对象）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">alert(Person.prototype.isPrototypeOf(person1));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Object.getPrototypeOf():</strong>可以方便地获取一个对象的原型</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">alert(<span class="built_in">Object</span>.getPrototypeOf(person1)==Person.prototype);<span class="comment">//true</span></span><br><span class="line">alert(<span class="built_in">Object</span>.getPrototypeOf(person1).name);<span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure>
+
+<p>当代码要取得某个对象的某个属性时，会先从对象实例本身开始搜索，如果没有找到属性名，则继续搜索指针指向的原型对象。</p>
+<p>当为对象实例添加一个属性时，这个属性就会屏蔽原型对象中保存的同名属性，也就是说，添加这个属性值会阻止我们访问原型中的那个属性，但不会修改那个属性;不过<strong>使用delete操作符可以完全删除实例属性</strong>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">person1.name=<span class="string">"Greg"</span>;</span><br><span class="line">alert(person1.name);<span class="comment">//Greg</span></span><br><span class="line">alert(person1.hasOwnProperty(<span class="string">"name"</span>));<span class="comment">//true</span></span><br><span class="line"><span class="keyword">delete</span> person1.name;</span><br><span class="line">alert(person1.hasOwnProperty(<span class="string">"name"</span>));<span class="comment">//false</span></span><br><span class="line">alert(person1.name);<span class="comment">//Nicholas</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>hasOwnProperty()</strong>方法：检测一个属性是存在于实例中还是原型中</p>
+<p><em>Object.getOwnPropertyDescriptor()方法只能用于实例属性，要取得原型属性的描述符，必须直接在原型对象上调用Object.getOwnPropertyDescriptor()方法</em></p>
+<p><strong>（2）原型与in操作符</strong></p>
+<p><strong>单独使用</strong>：in操作符只要通过对象能访问到属性就返回true,hasOwnProperty()只在属性存在于实例中时才返回true,因此当in操作符返回true，而hasOwnProperty()返回false时,就说明该属性存在于原型中</p>
+<p><strong>for-in循环</strong>时：返回的是所有能够通过对象访问的，可枚举的属性，其中既包括存在于实例中的属性，也包括在原型中的属性。（<strong>屏蔽了原型中不可枚举属性（即将[[Enumerable]]标记为false属性）的实例属性也会在for-in循环中返回，因为根据规定，所有开发人员定义的属性都是可枚举的——只有在IE8及更早版本中例外</strong>）</p>
+<p><strong>Object.keys()</strong>方法：接收一个对象作为参数，返回一个包含所有<strong>可枚举</strong>属性的<strong>字符串</strong>数组</p>
+<p><strong>Object.getOwnPropertyNames():</strong>接收一个对象作为参数，返回一个包含<strong>所有实例属性</strong>的<strong>字符串</strong>数组</p>
+<p><strong>（3）更简单的原型语法</strong>：用字面量法重写原型对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype=&#123;</span><br><span class="line">    <span class="keyword">constructor</span>:Person,</span><br><span class="line">    name:"Nicholas",</span><br><span class="line">    age:29,</span><br><span class="line">    job:"Software Engineer",</span><br><span class="line">    sayName:function()&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(Person.prototype,<span class="string">"constructor"</span>,&#123;</span><br><span class="line">    enumerable:<span class="literal">false</span>,</span><br><span class="line">    value:Person</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line">person1.sayName();<span class="comment">//"Nicholas"</span></span><br></pre></td></tr></table></figure>
+
+<p>但此时，constructor属性不再指向Person函数，而是<strong>指向Object</strong>,但由于此时constructor属性为自定义的，<strong>可枚举</strong>，因此可以通过Object.defineProperty()将其[[Enumerable]]属性特性改为false。</p>
+<p><strong>（4）原型的动态性</strong></p>
+<p>重写原型对象切断了现有原型与任何之前已经存在的对象实例之间的联系，他们引用的仍然是最初的原型。</p>
+<p><strong>所以只能修改</strong></p>
+<p><strong>（5）原生对象的原型</strong></p>
+<p>可以修改如Array,Object,String等原生引用类型的原型，如:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.startsWith=<span class="function"><span class="keyword">function</span>(<span class="params">text</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.indexof(text)==<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（6）原型对象的问题</strong></p>
+<p><strong>原型对象中的引用类型值会被共享</strong></p>
+<h5 id="2-2-4-组合使用构造函数模式和原型模式（最广泛、认同度最高）"><a href="#2-2-4-组合使用构造函数模式和原型模式（最广泛、认同度最高）" class="headerlink" title="2.2.4 组合使用构造函数模式和原型模式（最广泛、认同度最高）"></a>2.2.4 组合使用构造函数模式和原型模式（最广泛、认同度最高）</h5><p>构造函数用于定义实例属性，而原型模式用于定义方法和共享的属性。</p>
+<h5 id="2-2-5-动态原型模式（可以把所有信息都封装在构造函数中）"><a href="#2-2-5-动态原型模式（可以把所有信息都封装在构造函数中）" class="headerlink" title="2.2.5 动态原型模式（可以把所有信息都封装在构造函数中）"></a>2.2.5 动态原型模式（可以把所有信息都封装在构造函数中）</h5><p>通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型，如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">    <span class="keyword">this</span>.job=job;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName!=<span class="string">"function"</span>)</span><br><span class="line">        <span class="comment">//此时sayName若是不存在或者不是函数类型，都会对原型初始化，而且检查一个属性或方法就可以</span></span><br><span class="line">    &#123;</span><br><span class="line">        Person.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-6-寄生（parasitic）构造函数模式（不建议使用）"><a href="#2-2-6-寄生（parasitic）构造函数模式（不建议使用）" class="headerlink" title="2.2.6 寄生（parasitic）构造函数模式（不建议使用）"></a>2.2.6 寄生（parasitic）构造函数模式（不建议使用）</h5><p>假如我们想创建一个具有额外方法的特殊数组，由于不能直接修改Array函数，因此可以使用这个模式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">values.push.apply(values,<span class="built_in">arguments</span>);<span class="comment">//arguments是个类数组对象，不能直接push到数组中</span></span><br></pre></td></tr></table></figure>
+
+<p>构造函数在没有返回值的情况下，默认返回新对象实例，而该模式下的构造函数形式类似于工厂模式，在末尾有return语句，可以重写调用构造函数时返回的值，因此，<strong>返回的对象与构造函数以及构造函数的原型属性之间没有关系</strong>，也就是说，构造函数返回的对象与在构造函数外部创建的对象没有什么不同。使用instanceof 没有意义。</p>
+<h5 id="2-2-7-稳妥构造函数模式"><a href="#2-2-7-稳妥构造函数模式" class="headerlink" title="2.2.7 稳妥构造函数模式"></a>2.2.7 稳妥构造函数模式</h5><p>指的是没有公共属性，最适合在一些安全环境中使用，也与工厂模式很像</p>
+<p>与寄生构造函数模式的区别：（1）不引用this对象（寄生模式在声明方法时使用）；（2）不使用new操作符</p>
+<p>这种模式下创建的对象除了使用方法，没有其他办法访问属性值。</p>
+<h4 id="2-3-继承"><a href="#2-3-继承" class="headerlink" title="2.3 继承"></a>2.3 继承</h4><p>ES只支持实现继承，而且主要依靠原型链</p>
+<p>方法签名：</p>
+<h5 id="2-3-1-原型链继承"><a href="#2-3-1-原型链继承" class="headerlink" title="2.3.1 原型链继承"></a>2.3.1 原型链继承</h5><p>基本思想：利用原型让一个引用类型继承另一个引用类型的属性和方法</p>
+<p>实现本质是重写原型对象，代之以另一个新类型的实例</p>
+<p><strong>（1）别忘记默认的原型</strong></p>
+<p>所有函数的默认原型都是Object的实例</p>
+<p><img src="/2020/03/25/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/D:%5CFront-End-Note%5Cimage%5C%E5%8E%9F%E5%9E%8B%E9%93%BE.png" alt="原型链"></p>
+<p><strong>（2）确定原型和实例的关系</strong></p>
+<p>instanceof操作符：+构造函数：只要用这个操作符测试实例与原型链中出现过的构造函数，就会返回true</p>
+<p>isPrototypeOf()方法:只要是原型链中出现过的原型对象，都可以说是该原型链所派生的实例的原型</p>
+<p><strong>（3）谨慎的定义方法</strong></p>
+<p>给原型添加方法的代码一定要放在替换原型的语句之后，且不能使用字面量方法创建原型方法</p>
+<p><strong>（4）原型链的问题</strong></p>
+<p>第一个问题：包含引用类型值的原型属性会被所有实例共享</p>
+<p>第二个问题：在创建子类型的实例时，不能向超类型的构造函数中传递参数</p>
+<h5 id="2-3-2-借用构造函数（伪造对象或经典继承）"><a href="#2-3-2-借用构造函数（伪造对象或经典继承）" class="headerlink" title="2.3.2 借用构造函数（伪造对象或经典继承）"></a>2.3.2 借用构造函数（伪造对象或经典继承）</h5><p>基本思想：在子类型构造函数的内部调用超类型构造函数（使用call()方法或apply()方法）<strong>屏蔽掉超类型中的引用类型值</strong></p>
+<p>好处：可以传递参数</p>
+<p>问题：无法避免构造函数模式存在的问题——方法都在构造函数中定义，无法复用</p>
+<h5 id="2-3-3-组合继承（JS中最常用的继承模式，也称伪经典继承）"><a href="#2-3-3-组合继承（JS中最常用的继承模式，也称伪经典继承）" class="headerlink" title="2.3.3 组合继承（JS中最常用的继承模式，也称伪经典继承）"></a>2.3.3 组合继承（JS中最常用的继承模式，也称伪经典继承）</h5><p>指的是将原型链和借用构造函数的技术组合到一起，使用原型链实现对原型属性和方法的继承，而使用借用构造函数来实现对实例属性的继承。</p>
+<p>而且instanceof()和isPrototypeOf()也能够用于识别基于组合继承创建的对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.colors=[<span class="string">"red"</span>,<span class="string">"green"</span>,<span class="string">"blue"</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//继承属性</span></span><br><span class="line">    SuperType.call(<span class="keyword">this</span>,name);<span class="comment">//第二次调用构造函数，SubType实例中传入了第二组name和colors</span></span><br><span class="line">    <span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//继承方法</span></span><br><span class="line">SubType.prototype=<span class="keyword">new</span> SuperType();<span class="comment">//第一次调用构造函数，SubType原型中传入了name和colors</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">使用寄生式组合继承方法：</span></span><br><span class="line"><span class="comment">function inheriPrototype(subType,superType)&#123;</span></span><br><span class="line"><span class="comment">    var prototype=object(superType.prototype);//创建对象：构建超类型原型的一个副本</span></span><br><span class="line"><span class="comment">    prototype.constructer=subType;//增强对象</span></span><br><span class="line"><span class="comment">    subType.prototype=prototype;//指定对象：将新创建的对象（即副本）赋值给子类型的原型</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">inheriPrototype(SubType,SuperType);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">SubType.prototype.constructor=SubType;</span><br><span class="line">SubType.prototype.sayAge=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> instance1 =<span class="keyword">new</span> SubType(<span class="string">"Nicholas"</span>,<span class="number">29</span>);</span><br><span class="line">instance1.colors.push(<span class="string">"yellow"</span>);</span><br><span class="line">alert(instance1.colors);<span class="comment">//"red","green","blue","yellow"</span></span><br><span class="line">instance1.sayName();<span class="comment">//"Nicholas"</span></span><br><span class="line">instance1.sayAge();<span class="comment">//29</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance2 =<span class="keyword">new</span> SubType(<span class="string">"Greg"</span>,<span class="number">27</span>);</span><br><span class="line">alert(instance2.colors);<span class="comment">//"red","green","blue"</span></span><br><span class="line">instance2.sayName();<span class="comment">//"Greg"</span></span><br><span class="line">instance2.sayAge();<span class="comment">//27</span></span><br></pre></td></tr></table></figure>
+
+<p><u>问题：会调用两次超类型构造函数</u></p>
+<h5 id="2-3-4-原型式继承-ES5通过Object-create-方法规范化了原型式继承"><a href="#2-3-4-原型式继承-ES5通过Object-create-方法规范化了原型式继承" class="headerlink" title="2.3.4 原型式继承:ES5通过Object.create()方法规范化了原型式继承"></a>2.3.4 原型式继承:ES5通过Object.create()方法规范化了原型式继承</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    F.prototype=o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;<span class="comment">//相当于利用一个构造函数做桥接，</span></span><br></pre></td></tr></table></figure>
+
+<p>思想是基于对象o，创建一个实例，该实例的原型对象o,在包含引用类型属性值方面该方法与原型模式是一样的</p>
+<p>ES5新增了Object.create()方法：接受两个参数：一个是用作新对象原型的对象和（可选的）一个新对象定义额外的对象，该对象中每个属性都是通过自己的描述符定义的.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">     name:<span class="string">'Nicholas'</span>,</span><br><span class="line">     friends:[<span class="string">'Shelby'</span>,<span class="string">'Court'</span>,;Van]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="built_in">Object</span>.create(person,&#123;</span><br><span class="line">    name:&#123;</span><br><span class="line">        value:<span class="string">'Greg'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(person1.name);<span class="comment">//'Greg'</span></span><br></pre></td></tr></table></figure>
+
+<p>支持Object.create()方法的浏览器有IE9+、Firefox 4+、Safari 5+、Opera 12+ 和Chrome。<strong>在没有必要兴师动众地创建构造函数</strong>，而只想让一个对象与另一个对象保持类似的情况下，原型式继承是完全可以胜任的。不过别忘了，包含引用类型值的属性始终都会共享相应的值，就像使用原型模式一样。</p>
+<h5 id="2-3-5-寄生式继承"><a href="#2-3-5-寄生式继承" class="headerlink" title="2.3.5 寄生式继承"></a>2.3.5 寄生式继承</h5><p>思路与寄生构造函数和工厂模式类似，即创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象（即在内部通过构造函数创建一个实例，再为该对象增加方法，最后返回该对象）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnother</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> clone=<span class="built_in">Object</span>.create(o);</span><br><span class="line">    clone.sayHi=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="string">"Hi!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> clone;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">    name:<span class="string">'Nichlas'</span>,</span><br><span class="line">    friends:[<span class="string">'Tom'</span>,<span class="string">'Bob'</span>,<span class="string">'Greg'</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> another=createAnother(person);</span><br><span class="line">another.sayHi();<span class="comment">//'Hi!'</span></span><br></pre></td></tr></table></figure>
+
+<p>在主要考虑对象而不是自定义类型和构造函数的情况下，寄生式继承也是一种有用的模式。前面示范继承模式时使用的Object.create()函数不是必需的；任何能够返回新对象的函数都适用于此模式。</p>
+<h5 id="2-3-6-寄生组合式继承（最理想）"><a href="#2-3-6-寄生组合式继承（最理想）" class="headerlink" title="2.3.6 寄生组合式继承（最理想）"></a>2.3.6 寄生组合式继承（最理想）</h5><p>用于解决组合继承两次调用构造函数的问题，方法见上方代码，该方法只调用一次SuperType构造函数,且原型链保持不变。</p>
+<p><strong>基本思路：不必为了指定子类型的原型而调用超类型的构造函数，我们所需要的不过是超类型原型的一个副本而已，方法同原型式继承</strong></p>
+<h3 id="3-混合对象“类”"><a href="#3-混合对象“类”" class="headerlink" title="3. 混合对象“类”"></a>3. 混合对象“类”</h3><h3 id="4-原型"><a href="#4-原型" class="headerlink" title="4. 原型"></a>4. 原型</h3><h3 id="5-异步"><a href="#5-异步" class="headerlink" title="5. 异步"></a>5. 异步</h3><h4 id="5-1-浏览器的进程与线程："><a href="#5-1-浏览器的进程与线程：" class="headerlink" title="5.1 浏览器的进程与线程："></a>5.1 浏览器的进程与线程：</h4><p><strong>5.1.1 进程：</strong></p>
 <p>进程是cpu的资源分配的最小单位。</p>
 <p><strong>多进程</strong>：多进程指的是在同一个时间里，同一个计算机系统中如果允许两个或两个以上的进程处于运行状态。多进程带来的好处是明显的，比如你可以听歌的同时，打开编辑器敲代码，编辑器和听歌软件的进程之间丝毫不会相互干扰。</p>
 <p><strong>浏览器是多进程的，浏览器的进程主要包括以下几种：</strong></p>
@@ -105,7 +236,10 @@
 <p>(macro)task 主要包含：script( 整体代码)、setTimeout、setInterval、I/O、UI 交互事件、setImmediate(Node.js 环境)</p>
 <p>microtask主要包含：Promise、MutaionObserver、process.nextTick(Node.js 环境)</p>
 <p>setTimeout/Promise 等API便是任务源，而进入任务队列的是由他们指定的具体执行任务。来自不同任务源的任务会进入到不同的任务队列。其中 setTimeout 与 setInterval 是同源的。</p>
-<h3 id="6-回调"><a href="#6-回调" class="headerlink" title="6. 回调"></a>6. 回调</h3><p>多层回调会导致回掉地狱，那么如何解决这种问题呢？</p>
+<h3 id="6-回调"><a href="#6-回调" class="headerlink" title="6. 回调"></a>6. 回调</h3><p><strong>多层回调会导致回掉地狱，那么如何解决这种问题呢？</strong></p>
+<p>（1）promise</p>
+<p>（2）generater</p>
+<p>（3）async/await</p>
 <h4 id="6-1-Promise"><a href="#6-1-Promise" class="headerlink" title="6.1 Promise:"></a>6.1 Promise:</h4><p><strong>6.1.1 Promise的含义</strong></p>
 <p>所谓<code>Promise</code>，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p>
 <p><strong><code>Promise</code>对象有以下两个特点。</strong></p>
@@ -141,12 +275,15 @@
 <p><strong>6.1.8 Promise.any()</strong></p>
 <p><code>Promise.any()</code>方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。只要参数实例有一个变成<code>fulfilled</code>状态，包装实例就会变成<code>fulfilled</code>状态；如果所有参数实例都变成<code>rejected</code>状态，包装实例就会变成<code>rejected</code>状态。该方法目前是一个第三阶段的<a href="https://github.com/tc39/proposal-promise-any" target="_blank" rel="noopener">提案</a> 。</p>
 <p><code>Promise.any()</code>跟<code>Promise.race()</code>方法很像，只有一点不同，就是不会因为某个 Promise 变成<code>rejected</code>状态而结束</p>
-<h4 id="6-2-Generator-生成器"><a href="#6-2-Generator-生成器" class="headerlink" title="6.2 Generator:生成器"></a>6.2 Generator:生成器</h4><h4 id="6-3-async-await"><a href="#6-3-async-await" class="headerlink" title="6.3 async/await"></a>6.3 async/await</h4><h3 id="7-如何解决异步回调地狱？"><a href="#7-如何解决异步回调地狱？" class="headerlink" title="7. 如何解决异步回调地狱？"></a>7. 如何解决异步回调地狱？</h3><p>多层嵌套回调</p>
-<h3 id="8-前端中的事件流"><a href="#8-前端中的事件流" class="headerlink" title="8. 前端中的事件流"></a>8. 前端中的事件流</h3><p>事件循环：</p>
+<h4 id="6-2-Generator-生成器"><a href="#6-2-Generator-生成器" class="headerlink" title="6.2 Generator:生成器"></a>6.2 Generator:生成器</h4><h4 id="6-3-async-await"><a href="#6-3-async-await" class="headerlink" title="6.3 async/await"></a>6.3 async/await</h4><h3 id="8-前端中的事件流"><a href="#8-前端中的事件流" class="headerlink" title="8. 前端中的事件流"></a>8. 前端中的事件流</h3><p>事件循环：</p>
 <p>浏览器渲染进程包括多个线程，如JS引擎线程，GUI渲染现场，定时器线程，事件触发线程，网络请求线程，JS是单线程的，避免同时对同一DOM进行不同操作，JS引擎线程与GUI渲染线程是互斥的</p>
 <p>任务分为同步任务和异步任务，同步任务即即刻执行的任务，异步任务即一段时间后执行，如setTimeout定时器参数中的回调函数即为异步任务，时间到后将该回掉函数放入任务队列，等待JS执行。</p>
 <p>主线程执行栈为空后，将任务队列按照先入先出的顺序压入执行栈，每次循环是一个tick，分为宏任务和微任务，宏任务比如script整体内容，setTimeout,setInterval,UI交互事件，微任务比如promise，先执行宏任务，执行结束后如果有微任务执行微任务</p>
-<h3 id="9-图片的预加载和懒加载"><a href="#9-图片的预加载和懒加载" class="headerlink" title="9. 图片的预加载和懒加载"></a>9. 图片的预加载和懒加载</h3><h4 id="9-2-JS的各种位置，比如clientHeight-scrollHeight-offsetHeight-以及scrollTop-offsetTop-clientTop的区别"><a href="#9-2-JS的各种位置，比如clientHeight-scrollHeight-offsetHeight-以及scrollTop-offsetTop-clientTop的区别" class="headerlink" title="9.2 JS的各种位置，比如clientHeight,scrollHeight,offsetHeight,以及scrollTop,offsetTop,clientTop的区别"></a>9.2 JS的各种位置，比如clientHeight,scrollHeight,offsetHeight,以及scrollTop,offsetTop,clientTop的区别</h4><h3 id="10-事件"><a href="#10-事件" class="headerlink" title="10. 事件"></a>10. 事件</h3><h4 id="10-1-冒泡"><a href="#10-1-冒泡" class="headerlink" title="10.1 冒泡"></a>10.1 冒泡</h4><h4 id="10-2-捕获"><a href="#10-2-捕获" class="headerlink" title="10.2 捕获"></a>10.2 捕获</h4><h4 id="10-3-如何让事件先冒泡后捕获？"><a href="#10-3-如何让事件先冒泡后捕获？" class="headerlink" title="10.3 如何让事件先冒泡后捕获？"></a>10.3 如何让事件先冒泡后捕获？</h4><h4 id="10-4-事件委托"><a href="#10-4-事件委托" class="headerlink" title="10.4 事件委托"></a>10.4 事件委托</h4><h4 id="10-5-mouseover-和mouseenter的区别"><a href="#10-5-mouseover-和mouseenter的区别" class="headerlink" title="10.5 mouseover 和mouseenter的区别"></a>10.5 mouseover 和mouseenter的区别</h4><h3 id="11-this"><a href="#11-this" class="headerlink" title="11. this"></a>11. this</h3><h4 id="11-1-new操作符做了哪些事情"><a href="#11-1-new操作符做了哪些事情" class="headerlink" title="11.1 new操作符做了哪些事情"></a>11.1 new操作符做了哪些事情</h4><h4 id="11-2-改变函数内部this指针的指向函数（bind-apply-call的区别）"><a href="#11-2-改变函数内部this指针的指向函数（bind-apply-call的区别）" class="headerlink" title="11.2 改变函数内部this指针的指向函数（bind,apply,call的区别）"></a>11.2 改变函数内部this指针的指向函数（bind,apply,call的区别）</h4><h3 id="12-JS拖拽功能的实现"><a href="#12-JS拖拽功能的实现" class="headerlink" title="12. JS拖拽功能的实现"></a>12. JS拖拽功能的实现</h3><h3 id="13-JS的节流和防抖"><a href="#13-JS的节流和防抖" class="headerlink" title="13. JS的节流和防抖"></a>13. JS的节流和防抖</h3><h3 id="14-JS的垃圾回收机制"><a href="#14-JS的垃圾回收机制" class="headerlink" title="14. JS的垃圾回收机制"></a>14. JS的垃圾回收机制</h3><h3 id="15-AJAX解决浏览器缓存问题"><a href="#15-AJAX解决浏览器缓存问题" class="headerlink" title="15. AJAX解决浏览器缓存问题"></a>15. AJAX解决浏览器缓存问题</h3><h3 id="16-eval是做什么的-（欺骗词法）"><a href="#16-eval是做什么的-（欺骗词法）" class="headerlink" title="16. eval是做什么的?（欺骗词法）"></a>16. eval是做什么的?（欺骗词法）</h3><p><strong>eval(str)：</strong>它的功能是将对应的字符串解析成js并执行，可以在运行期修改书写期的词法作用域:</p>
+<h3 id="9-图片的预加载和懒加载"><a href="#9-图片的预加载和懒加载" class="headerlink" title="9. 图片的预加载和懒加载"></a>9. 图片的预加载和懒加载</h3><h4 id="9-2-JS的各种位置，比如clientHeight-scrollHeight-offsetHeight-以及scrollTop-offsetTop-clientTop的区别"><a href="#9-2-JS的各种位置，比如clientHeight-scrollHeight-offsetHeight-以及scrollTop-offsetTop-clientTop的区别" class="headerlink" title="9.2 JS的各种位置，比如clientHeight,scrollHeight,offsetHeight,以及scrollTop,offsetTop,clientTop的区别"></a>9.2 JS的各种位置，比如clientHeight,scrollHeight,offsetHeight,以及scrollTop,offsetTop,clientTop的区别</h4><h3 id="10-事件"><a href="#10-事件" class="headerlink" title="10. 事件"></a>10. 事件</h3><h4 id="10-1-冒泡"><a href="#10-1-冒泡" class="headerlink" title="10.1 冒泡"></a>10.1 冒泡</h4><h4 id="10-2-捕获"><a href="#10-2-捕获" class="headerlink" title="10.2 捕获"></a>10.2 捕获</h4><h4 id="10-3-如何让事件先冒泡后捕获？"><a href="#10-3-如何让事件先冒泡后捕获？" class="headerlink" title="10.3 如何让事件先冒泡后捕获？"></a>10.3 如何让事件先冒泡后捕获？</h4><h4 id="10-4-事件委托"><a href="#10-4-事件委托" class="headerlink" title="10.4 事件委托"></a>10.4 事件委托</h4><h4 id="10-5-mouseover-和mouseenter的区别"><a href="#10-5-mouseover-和mouseenter的区别" class="headerlink" title="10.5 mouseover 和mouseenter的区别"></a>10.5 mouseover 和mouseenter的区别</h4><h3 id="11-this"><a href="#11-this" class="headerlink" title="11. this"></a>11. this</h3><h4 id="11-1-new操作符做了哪些事情"><a href="#11-1-new操作符做了哪些事情" class="headerlink" title="11.1 new操作符做了哪些事情"></a>11.1 new操作符做了哪些事情</h4><p>（1）创建一个新对象</p>
+<p>（2）执行[[prototype]]连接</p>
+<p>（3）将该对象绑定到构造函数中的this</p>
+<p>（4）如果没有return返回值，则返回该对象</p>
+<h4 id="11-2-改变函数内部this指针的指向函数（bind-apply-call的区别）"><a href="#11-2-改变函数内部this指针的指向函数（bind-apply-call的区别）" class="headerlink" title="11.2 改变函数内部this指针的指向函数（bind,apply,call的区别）"></a>11.2 改变函数内部this指针的指向函数（bind,apply,call的区别）</h4><h3 id="12-JS拖拽功能的实现"><a href="#12-JS拖拽功能的实现" class="headerlink" title="12. JS拖拽功能的实现"></a>12. JS拖拽功能的实现</h3><h3 id="13-JS的节流和防抖"><a href="#13-JS的节流和防抖" class="headerlink" title="13. JS的节流和防抖"></a>13. JS的节流和防抖</h3><h3 id="14-JS的垃圾回收机制"><a href="#14-JS的垃圾回收机制" class="headerlink" title="14. JS的垃圾回收机制"></a>14. JS的垃圾回收机制</h3><h3 id="15-AJAX解决浏览器缓存问题"><a href="#15-AJAX解决浏览器缓存问题" class="headerlink" title="15. AJAX解决浏览器缓存问题"></a>15. AJAX解决浏览器缓存问题</h3><h3 id="16-eval是做什么的-（欺骗词法）"><a href="#16-eval是做什么的-（欺骗词法）" class="headerlink" title="16. eval是做什么的?（欺骗词法）"></a>16. eval是做什么的?（欺骗词法）</h3><p><strong>eval(str)：</strong>它的功能是将对应的字符串解析成js并执行，可以在运行期修改书写期的词法作用域:</p>
 <p><strong>with(obj）：</strong>with可以将一个没有或有多个属性的对象处理为一个完全隔离的词法作用域，因此这个对象的属性也会被处理为定义在这个作用域中的词法标识符</p>
 <p><strong>eval()函数如果接受了含有一个或多个声明的代码，就会修改其所处的词法作用域，而with()声明实际上是根据你传给它的对象凭空创建了一个新的词法作用域</strong></p>
 <p><strong>为什么不推荐使用eval()和with()?</strong></p>
@@ -266,7 +403,342 @@
 <p>border-box：盒子的宽度或高度为元素内容的宽度或高度</p>
 <p>inherit：元素继承父元素的盒子模型模式</p>
 <p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/D:%5CmyBlog%5Csource_posts%5C%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS%5C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png" alt="盒子模型"></p>
-<h4 id="2-DOM中的各种宽度、高度"><a href="#2-DOM中的各种宽度、高度" class="headerlink" title="2. DOM中的各种宽度、高度"></a>2. DOM中的各种宽度、高度</h4><table>
+<h4 id="2-BFC-块状模式上下文"><a href="#2-BFC-块状模式上下文" class="headerlink" title="2. BFC:块状模式上下文"></a>2. BFC:块状模式上下文</h4><h4 id="3-布局"><a href="#3-布局" class="headerlink" title="3. 布局"></a>3. 布局</h4><p><strong>flex布局</strong></p>
+<p><strong>浮动布局，浮动清除</strong></p>
+<p><strong>z-index的定位方法</strong></p>
+<p><strong>三栏布局</strong></p>
+<blockquote>
+<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong></p>
+</blockquote>
+<p><strong>垂直居中的方法</strong></p>
+<blockquote>
+<p><strong>如何实现图片在某个容器中居中？</strong></p>
+<p><strong>有一个width:300,height:300的div，怎么实现在屏幕上垂直水平居中？</strong></p>
+</blockquote>
+<h4 id="4-display属性"><a href="#4-display属性" class="headerlink" title="4.display属性"></a>4.display属性</h4><p><strong>block，inline，inline-block的区别</strong></p>
+<p>block:默认换行，width缺省时为父元素宽度，可以设置高宽，padding-top,padding-bottom,margin-top,margin-bottom</p>
+<p>inline:可以排在一行，无法设置宽高，padding-top,padding-bottom,margin-top,margin-bottom无效</p>
+<p>inline-block:不换行，可以设置元素宽高</p>
+<h4 id="2-画一条0-5px的线"><a href="#2-画一条0-5px的线" class="headerlink" title="2. 画一条0.5px的线"></a>2. 画一条0.5px的线</h4><h4 id="3-link标签和import标签的区别"><a href="#3-link标签和import标签的区别" class="headerlink" title="3. link标签和import标签的区别"></a>3. link标签和import标签的区别</h4><h4 id="4-transition和animation的区别"><a href="#4-transition和animation的区别" class="headerlink" title="4. transition和animation的区别"></a>4. transition和animation的区别</h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-说一下块元素和行内元素"><a href="#9-说一下块元素和行内元素" class="headerlink" title="9. 说一下块元素和行内元素"></a>9. 说一下块元素和行内元素</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="12-双边距重叠问题（外边距折叠）"><a href="#12-双边距重叠问题（外边距折叠）" class="headerlink" title="12. 双边距重叠问题（外边距折叠）"></a>12. 双边距重叠问题（外边距折叠）</h4><h4 id="13-position属性"><a href="#13-position属性" class="headerlink" title="13. position属性"></a>13. position属性</h4><h4 id="14-浮动清除"><a href="#14-浮动清除" class="headerlink" title="14. 浮动清除"></a>14. 浮动清除</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="18-三栏布局的实现方式"><a href="#18-三栏布局的实现方式" class="headerlink" title="18. 三栏布局的实现方式"></a>18. 三栏布局的实现方式</h4><blockquote>
+<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong></p>
+</blockquote>
+<h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="22-box-sizing"><a href="#22-box-sizing" class="headerlink" title="22.box-sizing"></a>22.box-sizing</h4><h4 id="23-css预处理器有什么？"><a href="#23-css预处理器有什么？" class="headerlink" title="23.css预处理器有什么？"></a>23.css预处理器有什么？</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4>]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面经——HTML_浏览器</title>
+    <url>/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94HTML-%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
+    <content><![CDATA[<h4 id="1-Cookie、session、sessionStorage、localStorage的区别"><a href="#1-Cookie、session、sessionStorage、localStorage的区别" class="headerlink" title="1. Cookie、session、sessionStorage、localStorage的区别"></a>1. Cookie、session、sessionStorage、localStorage的区别</h4><p><strong>1.1 cookie:</strong>存储在浏览器端</p>
+<p>（1）cookie数据始终在同源的http请求中携带（即使不需要），可以在客户端和服务器之间来回传输；</p>
+<p>（2）cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下，存储的数据只有4k左右。</p>
+<p>（3）关闭浏览器也不会失效，只要在设置的过期时间之前一直有效，在所有同源窗口中都是共享的</p>
+<p>（4）用于保存登录状态</p>
+<p><strong>1.2 session</strong></p>
+<p>放在服务器端</p>
+<p><strong>1.3 sessionStorage</strong></p>
+<p>（1）不会把数据发给服务器，仅在本地保存；</p>
+<p>（2）存储数据的大小比cookie大的多，可以达到5M或更大</p>
+<p>（3）仅在当前浏览器窗口关闭前有效，关闭后数据自动删除；</p>
+<p><strong>1.4 localStorage</strong></p>
+<p>（1）不会把数据发给服务器，仅在本地保存；</p>
+<p>（2）存储数据的大小比cookie大的多，可以达到5M或更大</p>
+<p>（3）存储持久数据，浏览器关闭后数据不丢失除非主动删除；</p>
+<h4 id="2-HTML5-Web存储"><a href="#2-HTML5-Web存储" class="headerlink" title="2. HTML5 Web存储"></a>2. HTML5 Web存储</h4><p><strong>2.1 本地存储用户的浏览数据</strong></p>
+<p>早期用的是cookie，但cookie会将存储的数据发送到浏览器端，且存储数据量小，只有4K左右</p>
+<p><strong>H5提供的Web Storage：localStorage和sessionStorage</strong></p>
+<p><strong>常用API:</strong></p>
+<p>保存数据：localStorage.setItem(key,value);</p>
+<p>读取数据：localStorage.getItem(key);</p>
+<p>删除单个数据：localStorage.removeItem(key)</p>
+<p>删除所有数据：localStorage.clear();</p>
+<p>得到某个索引的key:localStorage.key(index);</p>
+<p><strong>2.2 应用程序缓存：使用HTML5，建立cache manifest文件,可以轻松创建web应用的离线版本</strong></p>
+<p><strong>什么是应用程序缓存？</strong></p>
+<p>（1）离线浏览：用户可在应用离线时使用它们；</p>
+<p>（2）速度：已缓存资源加载速度更快；</p>
+<p>（3）减少服务器负载：浏览器将只从服务器下载更新过或更改过的资源</p>
+<p><strong>怎样启用应用程序缓存？</strong></p>
+<p><code>&lt;html manifest=&quot;demo.appache&quot;&gt;</code></p>
+<p><strong>Manifest文件的结构：</strong></p>
+<p>manifest是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容），可分为3部分：</p>
+<ul>
+<li>CACHE MANIFEST：在此标题下列出的文件将在首次下载后进行缓存</li>
+<li>NETWORK:在此标题下列出的文件需要与服务器进行连接，且不会被缓存</li>
+<li>FALLBACK:在此标题下列出的文件规定当前页面无法访问时的回退页面（比如404页面）</li>
+</ul>
+<h4 id="3-说几个H5-的新标签"><a href="#3-说几个H5-的新标签" class="headerlink" title="3. 说几个H5 的新标签"></a>3. 说几个H5 的新标签</h4><p>首先html5为了更好的实践web语义化，增加了header，footer，nav,aside,section等语义化标签，在表单方面，为了增强表单，为input增加了color，email,data ,range等类型，在存储方面，提供了sessionStorage，localStorage,和离线存储，通过这些存储方式方便数据在客户端的存储和获取，在多媒体方面规定了音频和视频元素audio和vedio，另外还有地理定位，canvas画布，拖放，多线程编程的web worker和websocket协议</p>
+<p><strong>3.1 H5浏览器支持：</strong></p>
+<p>（1）将HTML5元素定义为块元素：</p>
+<p>HTML5 定了 8 个新的 HTML <strong>语义（semantic）</strong> 元素。所有这些元素都是 <strong>块级</strong> 元素。为了能让旧版本的浏览器正确显示这些元素，你可以设置 CSS 的 <strong>display</strong> 属性值为 <strong>block</strong>:</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">header</span>,<span class="selector-tag">article</span>,<span class="selector-tag">section</span>,<span class="selector-tag">aside</span>,<span class="selector-tag">footer</span>,<span class="selector-tag">nav</span>,<span class="selector-tag">main</span>,<span class="selector-tag">figure</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）为HTML添加新元素</p>
+<p>通过<code>document.createElement(&#39;&#39;)</code>创建新元素，设置样式，以标签&lt;&gt;形式添加到html中；</p>
+<p>（3）IE浏览器问题：IE8及以前不支持以上方法</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.2 H5新元素</strong></p>
+<p>（1）<code>&lt;canvas&gt;</code>:依赖于分辨率；不支持事件处理器；文本渲染能力弱；能够以.png和.jpg格式保存结果图像；最适合图像密集型的游戏，其中许多对象会被频繁重绘；通过JS绘制2D图形；</p>
+<p>（2）<code>&lt;svg&gt;</code>：矢量图形，不依赖于分辨率；支持事件处理器；最适合带有大量渲染区域的应用程序（比如谷歌地图）；复杂度高会减慢渲染速度（任何过渡使用DOM的应用都不快）；不适合游戏应用；使用XML描述2D图形；</p>
+<p>（3）<code>&lt;math&gt;</code>：MathML:数学标记语言，是一种基于XML的标准，用来在互联网上书写数学符号和公式的置标语言。</p>
+<p>（4）<code>&lt;video&gt;</code>：支持的视频格式：MP4,WebM,Ogg</p>
+<p>（5）<code>&lt;audio&gt;</code>：支持的音频格式：MP3,Wav,Ogg</p>
+<p><strong>3.3 H5 Geolocation地理定位</strong></p>
+<p><code>navigator.geolocation.getCurrentPosition(showPositon,showError)</code>：获取用户位置；</p>
+<p>showPosition:获取位置成功后回调的函数；返回一个coordinates对象：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>coords.latitude</td>
+<td>十进制数的纬度</td>
+</tr>
+<tr>
+<td>coords.longitude</td>
+<td>十进制数的经度</td>
+</tr>
+<tr>
+<td>coords.accuracy</td>
+<td>位置精度</td>
+</tr>
+<tr>
+<td>coords.altitude</td>
+<td>海拔，海平面以上以米计</td>
+</tr>
+<tr>
+<td>coords.altitudeAccuracy</td>
+<td>位置的海拔精度</td>
+</tr>
+<tr>
+<td>coords.heading</td>
+<td>方向，从正北开始以度计</td>
+</tr>
+<tr>
+<td>coords.speeding</td>
+<td>速度，以米/每秒计</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>响应的日期/时间</td>
+</tr>
+</tbody></table>
+<p>showError获取位置失败后回调的函数：</p>
+<table>
+<thead>
+<tr>
+<th>error.code</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>error.PERMISSION_DENIED</td>
+<td>用户拒绝对获取地理位置的请求</td>
+</tr>
+<tr>
+<td>error.POSITION_UNAVAILABLE</td>
+<td>位置信息不可用</td>
+</tr>
+<tr>
+<td>error.TIMEOUT</td>
+<td>请求用户地理位置超时</td>
+</tr>
+<tr>
+<td>error.UNKNOWN_ERROR</td>
+<td>未知错误</td>
+</tr>
+</tbody></table>
+<p><strong>3.4 新增的input类型</strong></p>
+<p>type=”color”,”date”,”datetime”,”datetime-local”,”email”,”month”,”number”,”range”,”search”,”tel”,”time”,”url”,”week”</p>
+<p><strong>3.5 新增表单元素</strong></p>
+<p><code>&lt;datalist&gt;</code>：规定form或input 域应该拥有自动完成功能；</p>
+<p><code>&lt;keygen&gt;</code>：提供一种验证用户的可靠方法，规定用于表单的密钥对生成器字段</p>
+<p>（私钥存储与客户端，公钥则被发送到服务器，公钥可用于之后验证用户的客户端证书）</p>
+<p><code>&lt;output&gt;</code>：用于不同类型的输出，比如计算或脚本输出</p>
+<p><strong>3.6 新增表单属性</strong></p>
+<p>（1）<code>&lt;form&gt;</code>：</p>
+<p>新属性：</p>
+<p>autocomplete:提交后刷新页面，可以自动补完，值为’on’或’off’;</p>
+<p>novalidate：一个布尔值，规定在提交表单时不应该验证form或input域</p>
+<p>（2）<code>&lt;input&gt;</code>：新属性：autocomplete, autofocus, form, formaction, formenctype, formmethod, formnovalidate, formtarget,</p>
+<p> height和width:只用于image类型的<code>&lt;input&gt;</code>标签，规定高宽加载时可以预留适当空间</p>
+<p> list, min与max, multiple, pattern(regexp), placeholder, required, step</p>
+<h4 id="4-HTML5-拖放"><a href="#4-HTML5-拖放" class="headerlink" title="4. HTML5 拖放"></a>4. HTML5 拖放</h4><p><strong>4.1 首先将被拖动元素设置为可拖动：draggable:true</strong></p>
+<p><strong>4.2 为被拖动元素添加ondragstart响应事件drag(event)</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drag</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    event.dataTransfer.setData(<span class="string">"Text"</span>,event.target.id);</span><br><span class="line">&#125;<span class="comment">//dataTransfer.setData()方法设置被拖数据的数据类型和值</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.3 放到何处：ondragover:规定在何处放置被拖动的数据</strong></p>
+<p>默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式，通过调用ondragover事件的event.preventDefault()方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">event.preventDefault();</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.4. 进行放置：ondrop</strong></p>
+<p>当放置被拖数据时，会发生drop事件：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drop</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">    <span class="keyword">var</span> data=ev.dataTransfer.getData(<span class="string">"Text"</span>);</span><br><span class="line">    ev.target.appendChild(<span class="built_in">document</span>.getElementById(data));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码解释：</p>
+<ul>
+<li>调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）</li>
+<li>通过 dataTransfer.getData(“Text”) 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。</li>
+<li>被拖数据是被拖元素的 id (“drag1”)</li>
+<li>把被拖元素追加到放置元素（目标元素）中</li>
+</ul>
+<h4 id="5-web-worker"><a href="#5-web-worker" class="headerlink" title="5.web worker"></a>5.web worker</h4><p>当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。</p>
+<p>web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。</p>
+<p><strong>5.1 先检测浏览器是否支持Web Worker</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span>(Worker)!==<span class="string">"undefined"</span>)&#123;</span><br><span class="line">    <span class="comment">//是的！Web Worker支持！</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//抱歉！Web Worker不支持！</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.2 创建外部web worker脚本文件</strong>：存储于‘demo_worker.js’</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timedCount</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    i=i+<span class="number">1</span>;</span><br><span class="line">    postMessage(i);</span><br><span class="line">    setTimeout(<span class="string">"timedCount()"</span>,<span class="number">500</span>);</span><br><span class="line">&#125;</span><br><span class="line">timedCount();</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.3 创建web worker对象,以调用上一步的文件</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> w==<span class="string">"undefined"</span>)&#123;</span><br><span class="line">    w=<span class="keyword">new</span> worker(<span class="string">'demo_workers.js'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//添加'onmessage'事件监听器：</span></span><br><span class="line">w.onmessage=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'result'</span>).innerHTML=event.data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.4 终止Web Worker</strong></p>
+<p>当我们创建 web worker 对象后，它会继续监听消息（即使在外部脚本完成之后）直到其被终止为止。</p>
+<p>如需终止 web worker，并释放浏览器/计算机资源，请使用 terminate() 方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">w.terminate();</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-HTML语义化"><a href="#6-HTML语义化" class="headerlink" title="6. HTML语义化"></a>6. HTML语义化</h4><p><strong>6.1 语义化是什么？</strong></p>
+<p>语义化标签有自己的含义，简单来说就是让机器可以读懂内容</p>
+<p>我们应该在发布内容的时候，就用机器可读的、被广泛认可的语义信息来描述内容，来降低机器处理 Web 内容的难度。</p>
+<p><strong>6.2 语义化标签的优势</strong></p>
+<p>（1）代码结构清晰，方便阅读，有利于团队合作开发；</p>
+<p>（2）方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以语义的方式来渲染网页；</p>
+<p>（3）有利于搜索引擎优化（SEO）</p>
+<p><strong>6.3 常见的语义化标签</strong></p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>语义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;title&gt;</code></td>
+<td>页面主体内容</td>
+</tr>
+<tr>
+<td><code>&lt;hn&gt;</code></td>
+<td>h1~h6，分级标题，<code>&lt;h1&gt;</code>与 <code>&lt;title&gt;</code>协调有利于搜索引擎优化</td>
+</tr>
+<tr>
+<td><code>&lt;ul&gt;</code></td>
+<td>无序列表</td>
+</tr>
+<tr>
+<td><code>&lt;ol&gt;</code></td>
+<td>有序列表</td>
+</tr>
+<tr>
+<td><code>&lt;header&gt;</code></td>
+<td>页眉通常包括网站标志、主导航、全站链接以及搜索框</td>
+</tr>
+<tr>
+<td><code>&lt;nav&gt;</code></td>
+<td>标记导航，仅对文档中重要的链接群使用</td>
+</tr>
+<tr>
+<td><code>&lt;main&gt;</code></td>
+<td>页面主要内容，一个页面只能使用一次，如果是web应用，则包围其主要功能</td>
+</tr>
+<tr>
+<td><code>&lt;article&gt;</code></td>
+<td>定义外部的内容，其中的内容独立于文档的其余部分</td>
+</tr>
+<tr>
+<td><code>&lt;section&gt;</code></td>
+<td>定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分</td>
+</tr>
+<tr>
+<td><code>&lt;aside&gt;</code></td>
+<td>定义其所处内容之外的内容。如侧栏、文章的一组链接、广告、友情链接、相关产品列表等</td>
+</tr>
+<tr>
+<td><code>&lt;footer&gt;</code></td>
+<td>页脚，只有当父级是body时，才是整个页面的页脚。</td>
+</tr>
+<tr>
+<td><code>&lt;small&gt;</code></td>
+<td>呈现小号字体效果，指定细则，输入免责声明、注解、署名、版权。</td>
+</tr>
+<tr>
+<td><code>&lt;strong&gt;</code></td>
+<td>和 <code>em</code> 标签一样，用于强调文本，但它强调的程度更强一些。</td>
+</tr>
+<tr>
+<td><code>&lt;em&gt;</code></td>
+<td>将其中的文本表示为强调的内容，表现为斜体。</td>
+</tr>
+<tr>
+<td><code>&lt;mark&gt;</code></td>
+<td>使用黄色突出显示部分文本。</td>
+</tr>
+<tr>
+<td><code>&lt;figure&gt;</code></td>
+<td>规定独立的流内容（图像、图表、照片、代码等等）（默认有40px左右margin）。</td>
+</tr>
+<tr>
+<td><code>&lt;figcaption&gt;</code></td>
+<td>定义 <code>figure</code> 元素的标题，应该被置于 <code>figure</code> 元素的第一个或最后一个子元素的位置。</td>
+</tr>
+<tr>
+<td><code>&lt;cite&gt;</code></td>
+<td>表示所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。</td>
+</tr>
+<tr>
+<td><code>&lt;blockquoto&gt;</code></td>
+<td>定义块引用，块引用拥有它们自己的空间。</td>
+</tr>
+<tr>
+<td><code>&lt;q&gt;</code></td>
+<td>短的引述（跨浏览器问题，尽量避免使用）</td>
+</tr>
+<tr>
+<td><code>&lt;time&gt;</code></td>
+<td>datetime属性遵循特定格式，如果忽略此属性，文本内容必须是合法的日期或者时间格式。</td>
+</tr>
+<tr>
+<td><code>&lt;abbr&gt;</code></td>
+<td>简称或缩写</td>
+</tr>
+<tr>
+<td><code>&lt;dfn&gt;</code></td>
+<td>定义术语元素，与定义必须紧挨着，可以在描述列表dl元素中使用</td>
+</tr>
+<tr>
+<td><code>&lt;address&gt;</code></td>
+<td>作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。</td>
+</tr>
+<tr>
+<td><code>&lt;del&gt;</code></td>
+<td>移除的内容</td>
+</tr>
+<tr>
+<td><code>&lt;ins&gt;</code></td>
+<td>添加的内容</td>
+</tr>
+<tr>
+<td><code>&lt;code&gt;</code></td>
+<td>标记代码</td>
+</tr>
+<tr>
+<td><code>&lt;meter&gt;</code></td>
+<td>定义已知范围或分数值内的标量测量。（Internet Explorer 不支持 meter 标签）</td>
+</tr>
+<tr>
+<td><code>&lt;progress&gt;</code></td>
+<td>定义运行中的进度（进程）</td>
+</tr>
+</tbody></table>
+<h4 id="7-HTML5服务器发送事件（Server-Sent-Events）"><a href="#7-HTML5服务器发送事件（Server-Sent-Events）" class="headerlink" title="7. HTML5服务器发送事件（Server-Sent Events）"></a>7. HTML5服务器发送事件（Server-Sent Events）</h4><p>Server-Sent事件：单向消息传递，网页自动获取来自服务器的更新</p>
+<p>EventSource对象用于接收服务器发送事件通知</p>
+<p><strong>webSocket:全双工通讯</strong></p>
+<h4 id="8-Doctype作用？严格模式与混杂模式如何区分？它们有何意义？"><a href="#8-Doctype作用？严格模式与混杂模式如何区分？它们有何意义？" class="headerlink" title="8. Doctype作用？严格模式与混杂模式如何区分？它们有何意义？"></a>8. Doctype作用？严格模式与混杂模式如何区分？它们有何意义？</h4><h4 id="9-讲讲viewport和移动端布局"><a href="#9-讲讲viewport和移动端布局" class="headerlink" title="9. 讲讲viewport和移动端布局"></a>9. 讲讲viewport和移动端布局</h4><h4 id="10-DOM中的各种宽度、高度"><a href="#10-DOM中的各种宽度、高度" class="headerlink" title="10. DOM中的各种宽度、高度"></a>10. DOM中的各种宽度、高度</h4><table>
 <thead>
 <tr>
 <th>属性</th>
@@ -291,11 +763,11 @@
 </tr>
 <tr>
 <td>clientWidth</td>
-<td>只读：width+padding-left+padding-right-垂直滚动条的宽度（如果存在）</td>
+<td>只读：width+padding-left+padding-right，不包括垂直滚动条的宽度</td>
 </tr>
 <tr>
 <td>clientHeight</td>
-<td>只读： height + padding-top+padding-bottom - 水平滚动条的高度 (如果存在)</td>
+<td>只读： height + padding-top+padding-bottom，不包括水平滚动条的高度</td>
 </tr>
 <tr>
 <td>clientLeft</td>
@@ -315,7 +787,7 @@
 </tr>
 <tr>
 <td>scrollLeft</td>
-<td></td>
+<td>左边被卷进去的宽度</td>
 </tr>
 <tr>
 <td>scrollTop</td>
@@ -323,38 +795,21 @@
 </tr>
 </tbody></table>
 <p><strong>几个API函数</strong></p>
-<p>网页可见区域宽： document.body.clientWidth;<br>网页可见区域高： document.body.clientHeight;<br>网页可见区域宽： document.body.offsetWidth (包括边线的宽);<br>网页可见区域高： document.body.offsetHeight (包括边线的宽);<br>网页正文全文宽： document.body.scrollWidth;<br>网页正文全文高： document.body.scrollHeight;<br>网页被卷去的高： document.body.scrollTop;<br>网页被卷去的左： document.body.scrollLeft;<br>网页正文部分上： window.screenTop;<br>网页正文部分左： window.screenLeft;<br>屏幕分辨率的高： window.screen.height;<br>屏幕分辨率的宽： window.screen.width;<br>屏幕可用工作区高度： window.screen.availHeight</p>
+<p>网页可见区域宽： document.body.clientWidth;<br>网页可见区域高： document.body.clientHeight;<br>网页可见区域宽： document.body.offsetWidth (包括边框和垂直滚动条的宽);<br>网页可见区域高： document.body.offsetHeight (包括边框和水平滚动条的高);<br>网页正文全文宽： document.body.scrollWidth;<br>网页正文全文高： document.body.scrollHeight;<br>网页被卷去的高： document.body.scrollTop;<br>网页被卷去的左： document.body.scrollLeft;<br>网页正文部分上： window.screenTop;<br>网页正文部分左： window.screenLeft;<br>屏幕分辨率的高： window.screen.height;<br>屏幕分辨率的宽： window.screen.width;<br>屏幕可用工作区高度： window.screen.availHeight</p>
 <blockquote>
 <p>element.offsetTop：距父元素的距离，循环直到页面顶端，获取图片和页面顶端的距离</p>
 <p>document.documentElement.scrollTop||document.body.scrollTop:卷起的高度</p>
 <p>document.documentElement.clientHeight:属于DOM：可视区域的高度（不包括包括水平滚动栏和工具栏的高度）</p>
 <p>window.innerHeight:属于BOM：获得的是可视区域的高度，同时包括横向滚动条的高度。(IE8以及低版本浏览器不支持)</p>
 </blockquote>
-<h4 id="2-BFC-块状模式上下文"><a href="#2-BFC-块状模式上下文" class="headerlink" title="2. BFC:块状模式上下文"></a>2. BFC:块状模式上下文</h4><h4 id="3-布局"><a href="#3-布局" class="headerlink" title="3. 布局"></a>3. 布局</h4><p><strong>flex布局</strong></p>
-<p><strong>浮动布局，浮动清除</strong></p>
-<p><strong>z-index的定位方法</strong></p>
-<p><strong>三栏布局</strong></p>
-<blockquote>
-<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong></p>
-</blockquote>
-<p><strong>垂直居中的方法</strong></p>
-<blockquote>
-<p><strong>如何实现图片在某个容器中居中？</strong></p>
-<p><strong>有一个width:300,height:300的div，怎么实现在屏幕上垂直水平居中？</strong></p>
-</blockquote>
-<h4 id="4-display属性"><a href="#4-display属性" class="headerlink" title="4.display属性"></a>4.display属性</h4><p><strong>block，inline，inline-block的区别</strong></p>
-<h4 id="2-画一条0-5px的线"><a href="#2-画一条0-5px的线" class="headerlink" title="2. 画一条0.5px的线"></a>2. 画一条0.5px的线</h4><h4 id="3-link标签和import标签的区别"><a href="#3-link标签和import标签的区别" class="headerlink" title="3. link标签和import标签的区别"></a>3. link标签和import标签的区别</h4><h4 id="4-transition和animation的区别"><a href="#4-transition和animation的区别" class="headerlink" title="4. transition和animation的区别"></a>4. transition和animation的区别</h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-说一下块元素和行内元素"><a href="#9-说一下块元素和行内元素" class="headerlink" title="9. 说一下块元素和行内元素"></a>9. 说一下块元素和行内元素</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="12-双边距重叠问题（外边距折叠）"><a href="#12-双边距重叠问题（外边距折叠）" class="headerlink" title="12. 双边距重叠问题（外边距折叠）"></a>12. 双边距重叠问题（外边距折叠）</h4><h4 id="13-position属性"><a href="#13-position属性" class="headerlink" title="13. position属性"></a>13. position属性</h4><h4 id="14-浮动清除"><a href="#14-浮动清除" class="headerlink" title="14. 浮动清除"></a>14. 浮动清除</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="18-三栏布局的实现方式"><a href="#18-三栏布局的实现方式" class="headerlink" title="18. 三栏布局的实现方式"></a>18. 三栏布局的实现方式</h4><blockquote>
-<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong></p>
-</blockquote>
-<h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="22-box-sizing"><a href="#22-box-sizing" class="headerlink" title="22.box-sizing"></a>22.box-sizing</h4><h4 id="23-css预处理器有什么？"><a href="#23-css预处理器有什么？" class="headerlink" title="23.css预处理器有什么？"></a>23.css预处理器有什么？</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4>]]></content>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>面经——HTML_浏览器</title>
-    <url>/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94HTML-%E6%B5%8F%E8%A7%88%E5%99%A8/</url>
-    <content><![CDATA[<h4 id="1-Cookie、sessionStorage、localStorage的区别"><a href="#1-Cookie、sessionStorage、localStorage的区别" class="headerlink" title="1. Cookie、sessionStorage、localStorage的区别"></a>1. Cookie、sessionStorage、localStorage的区别</h4><h4 id="2-说几个很实用的BOM属性对象方法"><a href="#2-说几个很实用的BOM属性对象方法" class="headerlink" title="2. 说几个很实用的BOM属性对象方法"></a>2. 说几个很实用的BOM属性对象方法</h4><h4 id="3-说几个H5-的新标签"><a href="#3-说几个H5-的新标签" class="headerlink" title="3. 说几个H5 的新标签"></a>3. 说几个H5 的新标签</h4><h4 id="4-说一下HTML5-drag"><a href="#4-说一下HTML5-drag" class="headerlink" title="4. 说一下HTML5 drag"></a>4. 说一下HTML5 drag</h4><h4 id="5-说一下web-worker"><a href="#5-说一下web-worker" class="headerlink" title="5.说一下web worker"></a>5.说一下web worker</h4><h4 id="6-说一下HTML语义化"><a href="#6-说一下HTML语义化" class="headerlink" title="6. 说一下HTML语义化"></a>6. 说一下HTML语义化</h4>]]></content>
+<h4 id="11-说几个很实用的BOM属性对象方法"><a href="#11-说几个很实用的BOM属性对象方法" class="headerlink" title="11. 说几个很实用的BOM属性对象方法"></a>11. 说几个很实用的BOM属性对象方法</h4><h4 id="12-HTML5-Web-SQL数据库"><a href="#12-HTML5-Web-SQL数据库" class="headerlink" title="12. HTML5 Web SQL数据库"></a>12. HTML5 Web SQL数据库</h4><p>Web SQL数据库API并不是H5规范的一部分，而是一个独立的规范：</p>
+<p><strong>核心方法：</strong></p>
+<ul>
+<li>openDatabase：这个方法使用现有的数据库或者新建的数据库创建一个数据库对象。</li>
+<li>transaction：这个方法让我们能够控制一个事务，以及基于这种情况执行提交或者回滚。</li>
+<li>execute Sql：这个方法用于执行实际的 SQL 查询。</li>
+</ul>
+<h4 id="13-iframe是什么，有什么缺点？"><a href="#13-iframe是什么，有什么缺点？" class="headerlink" title="13. iframe是什么，有什么缺点？"></a>13. iframe是什么，有什么缺点？</h4>]]></content>
       <tags>
         <tag>HTML</tag>
         <tag>浏览器</tag>
@@ -700,7 +1155,7 @@
 <h4 id="15-浏览器内核"><a href="#15-浏览器内核" class="headerlink" title="15. 浏览器内核"></a>15. 浏览器内核</h4><p>浏览器最重要的部分是浏览器的内核。浏览器内核是浏览器的核心，也称“渲染引擎”，用来解释网页语法并渲染到网页上。浏览器内核决定了浏览器该如何显示网页内容以及页面的格式信息。不同的浏览器内核对网页的语法解释也不同，因此网页开发者需要在不同内核的浏览器中测试网页的渲染效果。</p>
 <p>浏览器内核又可以分为两部分：渲染引擎和JS引擎（随着JS引擎越来越独立，内核就倾向于只指渲染引擎）<strong>常见的浏览器内核可以分为四种：Trident,Gecko,Blink,Webkit</strong></p>
 <p>（1）IE浏览器内核：Trident内核，也是俗称的IE内核；<br>（2）Chrome浏览器内核：统称为Chromium内核或Chrome内核，以前是Webkit内核，现在是Blink内核；<br>（3）Firefox浏览器内核：Gecko内核，俗称Firefox内核；<br>（4）Safari浏览器内核：Webkit内核；<br>（5）Opera浏览器内核：最初是自己的Presto内核，后来是Webkit，现在是Blink内核；<br>（6）360浏览器、猎豹浏览器内核：IE+Chrome双内核；<br>（7）搜狗、遨游、QQ浏览器内核：Trident（兼容模式）+Webkit（高速模式）；<br>（8）百度浏览器、世界之窗内核：IE内核；<br>（9）2345浏览器内核：以前是IE内核，现在也是IE+Chrome双内核；</p>
-]]></content>
+<h4 id="16-Cookie和session的区别"><a href="#16-Cookie和session的区别" class="headerlink" title="16. Cookie和session的区别"></a>16. Cookie和session的区别</h4><h4 id="17-Cookie如何防范XSS攻击？"><a href="#17-Cookie如何防范XSS攻击？" class="headerlink" title="17. Cookie如何防范XSS攻击？"></a>17. Cookie如何防范XSS攻击？</h4>]]></content>
       <tags>
         <tag>计算机网络</tag>
       </tags>

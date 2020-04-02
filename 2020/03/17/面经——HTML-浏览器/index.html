@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"holichang.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1. Cookie、sessionStorage、localStorage的区别2. 说几个很实用的BOM属性对象方法3. 说几个H5 的新标签4. 说一下HTML5 drag5.说一下web worker6. 说一下HTML语义化">
+  <meta name="description" content="1. Cookie、session、sessionStorage、localStorage的区别1.1 cookie:存储在浏览器端 （1）cookie数据始终在同源的http请求中携带（即使不需要），可以在客户端和服务器之间来回传输； （2）cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下，存储的数据只有4k左右。 （3）关闭浏览器也不会失效，只要在设置的过期时间">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面经——HTML_浏览器">
 <meta property="og:url" content="https://holichang.github.io/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94HTML-%E6%B5%8F%E8%A7%88%E5%99%A8/index.html">
 <meta property="og:site_name" content="Cheshire Cat">
-<meta property="og:description" content="1. Cookie、sessionStorage、localStorage的区别2. 说几个很实用的BOM属性对象方法3. 说几个H5 的新标签4. 说一下HTML5 drag5.说一下web worker6. 说一下HTML语义化">
+<meta property="og:description" content="1. Cookie、session、sessionStorage、localStorage的区别1.1 cookie:存储在浏览器端 （1）cookie数据始终在同源的http请求中携带（即使不需要），可以在客户端和服务器之间来回传输； （2）cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下，存储的数据只有4k左右。 （3）关闭浏览器也不会失效，只要在设置的过期时间">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-17T04:26:57.000Z">
-<meta property="article:modified_time" content="2020-03-30T12:13:18.585Z">
+<meta property="article:modified_time" content="2020-04-02T07:23:00.788Z">
 <meta property="article:author" content="柴郡猫">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="浏览器">
@@ -185,7 +185,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-30 20:13:18" itemprop="dateModified" datetime="2020-03-30T20:13:18+08:00">2020-03-30</time>
+                <time title="修改时间：2020-04-02 15:23:00" itemprop="dateModified" datetime="2020-04-02T15:23:00+08:00">2020-04-02</time>
               </span>
 
           
@@ -199,7 +199,386 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1-Cookie、sessionStorage、localStorage的区别"><a href="#1-Cookie、sessionStorage、localStorage的区别" class="headerlink" title="1. Cookie、sessionStorage、localStorage的区别"></a>1. Cookie、sessionStorage、localStorage的区别</h4><h4 id="2-说几个很实用的BOM属性对象方法"><a href="#2-说几个很实用的BOM属性对象方法" class="headerlink" title="2. 说几个很实用的BOM属性对象方法"></a>2. 说几个很实用的BOM属性对象方法</h4><h4 id="3-说几个H5-的新标签"><a href="#3-说几个H5-的新标签" class="headerlink" title="3. 说几个H5 的新标签"></a>3. 说几个H5 的新标签</h4><h4 id="4-说一下HTML5-drag"><a href="#4-说一下HTML5-drag" class="headerlink" title="4. 说一下HTML5 drag"></a>4. 说一下HTML5 drag</h4><h4 id="5-说一下web-worker"><a href="#5-说一下web-worker" class="headerlink" title="5.说一下web worker"></a>5.说一下web worker</h4><h4 id="6-说一下HTML语义化"><a href="#6-说一下HTML语义化" class="headerlink" title="6. 说一下HTML语义化"></a>6. 说一下HTML语义化</h4>
+        <h4 id="1-Cookie、session、sessionStorage、localStorage的区别"><a href="#1-Cookie、session、sessionStorage、localStorage的区别" class="headerlink" title="1. Cookie、session、sessionStorage、localStorage的区别"></a>1. Cookie、session、sessionStorage、localStorage的区别</h4><p><strong>1.1 cookie:</strong>存储在浏览器端</p>
+<p>（1）cookie数据始终在同源的http请求中携带（即使不需要），可以在客户端和服务器之间来回传输；</p>
+<p>（2）cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下，存储的数据只有4k左右。</p>
+<p>（3）关闭浏览器也不会失效，只要在设置的过期时间之前一直有效，在所有同源窗口中都是共享的</p>
+<p>（4）用于保存登录状态</p>
+<p><strong>1.2 session</strong></p>
+<p>放在服务器端</p>
+<p><strong>1.3 sessionStorage</strong></p>
+<p>（1）不会把数据发给服务器，仅在本地保存；</p>
+<p>（2）存储数据的大小比cookie大的多，可以达到5M或更大</p>
+<p>（3）仅在当前浏览器窗口关闭前有效，关闭后数据自动删除；</p>
+<p><strong>1.4 localStorage</strong></p>
+<p>（1）不会把数据发给服务器，仅在本地保存；</p>
+<p>（2）存储数据的大小比cookie大的多，可以达到5M或更大</p>
+<p>（3）存储持久数据，浏览器关闭后数据不丢失除非主动删除；</p>
+<h4 id="2-HTML5-Web存储"><a href="#2-HTML5-Web存储" class="headerlink" title="2. HTML5 Web存储"></a>2. HTML5 Web存储</h4><p><strong>2.1 本地存储用户的浏览数据</strong></p>
+<p>早期用的是cookie，但cookie会将存储的数据发送到浏览器端，且存储数据量小，只有4K左右</p>
+<p><strong>H5提供的Web Storage：localStorage和sessionStorage</strong></p>
+<p><strong>常用API:</strong></p>
+<p>保存数据：localStorage.setItem(key,value);</p>
+<p>读取数据：localStorage.getItem(key);</p>
+<p>删除单个数据：localStorage.removeItem(key)</p>
+<p>删除所有数据：localStorage.clear();</p>
+<p>得到某个索引的key:localStorage.key(index);</p>
+<p><strong>2.2 应用程序缓存：使用HTML5，建立cache manifest文件,可以轻松创建web应用的离线版本</strong></p>
+<p><strong>什么是应用程序缓存？</strong></p>
+<p>（1）离线浏览：用户可在应用离线时使用它们；</p>
+<p>（2）速度：已缓存资源加载速度更快；</p>
+<p>（3）减少服务器负载：浏览器将只从服务器下载更新过或更改过的资源</p>
+<p><strong>怎样启用应用程序缓存？</strong></p>
+<p><code>&lt;html manifest=&quot;demo.appache&quot;&gt;</code></p>
+<p><strong>Manifest文件的结构：</strong></p>
+<p>manifest是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容），可分为3部分：</p>
+<ul>
+<li>CACHE MANIFEST：在此标题下列出的文件将在首次下载后进行缓存</li>
+<li>NETWORK:在此标题下列出的文件需要与服务器进行连接，且不会被缓存</li>
+<li>FALLBACK:在此标题下列出的文件规定当前页面无法访问时的回退页面（比如404页面）</li>
+</ul>
+<h4 id="3-说几个H5-的新标签"><a href="#3-说几个H5-的新标签" class="headerlink" title="3. 说几个H5 的新标签"></a>3. 说几个H5 的新标签</h4><p>首先html5为了更好的实践web语义化，增加了header，footer，nav,aside,section等语义化标签，在表单方面，为了增强表单，为input增加了color，email,data ,range等类型，在存储方面，提供了sessionStorage，localStorage,和离线存储，通过这些存储方式方便数据在客户端的存储和获取，在多媒体方面规定了音频和视频元素audio和vedio，另外还有地理定位，canvas画布，拖放，多线程编程的web worker和websocket协议</p>
+<p><strong>3.1 H5浏览器支持：</strong></p>
+<p>（1）将HTML5元素定义为块元素：</p>
+<p>HTML5 定了 8 个新的 HTML <strong>语义（semantic）</strong> 元素。所有这些元素都是 <strong>块级</strong> 元素。为了能让旧版本的浏览器正确显示这些元素，你可以设置 CSS 的 <strong>display</strong> 属性值为 <strong>block</strong>:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">header</span>,<span class="selector-tag">article</span>,<span class="selector-tag">section</span>,<span class="selector-tag">aside</span>,<span class="selector-tag">footer</span>,<span class="selector-tag">nav</span>,<span class="selector-tag">main</span>,<span class="selector-tag">figure</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（2）为HTML添加新元素</p>
+<p>通过<code>document.createElement(&#39;&#39;)</code>创建新元素，设置样式，以标签&lt;&gt;形式添加到html中；</p>
+<p>（3）IE浏览器问题：IE8及以前不支持以上方法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.2 H5新元素</strong></p>
+<p>（1）<code>&lt;canvas&gt;</code>:依赖于分辨率；不支持事件处理器；文本渲染能力弱；能够以.png和.jpg格式保存结果图像；最适合图像密集型的游戏，其中许多对象会被频繁重绘；通过JS绘制2D图形；</p>
+<p>（2）<code>&lt;svg&gt;</code>：矢量图形，不依赖于分辨率；支持事件处理器；最适合带有大量渲染区域的应用程序（比如谷歌地图）；复杂度高会减慢渲染速度（任何过渡使用DOM的应用都不快）；不适合游戏应用；使用XML描述2D图形；</p>
+<p>（3）<code>&lt;math&gt;</code>：MathML:数学标记语言，是一种基于XML的标准，用来在互联网上书写数学符号和公式的置标语言。</p>
+<p>（4）<code>&lt;video&gt;</code>：支持的视频格式：MP4,WebM,Ogg</p>
+<p>（5）<code>&lt;audio&gt;</code>：支持的音频格式：MP3,Wav,Ogg</p>
+<p><strong>3.3 H5 Geolocation地理定位</strong></p>
+<p><code>navigator.geolocation.getCurrentPosition(showPositon,showError)</code>：获取用户位置；</p>
+<p>showPosition:获取位置成功后回调的函数；返回一个coordinates对象：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>coords.latitude</td>
+<td>十进制数的纬度</td>
+</tr>
+<tr>
+<td>coords.longitude</td>
+<td>十进制数的经度</td>
+</tr>
+<tr>
+<td>coords.accuracy</td>
+<td>位置精度</td>
+</tr>
+<tr>
+<td>coords.altitude</td>
+<td>海拔，海平面以上以米计</td>
+</tr>
+<tr>
+<td>coords.altitudeAccuracy</td>
+<td>位置的海拔精度</td>
+</tr>
+<tr>
+<td>coords.heading</td>
+<td>方向，从正北开始以度计</td>
+</tr>
+<tr>
+<td>coords.speeding</td>
+<td>速度，以米/每秒计</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>响应的日期/时间</td>
+</tr>
+</tbody></table>
+<p>showError获取位置失败后回调的函数：</p>
+<table>
+<thead>
+<tr>
+<th>error.code</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>error.PERMISSION_DENIED</td>
+<td>用户拒绝对获取地理位置的请求</td>
+</tr>
+<tr>
+<td>error.POSITION_UNAVAILABLE</td>
+<td>位置信息不可用</td>
+</tr>
+<tr>
+<td>error.TIMEOUT</td>
+<td>请求用户地理位置超时</td>
+</tr>
+<tr>
+<td>error.UNKNOWN_ERROR</td>
+<td>未知错误</td>
+</tr>
+</tbody></table>
+<p><strong>3.4 新增的input类型</strong></p>
+<p>type=”color”,”date”,”datetime”,”datetime-local”,”email”,”month”,”number”,”range”,”search”,”tel”,”time”,”url”,”week”</p>
+<p><strong>3.5 新增表单元素</strong></p>
+<p><code>&lt;datalist&gt;</code>：规定form或input 域应该拥有自动完成功能；</p>
+<p><code>&lt;keygen&gt;</code>：提供一种验证用户的可靠方法，规定用于表单的密钥对生成器字段</p>
+<p>（私钥存储与客户端，公钥则被发送到服务器，公钥可用于之后验证用户的客户端证书）</p>
+<p><code>&lt;output&gt;</code>：用于不同类型的输出，比如计算或脚本输出</p>
+<p><strong>3.6 新增表单属性</strong></p>
+<p>（1）<code>&lt;form&gt;</code>：</p>
+<p>新属性：</p>
+<p>autocomplete:提交后刷新页面，可以自动补完，值为’on’或’off’;</p>
+<p>novalidate：一个布尔值，规定在提交表单时不应该验证form或input域</p>
+<p>（2）<code>&lt;input&gt;</code>：新属性：autocomplete, autofocus, form, formaction, formenctype, formmethod, formnovalidate, formtarget,</p>
+<p> height和width:只用于image类型的<code>&lt;input&gt;</code>标签，规定高宽加载时可以预留适当空间</p>
+<p> list, min与max, multiple, pattern(regexp), placeholder, required, step</p>
+<h4 id="4-HTML5-拖放"><a href="#4-HTML5-拖放" class="headerlink" title="4. HTML5 拖放"></a>4. HTML5 拖放</h4><p><strong>4.1 首先将被拖动元素设置为可拖动：draggable:true</strong></p>
+<p><strong>4.2 为被拖动元素添加ondragstart响应事件drag(event)</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drag</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    event.dataTransfer.setData(<span class="string">"Text"</span>,event.target.id);</span><br><span class="line">&#125;<span class="comment">//dataTransfer.setData()方法设置被拖数据的数据类型和值</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.3 放到何处：ondragover:规定在何处放置被拖动的数据</strong></p>
+<p>默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式，通过调用ondragover事件的event.preventDefault()方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.preventDefault();</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.4. 进行放置：ondrop</strong></p>
+<p>当放置被拖数据时，会发生drop事件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drop</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">    <span class="keyword">var</span> data=ev.dataTransfer.getData(<span class="string">"Text"</span>);</span><br><span class="line">    ev.target.appendChild(<span class="built_in">document</span>.getElementById(data));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码解释：</p>
+<ul>
+<li>调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）</li>
+<li>通过 dataTransfer.getData(“Text”) 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。</li>
+<li>被拖数据是被拖元素的 id (“drag1”)</li>
+<li>把被拖元素追加到放置元素（目标元素）中</li>
+</ul>
+<h4 id="5-web-worker"><a href="#5-web-worker" class="headerlink" title="5.web worker"></a>5.web worker</h4><p>当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。</p>
+<p>web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。</p>
+<p><strong>5.1 先检测浏览器是否支持Web Worker</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span>(Worker)!==<span class="string">"undefined"</span>)&#123;</span><br><span class="line">    <span class="comment">//是的！Web Worker支持！</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//抱歉！Web Worker不支持！</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.2 创建外部web worker脚本文件</strong>：存储于‘demo_worker.js’</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timedCount</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    i=i+<span class="number">1</span>;</span><br><span class="line">    postMessage(i);</span><br><span class="line">    setTimeout(<span class="string">"timedCount()"</span>,<span class="number">500</span>);</span><br><span class="line">&#125;</span><br><span class="line">timedCount();</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.3 创建web worker对象,以调用上一步的文件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> w==<span class="string">"undefined"</span>)&#123;</span><br><span class="line">    w=<span class="keyword">new</span> worker(<span class="string">'demo_workers.js'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//添加'onmessage'事件监听器：</span></span><br><span class="line">w.onmessage=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'result'</span>).innerHTML=event.data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.4 终止Web Worker</strong></p>
+<p>当我们创建 web worker 对象后，它会继续监听消息（即使在外部脚本完成之后）直到其被终止为止。</p>
+<p>如需终止 web worker，并释放浏览器/计算机资源，请使用 terminate() 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w.terminate();</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-HTML语义化"><a href="#6-HTML语义化" class="headerlink" title="6. HTML语义化"></a>6. HTML语义化</h4><p><strong>6.1 语义化是什么？</strong></p>
+<p>语义化标签有自己的含义，简单来说就是让机器可以读懂内容</p>
+<p>我们应该在发布内容的时候，就用机器可读的、被广泛认可的语义信息来描述内容，来降低机器处理 Web 内容的难度。</p>
+<p><strong>6.2 语义化标签的优势</strong></p>
+<p>（1）代码结构清晰，方便阅读，有利于团队合作开发；</p>
+<p>（2）方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以语义的方式来渲染网页；</p>
+<p>（3）有利于搜索引擎优化（SEO）</p>
+<p><strong>6.3 常见的语义化标签</strong></p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>语义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;title&gt;</code></td>
+<td>页面主体内容</td>
+</tr>
+<tr>
+<td><code>&lt;hn&gt;</code></td>
+<td>h1~h6，分级标题，<code>&lt;h1&gt;</code>与 <code>&lt;title&gt;</code>协调有利于搜索引擎优化</td>
+</tr>
+<tr>
+<td><code>&lt;ul&gt;</code></td>
+<td>无序列表</td>
+</tr>
+<tr>
+<td><code>&lt;ol&gt;</code></td>
+<td>有序列表</td>
+</tr>
+<tr>
+<td><code>&lt;header&gt;</code></td>
+<td>页眉通常包括网站标志、主导航、全站链接以及搜索框</td>
+</tr>
+<tr>
+<td><code>&lt;nav&gt;</code></td>
+<td>标记导航，仅对文档中重要的链接群使用</td>
+</tr>
+<tr>
+<td><code>&lt;main&gt;</code></td>
+<td>页面主要内容，一个页面只能使用一次，如果是web应用，则包围其主要功能</td>
+</tr>
+<tr>
+<td><code>&lt;article&gt;</code></td>
+<td>定义外部的内容，其中的内容独立于文档的其余部分</td>
+</tr>
+<tr>
+<td><code>&lt;section&gt;</code></td>
+<td>定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分</td>
+</tr>
+<tr>
+<td><code>&lt;aside&gt;</code></td>
+<td>定义其所处内容之外的内容。如侧栏、文章的一组链接、广告、友情链接、相关产品列表等</td>
+</tr>
+<tr>
+<td><code>&lt;footer&gt;</code></td>
+<td>页脚，只有当父级是body时，才是整个页面的页脚。</td>
+</tr>
+<tr>
+<td><code>&lt;small&gt;</code></td>
+<td>呈现小号字体效果，指定细则，输入免责声明、注解、署名、版权。</td>
+</tr>
+<tr>
+<td><code>&lt;strong&gt;</code></td>
+<td>和 <code>em</code> 标签一样，用于强调文本，但它强调的程度更强一些。</td>
+</tr>
+<tr>
+<td><code>&lt;em&gt;</code></td>
+<td>将其中的文本表示为强调的内容，表现为斜体。</td>
+</tr>
+<tr>
+<td><code>&lt;mark&gt;</code></td>
+<td>使用黄色突出显示部分文本。</td>
+</tr>
+<tr>
+<td><code>&lt;figure&gt;</code></td>
+<td>规定独立的流内容（图像、图表、照片、代码等等）（默认有40px左右margin）。</td>
+</tr>
+<tr>
+<td><code>&lt;figcaption&gt;</code></td>
+<td>定义 <code>figure</code> 元素的标题，应该被置于 <code>figure</code> 元素的第一个或最后一个子元素的位置。</td>
+</tr>
+<tr>
+<td><code>&lt;cite&gt;</code></td>
+<td>表示所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。</td>
+</tr>
+<tr>
+<td><code>&lt;blockquoto&gt;</code></td>
+<td>定义块引用，块引用拥有它们自己的空间。</td>
+</tr>
+<tr>
+<td><code>&lt;q&gt;</code></td>
+<td>短的引述（跨浏览器问题，尽量避免使用）</td>
+</tr>
+<tr>
+<td><code>&lt;time&gt;</code></td>
+<td>datetime属性遵循特定格式，如果忽略此属性，文本内容必须是合法的日期或者时间格式。</td>
+</tr>
+<tr>
+<td><code>&lt;abbr&gt;</code></td>
+<td>简称或缩写</td>
+</tr>
+<tr>
+<td><code>&lt;dfn&gt;</code></td>
+<td>定义术语元素，与定义必须紧挨着，可以在描述列表dl元素中使用</td>
+</tr>
+<tr>
+<td><code>&lt;address&gt;</code></td>
+<td>作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。</td>
+</tr>
+<tr>
+<td><code>&lt;del&gt;</code></td>
+<td>移除的内容</td>
+</tr>
+<tr>
+<td><code>&lt;ins&gt;</code></td>
+<td>添加的内容</td>
+</tr>
+<tr>
+<td><code>&lt;code&gt;</code></td>
+<td>标记代码</td>
+</tr>
+<tr>
+<td><code>&lt;meter&gt;</code></td>
+<td>定义已知范围或分数值内的标量测量。（Internet Explorer 不支持 meter 标签）</td>
+</tr>
+<tr>
+<td><code>&lt;progress&gt;</code></td>
+<td>定义运行中的进度（进程）</td>
+</tr>
+</tbody></table>
+<h4 id="7-HTML5服务器发送事件（Server-Sent-Events）"><a href="#7-HTML5服务器发送事件（Server-Sent-Events）" class="headerlink" title="7. HTML5服务器发送事件（Server-Sent Events）"></a>7. HTML5服务器发送事件（Server-Sent Events）</h4><p>Server-Sent事件：单向消息传递，网页自动获取来自服务器的更新</p>
+<p>EventSource对象用于接收服务器发送事件通知</p>
+<p><strong>webSocket:全双工通讯</strong></p>
+<h4 id="8-Doctype作用？严格模式与混杂模式如何区分？它们有何意义？"><a href="#8-Doctype作用？严格模式与混杂模式如何区分？它们有何意义？" class="headerlink" title="8. Doctype作用？严格模式与混杂模式如何区分？它们有何意义？"></a>8. Doctype作用？严格模式与混杂模式如何区分？它们有何意义？</h4><h4 id="9-讲讲viewport和移动端布局"><a href="#9-讲讲viewport和移动端布局" class="headerlink" title="9. 讲讲viewport和移动端布局"></a>9. 讲讲viewport和移动端布局</h4><h4 id="10-DOM中的各种宽度、高度"><a href="#10-DOM中的各种宽度、高度" class="headerlink" title="10. DOM中的各种宽度、高度"></a>10. DOM中的各种宽度、高度</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>offsetWidth</td>
+<td>只读：width+padding-left+padding-right+border-left+border-right+元素的垂直滚动条宽度（如果存在且渲染）</td>
+</tr>
+<tr>
+<td>offsetHeight</td>
+<td>只读：height+padding-top+padding-bottom+border-top+border-bottom+元素的水平滚动条高度（如果存在且渲染）</td>
+</tr>
+<tr>
+<td>offsetLeft</td>
+<td>只读：父容器的padding-left+子元素的margin-left</td>
+</tr>
+<tr>
+<td>offsetTop</td>
+<td>只读：父容器的padding-top+子元素的margin-top</td>
+</tr>
+<tr>
+<td>clientWidth</td>
+<td>只读：width+padding-left+padding-right，不包括垂直滚动条的宽度</td>
+</tr>
+<tr>
+<td>clientHeight</td>
+<td>只读： height + padding-top+padding-bottom，不包括水平滚动条的高度</td>
+</tr>
+<tr>
+<td>clientLeft</td>
+<td>只读：border-left-width</td>
+</tr>
+<tr>
+<td>clientTop</td>
+<td>只读：border-top-width</td>
+</tr>
+<tr>
+<td>scrollWidth</td>
+<td>与scrollHeight类似</td>
+</tr>
+<tr>
+<td>scrollHeight</td>
+<td>该值等于该元素在不使用滚动条的情况下为了适应视口中所用内容所需的最小高度。 没有垂直滚动条的情况下，scrollHeight值与元素视图填充所有内容所需要的最小值<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/clientHeight" target="_blank" rel="noopener"><code>clientHeight</code></a>相同。包括元素的padding，但不包括元素的border和margin。scrollHeight也包括 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::before" target="_blank" rel="noopener"><code>::before</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/::after" target="_blank" rel="noopener"><code>::after</code></a>这样的伪元素。</td>
+</tr>
+<tr>
+<td>scrollLeft</td>
+<td>左边被卷进去的宽度</td>
+</tr>
+<tr>
+<td>scrollTop</td>
+<td>一个元素的 <code>scrollTop</code> 值是这个元素的<strong>内容顶部</strong>（卷起来的）到它的视口可见内容（的顶部）的距离的度量。当一个元素的内容没有产生垂直方向的滚动条，那么它的 <code>scrollTop</code> 值为<code>0</code>。</td>
+</tr>
+</tbody></table>
+<p><strong>几个API函数</strong></p>
+<p>网页可见区域宽： document.body.clientWidth;<br>网页可见区域高： document.body.clientHeight;<br>网页可见区域宽： document.body.offsetWidth (包括边框和垂直滚动条的宽);<br>网页可见区域高： document.body.offsetHeight (包括边框和水平滚动条的高);<br>网页正文全文宽： document.body.scrollWidth;<br>网页正文全文高： document.body.scrollHeight;<br>网页被卷去的高： document.body.scrollTop;<br>网页被卷去的左： document.body.scrollLeft;<br>网页正文部分上： window.screenTop;<br>网页正文部分左： window.screenLeft;<br>屏幕分辨率的高： window.screen.height;<br>屏幕分辨率的宽： window.screen.width;<br>屏幕可用工作区高度： window.screen.availHeight</p>
+<blockquote>
+<p>element.offsetTop：距父元素的距离，循环直到页面顶端，获取图片和页面顶端的距离</p>
+<p>document.documentElement.scrollTop||document.body.scrollTop:卷起的高度</p>
+<p>document.documentElement.clientHeight:属于DOM：可视区域的高度（不包括包括水平滚动栏和工具栏的高度）</p>
+<p>window.innerHeight:属于BOM：获得的是可视区域的高度，同时包括横向滚动条的高度。(IE8以及低版本浏览器不支持)</p>
+</blockquote>
+<h4 id="11-说几个很实用的BOM属性对象方法"><a href="#11-说几个很实用的BOM属性对象方法" class="headerlink" title="11. 说几个很实用的BOM属性对象方法"></a>11. 说几个很实用的BOM属性对象方法</h4><h4 id="12-HTML5-Web-SQL数据库"><a href="#12-HTML5-Web-SQL数据库" class="headerlink" title="12. HTML5 Web SQL数据库"></a>12. HTML5 Web SQL数据库</h4><p>Web SQL数据库API并不是H5规范的一部分，而是一个独立的规范：</p>
+<p><strong>核心方法：</strong></p>
+<ul>
+<li>openDatabase：这个方法使用现有的数据库或者新建的数据库创建一个数据库对象。</li>
+<li>transaction：这个方法让我们能够控制一个事务，以及基于这种情况执行提交或者回滚。</li>
+<li>execute Sql：这个方法用于执行实际的 SQL 查询。</li>
+</ul>
+<h4 id="13-iframe是什么，有什么缺点？"><a href="#13-iframe是什么，有什么缺点？" class="headerlink" title="13. iframe是什么，有什么缺点？"></a>13. iframe是什么，有什么缺点？</h4>
     </div>
 
     
@@ -284,7 +663,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Cookie、sessionStorage、localStorage的区别"><span class="nav-text">1. Cookie、sessionStorage、localStorage的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-说几个很实用的BOM属性对象方法"><span class="nav-text">2. 说几个很实用的BOM属性对象方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-说几个H5-的新标签"><span class="nav-text">3. 说几个H5 的新标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-说一下HTML5-drag"><span class="nav-text">4. 说一下HTML5 drag</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-说一下web-worker"><span class="nav-text">5.说一下web worker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-说一下HTML语义化"><span class="nav-text">6. 说一下HTML语义化</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Cookie、session、sessionStorage、localStorage的区别"><span class="nav-text">1. Cookie、session、sessionStorage、localStorage的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HTML5-Web存储"><span class="nav-text">2. HTML5 Web存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-说几个H5-的新标签"><span class="nav-text">3. 说几个H5 的新标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-HTML5-拖放"><span class="nav-text">4. HTML5 拖放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-web-worker"><span class="nav-text">5.web worker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-HTML语义化"><span class="nav-text">6. HTML语义化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-HTML5服务器发送事件（Server-Sent-Events）"><span class="nav-text">7. HTML5服务器发送事件（Server-Sent Events）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Doctype作用？严格模式与混杂模式如何区分？它们有何意义？"><span class="nav-text">8. Doctype作用？严格模式与混杂模式如何区分？它们有何意义？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-讲讲viewport和移动端布局"><span class="nav-text">9. 讲讲viewport和移动端布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-DOM中的各种宽度、高度"><span class="nav-text">10. DOM中的各种宽度、高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-说几个很实用的BOM属性对象方法"><span class="nav-text">11. 说几个很实用的BOM属性对象方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-HTML5-Web-SQL数据库"><span class="nav-text">12. HTML5 Web SQL数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-iframe是什么，有什么缺点？"><span class="nav-text">13. iframe是什么，有什么缺点？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据结构与算法</title>
+    <url>/2020/04/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>面经——JavaScript</title>
     <url>/2020/03/25/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94JavaScript/</url>
     <content><![CDATA[<h3 id="1-闭包"><a href="#1-闭包" class="headerlink" title="1. 闭包"></a>1. 闭包</h3><p><strong>无论通过何种手段将内部函数传递到所在的词法作用域以外，它持有对原始定义作用域的引用，无论在何处执行这个函数都会使用闭包</strong></p>
@@ -340,7 +345,9 @@
 <p><strong>6.4.9 Promise.any()</strong></p>
 <p><code>Promise.any()</code>方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。只要参数实例有一个变成<code>fulfilled</code>状态，包装实例就会变成<code>fulfilled</code>状态；如果所有参数实例都变成<code>rejected</code>状态，包装实例就会变成<code>rejected</code>状态。该方法目前是一个第三阶段的<a href="https://github.com/tc39/proposal-promise-any" target="_blank" rel="noopener">提案</a> 。</p>
 <p><code>Promise.any()</code>跟<code>Promise.race()</code>方法很像，只有一点不同，就是不会因为某个 Promise 变成<code>rejected</code>状态而结束</p>
-<h4 id="6-5-Generator-生成器"><a href="#6-5-Generator-生成器" class="headerlink" title="6.5 Generator:生成器"></a>6.5 Generator:生成器</h4><h4 id="6-6-async-await"><a href="#6-6-async-await" class="headerlink" title="6.6 async/await"></a>6.6 async/await</h4><h3 id="7-前端中的事件流"><a href="#7-前端中的事件流" class="headerlink" title="7. 前端中的事件流"></a>7. 前端中的事件流</h3><h4 id="7-1-事件"><a href="#7-1-事件" class="headerlink" title="7.1 事件"></a>7.1 事件</h4><h4 id="7-2-冒泡"><a href="#7-2-冒泡" class="headerlink" title="7.2 冒泡"></a>7.2 冒泡</h4><h4 id="7-3-捕获"><a href="#7-3-捕获" class="headerlink" title="7.3 捕获"></a>7.3 捕获</h4><h4 id="7-4-如何让事件先冒泡后捕获？"><a href="#7-4-如何让事件先冒泡后捕获？" class="headerlink" title="7.4 如何让事件先冒泡后捕获？"></a>7.4 如何让事件先冒泡后捕获？</h4><h4 id="7-5-事件委托"><a href="#7-5-事件委托" class="headerlink" title="7.5 事件委托"></a>7.5 事件委托</h4><h4 id="7-6-mouseover-和mouseenter的区别"><a href="#7-6-mouseover-和mouseenter的区别" class="headerlink" title="7.6 mouseover 和mouseenter的区别"></a>7.6 mouseover 和mouseenter的区别</h4><h3 id="8-JS的节流和防抖"><a href="#8-JS的节流和防抖" class="headerlink" title="8. JS的节流和防抖"></a>8. JS的节流和防抖</h3><h3 id="9-JS的垃圾回收机制"><a href="#9-JS的垃圾回收机制" class="headerlink" title="9. JS的垃圾回收机制"></a>9. JS的垃圾回收机制</h3><p><a href="https://www.cnblogs.com/echolun/p/11503915.html" target="_blank" rel="noopener">参考博客</a></p>
+<h4 id="6-5-Generator-生成器"><a href="#6-5-Generator-生成器" class="headerlink" title="6.5 Generator:生成器"></a>6.5 Generator:生成器</h4><h4 id="6-6-async-await"><a href="#6-6-async-await" class="headerlink" title="6.6 async/await"></a>6.6 async/await</h4><h3 id="7-前端中的事件流"><a href="#7-前端中的事件流" class="headerlink" title="7. 前端中的事件流"></a>7. 前端中的事件流</h3><h4 id="7-1-事件"><a href="#7-1-事件" class="headerlink" title="7.1 事件"></a>7.1 事件</h4><h4 id="7-2-冒泡"><a href="#7-2-冒泡" class="headerlink" title="7.2 冒泡"></a>7.2 冒泡</h4><h4 id="7-3-捕获"><a href="#7-3-捕获" class="headerlink" title="7.3 捕获"></a>7.3 捕获</h4><h4 id="7-4-如何让事件先冒泡后捕获？"><a href="#7-4-如何让事件先冒泡后捕获？" class="headerlink" title="7.4 如何让事件先冒泡后捕获？"></a>7.4 如何让事件先冒泡后捕获？</h4><h4 id="7-5-事件委托"><a href="#7-5-事件委托" class="headerlink" title="7.5 事件委托"></a>7.5 事件委托</h4><h4 id="7-6-mouseover-和mouseenter的区别"><a href="#7-6-mouseover-和mouseenter的区别" class="headerlink" title="7.6 mouseover 和mouseenter的区别"></a>7.6 mouseover 和mouseenter的区别</h4><h3 id="8-JS的节流和防抖"><a href="#8-JS的节流和防抖" class="headerlink" title="8. JS的节流和防抖"></a>8. JS的节流和防抖</h3><p>节流：控制某一段时间内只能执行一次，可以使用定时器或时间戳</p>
+<p>防抖：将几次事件合并为一次</p>
+<h3 id="9-JS的垃圾回收机制"><a href="#9-JS的垃圾回收机制" class="headerlink" title="9. JS的垃圾回收机制"></a>9. JS的垃圾回收机制</h3><p><a href="https://www.cnblogs.com/echolun/p/11503915.html" target="_blank" rel="noopener">参考博客</a></p>
 <h4 id="9-1-栈、堆、队列"><a href="#9-1-栈、堆、队列" class="headerlink" title="9.1 栈、堆、队列"></a>9.1 栈、堆、队列</h4><p>JavaScript内存空间分为栈，堆，池，队列。其中栈存放变量，基本类型数据与指向复杂类型数据的引用指针；堆存放复杂类型数据；池又称为常量池，用于存放常量；而队列在任务队列也会使用。</p>
 <h4 id="9-2-JS垃圾回收机制"><a href="#9-2-JS垃圾回收机制" class="headerlink" title="9.2 JS垃圾回收机制"></a>9.2 JS垃圾回收机制</h4><p>离开作用域的值被自动标记为可以回收，因此将在垃圾收集期间被删除</p>
 <p>垃圾收集机制的原理：找出那些不再继续使用的变量，然后释放其占用的内存，垃圾收集器会按照固定的时间间隔（或代码执行中预定的收集时间）周期性地执行这一操作。</p>
@@ -363,7 +370,13 @@
 <p><strong>为什么会导致性能下降？</strong></p>
 <p>JS引擎会在编译阶段进行数项的性能优化，其中有些优化依赖于能够根据代码的词法进行静态分析，并预先确定所有变量和函数的定义位置，才能在执行过程中快速找到标识符。但如果引擎在代码中发现了eval()和with()，在悲观情况下可能会做不到任何优化。</p>
 <p><strong>引擎无法在编译时对作用域查找进行优化，因为引擎只能谨慎地认为这样的优化是无效的</strong></p>
-<h3 id="12-如何理解前端模块化？"><a href="#12-如何理解前端模块化？" class="headerlink" title="12. 如何理解前端模块化？"></a>12. 如何理解前端模块化？</h3><h4 id="12-1-说一下Commonjs-AMD-CMD"><a href="#12-1-说一下Commonjs-AMD-CMD" class="headerlink" title="12.1 说一下Commonjs,AMD,CMD"></a>12.1 说一下Commonjs,AMD,CMD</h4><h3 id="13-实现一个once函数，传入函数参数只执行一次"><a href="#13-实现一个once函数，传入函数参数只执行一次" class="headerlink" title="13. 实现一个once函数，传入函数参数只执行一次"></a>13. 实现一个once函数，传入函数参数只执行一次</h3><h3 id="14-如何实现一个私有变量，用getName方法可以访问，不能直接访问"><a href="#14-如何实现一个私有变量，用getName方法可以访问，不能直接访问" class="headerlink" title="14. 如何实现一个私有变量，用getName方法可以访问，不能直接访问"></a>14. 如何实现一个私有变量，用getName方法可以访问，不能直接访问</h3><p>（1）通过#设置类中的私有变量</p>
+<h3 id="12-JS数组扁平化"><a href="#12-JS数组扁平化" class="headerlink" title="12. JS数组扁平化"></a>12. JS数组扁平化</h3><p>扁平化的目的是去除冗余、厚重和繁杂的装饰效果</p>
+<p>数组扁平化即降维</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法一：通过Array.join()方法</span></span><br><span class="line"><span class="comment">//如果数组中的元素是数组，则会将里面的数组也调用join()，返回由参数连接的字符串</span></span><br><span class="line">arr.join().split(<span class="string">','</span>);</span><br><span class="line"><span class="comment">//该方法会使数组中的元素变为字符串，且不会跳过空位</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方法二：通过[].toString(),与Array.join()返回的字符串是一样的</span></span><br><span class="line">arr.toString().split(<span class="string">','</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法三：通过ES6新增加的方法：Array.flat()</span></span><br><span class="line">arr.flat(<span class="literal">Infinity</span>);</span><br><span class="line"><span class="comment">//该方法不改变元素的值，且会跳过空位</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方法四：先通过JSON.stringify()将数组转为字符串</span></span><br><span class="line"><span class="keyword">let</span> str=<span class="built_in">JSON</span>.stringify(arr);</span><br><span class="line">str=<span class="string">`[<span class="subst">$&#123;str.replace(<span class="regexp">/\[|\]/g</span>,<span class="string">""</span>)&#125;</span>]`</span>;<span class="comment">//将字符串中的[]替换掉</span></span><br><span class="line"><span class="keyword">let</span> arrFlat=<span class="built_in">JSON</span>.parse(str);</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法五：递归</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFlat</span>(<span class="params">array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> temp=[];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(array[i]))&#123;</span><br><span class="line">            temp=temp.concat(myFlat(array[i]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            temp.push(array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//方法六：Array.reduce()</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reFlat</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">acc,cur</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(cur))&#123;</span><br><span class="line">            <span class="keyword">return</span> acc.concat(reFlat(cur));</span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            acc.push(cur);</span><br><span class="line">            <span class="keyword">return</span> acc;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,[])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="noopener">reduce详细解释</a></p>
+<p><code>Array.reduce(callback(accumulator,currentValue,currentIndex,array),initialValue)</code><br>accumulator:累加器，currentValue：当前值，currentIndex:当前索引，array:数组<br>initialValue:回调函数第一次执行时，accumulator 和currentValue的取值有两种情况：如果调用reduce()时提供了initialValue，accumulator取值为initialValue，currentValue取数组中的第一个值；如果没有提供 initialValue，那么accumulator取数组中的第一个值，currentValue取数组中的第二个值。</p>
+<h3 id="13-实现一个once函数，传入函数参数只执行一次"><a href="#13-实现一个once函数，传入函数参数只执行一次" class="headerlink" title="13. 实现一个once函数，传入函数参数只执行一次"></a>13. 实现一个once函数，传入函数参数只执行一次</h3><h3 id="14-如何实现一个私有变量，用getName方法可以访问，不能直接访问"><a href="#14-如何实现一个私有变量，用getName方法可以访问，不能直接访问" class="headerlink" title="14. 如何实现一个私有变量，用getName方法可以访问，不能直接访问"></a>14. 如何实现一个私有变量，用getName方法可以访问，不能直接访问</h3><p>（1）通过#设置类中的私有变量</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    #name='Bob';</span><br><span class="line">    <span class="keyword">constructor</span>(name)&#123;</span><br><span class="line">        this.#name=name;</span><br><span class="line">    &#125;</span><br><span class="line">    getName()&#123;</span><br><span class="line">        return this.#name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> my=<span class="keyword">new</span> Person(<span class="string">'Lily'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(my.getName());</span><br></pre></td></tr></table></figure>
 
 <p>（2）设置属性值的getter和setter</p>
@@ -532,7 +545,7 @@
 <li>AMD推崇依赖前置，在定义模块的时候就要声明其依赖的模块</li>
 <li>CMD推崇就近依赖，只有在用到某个模块的时候再去require</li>
 </ul>
-<p><strong>通俗来说：</strong><br> AMD在加载完成定义（<code>define</code>）好的模块就会立即执行，所有执行完成后，遇到<code>require</code>才会执行主逻辑。（提前加载）<br> <code>CMD</code>在加载完成定义（<code>define</code>）好的模块，仅仅是下载不执行，在遇到<code>require</code>才会执行对应的模块。（按需加载）<br> <code>AMD</code>用户体验好，因为没有延迟，<code>CMD</code>性能好，因为只有用户需要的时候才执行。</p>
+<p><strong>通俗来说：</strong><br> AMD在加载完成定义（<code>define</code>）好的模块就会立即执行，所有执行完成后，遇到<code>require</code>才会执行主逻辑。（提前加载）<br> CMD在加载完成定义（<code>define</code>）好的模块，仅仅是下载不执行，在遇到<code>require</code>才会执行对应的模块。（按需加载）<br> <code>AMD</code>用户体验好，因为没有延迟，<code>CMD</code>性能好，因为只有用户需要的时候才执行。</p>
 </li>
 <li><p>如何使用？CommonJs的话，因为nodeJs就是它的实现，所以使用node就行，也不用引入其他包。AMD则是通过<code>&lt;script&gt;</code>标签引入RequireJs，具体语法还是去看官方文档或者百度一下吧。CMD则是引入SeaJs。</p>
 </li>
@@ -674,26 +687,159 @@
 <p>border-box：盒子的宽度或高度为元素内容的宽度或高度</p>
 <p>inherit：元素继承父元素的盒子模型模式</p>
 <p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/D:%5CmyBlog%5Csource_posts%5C%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS%5C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B.png" alt="盒子模型"></p>
-<h4 id="2-BFC-块状模式上下文"><a href="#2-BFC-块状模式上下文" class="headerlink" title="2. BFC:块状模式上下文"></a>2. BFC:块状模式上下文</h4><h4 id="3-布局"><a href="#3-布局" class="headerlink" title="3. 布局"></a>3. 布局</h4><p><strong>flex布局</strong></p>
-<p><strong>浮动布局，浮动清除</strong></p>
-<p><strong>z-index的定位方法</strong></p>
-<p><strong>三栏布局</strong></p>
+<h4 id="2-BFC-块状格式化上下文"><a href="#2-BFC-块状格式化上下文" class="headerlink" title="2. BFC:块状格式化上下文"></a>2. BFC:块状格式化上下文</h4><p><strong>块格式化上下文（Block Formatting Context，BFC）</strong> 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。BFC的最显著的效果就是建立一个隔离的空间，断绝空间内外元素间相互的作用。</p>
+<p><strong>2.1 创建块格式化上下文</strong>：</p>
+<ul>
+<li>根元素或包含根元素的元素</li>
+<li>浮动元素（元素的 <code>float</code> 不是 <code>none</code>）</li>
+<li>绝对定位元素（元素的 <code>position</code> 为 <code>absolute</code> 或 <code>fixed</code>）</li>
+<li>行内块元素（元素的 <code>display</code> 为 <code>inline-block</code>）</li>
+<li>表格单元格（元素的 <code>display</code>为 <code>table-cell</code>，HTML表格单元格默认为该值）</li>
+<li>表格标题（元素的 <code>display</code> 为 <code>table-caption</code>，HTML表格标题默认为该值）</li>
+<li>匿名表格单元格元素（元素的 <code>display</code>为 <code>table、table-row</code>、 <code>table-row-group、table-header-group、table-footer-group</code>（分别是HTML table、row、tbody、thead、tfoot的默认属性）或 <code>inline-table</code>）</li>
+<li><code>overflow</code> 值不为 <code>visible</code> 的块元素</li>
+<li><strong><code>display</code> 值为 <code>flow-root</code> 的元素</strong>：新增属性，用于创建BFC,不会有副作用</li>
+<li><code>contain</code> 值为 <code>layout</code>、<code>content</code>或 <code>strict</code> 的元素</li>
+<li>弹性元素（<code>display</code>为 <code>flex</code> 或 <code>inline-flex</code>元素的直接子元素）</li>
+<li>网格元素（<code>display</code>为 <code>grid</code> 或 <code>inline-grid</code> 元素的直接子元素）</li>
+<li>多列容器（元素的 <code>column-count</code> 或 <code>column-width</code> 不为 <code>auto，包括 column-count</code> 为 <code>1</code>）</li>
+<li><code>column-span</code> 为 <code>all</code> 的元素始终会创建一个新的BFC，即使该元素没有包裹在一个多列容器中（<a href="https://link.zhihu.com/?target=https%3A//github.com/w3c/csswg-drafts/commit/a8634b96900279916bd6c505fda88dda71d8ec51">标准变更</a>，<a href="https://link.zhihu.com/?target=https%3A//bugs.chromium.org/p/chromium/issues/detail%3Fid%3D709362">Chrome bug</a>）。</li>
+</ul>
+<p>块格式化上下文包含创建它的元素内部的所有内容。</p>
+<p><strong>2.2 BFC的效果：</strong></p>
+<p>（1）BFC在Web页面上是一个独立的容器，容器内外互不影响<br>（2）和标准文档流一样，BFC内的元素垂直方向的边距会发生重叠<br>（3）BFC不会与浮动元素的盒子重叠<br>（4）计算BFC高度时即使子元素浮动也参与计算</p>
+<p><strong>2.3 BFC的应用场景：</strong></p>
+<ul>
+<li>解决相邻元素上下外边距重叠的问题：为其中一个元素创建为BFC，使其隔绝开</li>
+<li>清除浮动：将浮动元素的父元素创建为BFC</li>
+<li>解决元素浮动后与后面的元素发生重叠的问题：将后面的元素创建为BFC</li>
+</ul>
+<h4 id="3-双边距重叠问题（外边距折叠）"><a href="#3-双边距重叠问题（外边距折叠）" class="headerlink" title="3. 双边距重叠问题（外边距折叠）"></a>3. 双边距重叠问题（外边距折叠）</h4><p>当块级元素（block）的[上外边距和下外边距同时都有设定时只会只会保留最大边距，这种行为称为<strong>边界折叠</strong>（margin collapsing），有时也翻译为<strong>外边距重叠</strong>。</p>
+<p><strong>会形成外边距重叠的三种情况：</strong></p>
+<p><strong>（1）垂直方向上相邻的两个元素</strong><br>所谓相邻指的是渲染之后的元素位置相邻，而不是dom结构上的相邻</p>
+<p><strong>（2）没有内容将父元素和后代元素分开</strong></p>
+<p>父元素没有设置border、padding、行内内容、也没有创建BFC或清除浮动来分开一个块级元素的上边界margin-top与其内一个或多个后代块级元素的上边界margin-top；或没有边框，内边距，行内内容，高度height，最小高度min-height或 最大高度max-height 来分开一个块级元素的下边界margin-bottom与其内的一个或多个后代后代块元素的下边界margin-bottom，则就会出现父块元素和其内后代块元素外边界重叠，重叠部分最终会溢出到父级块元素外面。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span>&#123;</span></span><br><span class="line">        width: 200px;</span><br><span class="line">        margin-top: 50px;</span><br><span class="line">        margin-bottom: 50px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.son</span>&#123;</span></span><br><span class="line">        width: 100px;</span><br><span class="line">        height: 50px;</span><br><span class="line"><span class="css">        <span class="selector-tag">border</span>: 5<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ff0000</span>;</span></span><br><span class="line">        margin-bottom: 50px;</span><br><span class="line">        margin-top: 50px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.uncle</span>&#123;</span></span><br><span class="line">        width: 500px;</span><br><span class="line">        height: 50px;</span><br><span class="line"><span class="css">        <span class="selector-tag">border</span>: 5<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#00ff00</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"son fir"</span>&gt;</span>first<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"son sec"</span>&gt;</span>second<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"son thr"</span>&gt;</span>third<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"uncle"</span>&gt;</span>邻居<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/%E7%88%B6%E5%85%83%E7%B4%A0%E5%92%8C%E5%AD%90%E5%85%83%E7%B4%A0%E7%9A%84%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0.png" alt="父元素和子元素的外边距重叠"></p>
+<p><strong>（3）空的块级元素</strong></p>
+<p>当一个块元素上边界<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin-top" target="_blank" rel="noopener"><code>margin-top</code></a> 直接贴到元素下边界<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin-bottom" target="_blank" rel="noopener"><code>margin-bottom</code></a>时也会发生边界折叠。这种情况会发生在一个块元素完全没有设定边框<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border" target="_blank" rel="noopener"><code>border</code></a>、内边距<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/paddng" target="_blank" rel="noopener"><code>paddng</code></a>、高度<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/height" target="_blank" rel="noopener"><code>height</code></a>、最小高度<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/min-height" target="_blank" rel="noopener"><code>min-height</code></a> 、最大高度<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/max-height" target="_blank" rel="noopener"><code>max-height</code></a> 、内容设定为inline或是加上<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear" target="_blank" rel="noopener">clear-fix</a>的时候。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">p &#123;</span><br><span class="line">  margin: 0;  </span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">  margin-top: 13px;</span><br><span class="line">  margin-bottom: 87px;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>上边界范围是 87 ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>... 上边界范围是 87<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/03/17/%E9%9D%A2%E7%BB%8F%E2%80%94%E2%80%94CSS/%E7%A9%BA%E5%9D%97%E6%8A%98%E5%8F%A0.png" alt="空块折叠"></p>
+<p>上图中空div即两个p之间的高度为83，发生了折叠</p>
+<p><strong>以上这些内容都是发生在Block-Level的元素，设定floating和absolutely positioned的元素完全不用担心边界重叠的问题。</strong></p>
+<h4 id="4-定位：position"><a href="#4-定位：position" class="headerlink" title="4. 定位：position"></a>4. 定位：position</h4><p><strong>4.1 静态定位：<code>position:static</code>:默认行为</strong></p>
+<p><strong>4.2 相对定位：<code>position:relative</code> 占据在正常文本流，但可以通过<code>top</code>,<code>bottom</code>,<code>left</code>,<code>right</code>修改它的最终位置</strong></p>
+<p>top：向下移动，例如，如果你指定 <code>top: 30px;</code>一个力推动框的顶部，使它向下移动30px。</p>
+<p><strong>4.3 绝对定位：<code>position:absolute</code>脱离正常文本流</strong></p>
+<p>此时<code>top</code>,<code>bottom</code>,<code>left</code>,<code>right</code>指的是它们距离每个包含元素边的距离</p>
+<p>如果所有的父元素都没有显示定义position属性，那么所有父元素默认情况下position属性都是static。结果绝对定位元素会被包含在初始块容器中。这个初始块容器有着和浏览器视口一样的尺寸，并且<html>元素也被包含在这个容器里面。简单来说，绝对定位元素会被放在<html>元素的外面，并且根据浏览器视口来定位。</html></html></p>
+<p><strong>4.4 固定定位：<code>position:fixed</code>:</strong></p>
+<p>还有一种类型的定位覆盖——fixed。 这与绝对定位的工作方式完全相同，只有一个主要区别：绝对定位固定元素是相对于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/html" target="_blank" rel="noopener">``</a> 元素或其最近的定位祖先，而固定定位固定元素则是相对于浏览器视口本身。</p>
+<p><strong>4.5 粘性定位 ：<code>position:sticky</code>：基于用户的滚动位置来定位</strong></p>
+<p>粘性定位的元素是依赖于用户的滚动，在 <strong>position:relative</strong> 与 <strong>position:fixed</strong> 定位之间切换。</p>
+<p>它的行为就像 <strong>position:relative;</strong> 而当页面滚动超出目标区域时，它的表现就像 <strong>position:fixed;</strong>，它会固定在目标位置。</p>
+<p>元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。</p>
+<p>这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。</p>
+<h4 id="5-布局："><a href="#5-布局：" class="headerlink" title="5. 布局："></a>5. 布局：</h4><p><strong>5.1 flex布局</strong></p>
+<p><strong>5.2 浮动布局</strong></p>
+<p><strong>浮动元素的特性：</strong></p>
+<p>（1）破坏性：父元素高度塌陷</p>
+<p>（2）包裹性：父元素div宽度仅仅包裹浮动子元素</p>
+<p>（3）清空格：浮动元素之间不存在空格，紧紧贴近</p>
+<p>浮动元素会脱离正常文本流，默认情况下会使父元素高度塌陷，使后面的相邻元素与之重叠，但相邻元素中的文本内容会紧贴该浮动元素</p>
+<p><strong>使用浮动可以使可视化布局与源顺序不同。</strong><a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Floats" target="_blank" rel="noopener">详情</a></p>
+<p><strong>清除浮动：</strong>解决容器高度塌陷的问题</p>
+<ul>
+<li><p><strong>方法一：</strong>在浮动元素后使用带clear属性的空元素</p>
+<ul>
+<li>优点：简单、代码少、浏览器兼容性好</li>
+<li>需要添加大量无语义的html元素，代码不够优雅，后期不易维护</li>
+</ul>
+</li>
+<li><p><strong>方法二：</strong>触发容器的BFC</p>
+</li>
+<li><p><strong>方法三：</strong>使用父元素的after伪元素清除浮动</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;<span class="comment">/*伪元素是行内元素 正常浏览器清除浮动方法*/</span></span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">clear</span>:both;</span><br><span class="line">    <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">    *zoom: 1;/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优点：符合闭合浮动思想，结构语义化正确</li>
+<li>缺点：ie6-7不支持伪元素：after，使用zoom:1触发hasLayout</li>
+</ul>
+</li>
+<li><p>使用before和after双伪元素清除浮动</p>
+</li>
+</ul>
+<p><strong>5.3  三栏布局</strong></p>
 <blockquote>
-<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong></p>
+<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong>渲染出来的顺序可能会和源代码的顺序不同</p>
 </blockquote>
-<p><strong>垂直居中的方法</strong></p>
+<p><strong>5.4 垂直居中的方法</strong></p>
+<ul>
+<li>子元素为行内元素：设置父元素的<code>text-align:center;line-height:父元素的高度;</code></li>
+<li>子元素为给定高宽的块状元素：</li>
+</ul>
+<p>（1）设置子元素的左右margin值均为auto；计算父元素和子元素的高度差，设置margin-top或margin-botton;</p>
+<p>（2）设置子元素的左右margin值均为auto；设置父元素<code>display:table-cell;vertical-align:middle</code>   table单元格的vertical-align属性可以设置垂直对齐；</p>
+<p>（3）将子元素设为<code>display:inline-block</code>，然后设置父元素<code>text-align:center;display:table-cell;vertical-align:middle</code>;</p>
+<p>（4）通过flex布局：设置<code>justify-content:space-around;align-items:center</code>设置主轴和交叉轴的对齐方式</p>
+<p>（5）通过设置<code>position:absolute</code>控制子元素与父元素的距离，或者通过设置<code>position:relative</code>设置子元素与其正常文本流下的距离</p>
+<ul>
+<li>子元素为未给定高宽的块状元素：</li>
+</ul>
+<p>未设置子元素的height和width，块状元素的宽度为父元素的宽度，高度被内部撑开，相当于只需要设置垂直居中：设置父元素<code>display:table-cell;vertical-align:middle</code>   </p>
 <blockquote>
 <p><strong>如何实现图片在某个容器中居中？</strong></p>
 <p><strong>有一个width:300,height:300的div，怎么实现在屏幕上垂直水平居中？</strong></p>
 </blockquote>
-<h4 id="4-display属性"><a href="#4-display属性" class="headerlink" title="4.display属性"></a>4.display属性</h4><p><strong>block，inline，inline-block的区别</strong></p>
+<h4 id="6-display属性"><a href="#6-display属性" class="headerlink" title="6.display属性"></a>6.display属性</h4><p><strong>block，inline，inline-block的区别</strong></p>
 <p>block:默认换行，width缺省时为父元素宽度，可以设置高宽，padding-top,padding-bottom,margin-top,margin-bottom</p>
 <p>inline:可以排在一行，无法设置宽高，padding-top,padding-bottom,margin-top,margin-bottom无效</p>
 <p>inline-block:不换行，可以设置元素宽高</p>
-<h4 id="2-画一条0-5px的线"><a href="#2-画一条0-5px的线" class="headerlink" title="2. 画一条0.5px的线"></a>2. 画一条0.5px的线</h4><h4 id="3-link标签和import标签的区别"><a href="#3-link标签和import标签的区别" class="headerlink" title="3. link标签和import标签的区别"></a>3. link标签和import标签的区别</h4><h4 id="4-transition和animation的区别"><a href="#4-transition和animation的区别" class="headerlink" title="4. transition和animation的区别"></a>4. transition和animation的区别</h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-说一下块元素和行内元素"><a href="#9-说一下块元素和行内元素" class="headerlink" title="9. 说一下块元素和行内元素"></a>9. 说一下块元素和行内元素</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="12-双边距重叠问题（外边距折叠）"><a href="#12-双边距重叠问题（外边距折叠）" class="headerlink" title="12. 双边距重叠问题（外边距折叠）"></a>12. 双边距重叠问题（外边距折叠）</h4><h4 id="13-position属性"><a href="#13-position属性" class="headerlink" title="13. position属性"></a>13. position属性</h4><h4 id="14-浮动清除"><a href="#14-浮动清除" class="headerlink" title="14. 浮动清除"></a>14. 浮动清除</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="18-三栏布局的实现方式"><a href="#18-三栏布局的实现方式" class="headerlink" title="18. 三栏布局的实现方式"></a>18. 三栏布局的实现方式</h4><blockquote>
-<p><strong>浮动布局时,三个div的生成顺序有没有影响？</strong></p>
+<h4 id="7-link标签和-import标签的区别"><a href="#7-link标签和-import标签的区别" class="headerlink" title="7. link标签和@import标签的区别"></a>7. link标签和@import标签的区别</h4><p>（1）种类，link是HTML的标签，@import是CSS提供的方式</p>
+<p>（2）加载顺序，link在页面加载时被加载，@import在页面全下载完之后在加载</p>
+<p>（3）兼容性，@import是css2.1提供的方法,老版本不支持</p>
+<p>（4）使用DOM控制元素的不同，JS控制页面样式时只能用link，@import不是DOM可以控制的</p>
+<p>（5）link方式样式的权重高于@import的。</p>
+<p><strong>@import 语法：</strong></p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">@import url;//表示要引入资源位置的string或uri</span><br><span class="line">@import url list-of-media-queries;//是一个逗号分隔的媒体查询条件列表，决定通过URL引入的CSS规则在什么条件下应用</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>媒体查询：@media</strong></p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;@media only screen and (max-width:500px)&#123;</span><br><span class="line">   .gridmenu&#123;</span><br><span class="line">       width:100%</span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>媒体类型：</strong></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>all</td>
+<td>用于所有设备</td>
+</tr>
+<tr>
+<td>print</td>
+<td>用于打印机或打印预览</td>
+</tr>
+<tr>
+<td>screen</td>
+<td>用于电脑屏幕、平板电脑、智能手机等</td>
+</tr>
+<tr>
+<td>speech</td>
+<td>应用于屏幕阅读器等发声设备</td>
+</tr>
+</tbody></table>
 </blockquote>
-<h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="22-box-sizing"><a href="#22-box-sizing" class="headerlink" title="22.box-sizing"></a>22.box-sizing</h4><h4 id="23-css预处理器有什么？"><a href="#23-css预处理器有什么？" class="headerlink" title="23.css预处理器有什么？"></a>23.css预处理器有什么？</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4>]]></content>
+<h4 id><a href="#" class="headerlink" title></a></h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-transition和animation的区别"><a href="#9-transition和animation的区别" class="headerlink" title="9. transition和animation的区别"></a>9. transition和animation的区别</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="23-css预处理器有什么？sass-scss"><a href="#23-css预处理器有什么？sass-scss" class="headerlink" title="23.css预处理器有什么？sass,scss"></a>23.css预处理器有什么？sass,scss</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4><ol start="2">
+<li>画一条0.5px的线</li>
+</ol>
+]]></content>
       <tags>
         <tag>CSS</tag>
       </tags>
@@ -1191,9 +1337,11 @@
 <p>401 Unauthorized：表示发送的请求需要有通过HTTP认证的认证信息，另外若之前已进行过一次HTTP请求，则表示用户认证失败</p>
 <p>403 Forbidden：表明对请求资源的访问被服务器拒绝了</p>
 <p>404 Not Found：表明服务器上无法找到请求的资源（也可以在服务器端拒绝请求且不想说明理由时使用）</p>
+<p>405：</p>
 <p>412 Precondition Failed :先决条件失败</p>
 <p><strong>5XX：Server Error（服务器错误状态码）：服务器处理请求出错</strong></p>
 <p>500 Internal Server Error：该状态码表示服务器端在执行请求时发生了错误</p>
+<p>502</p>
 <p>503 Service Unavailable：表明服务器端暂时处于超负载或正在进行停机维护，现在无法处理请求</p>
 <h4 id="9-fetch发送2次请求的原因"><a href="#9-fetch发送2次请求的原因" class="headerlink" title="9. fetch发送2次请求的原因"></a>9. fetch发送2次请求的原因</h4><p>Fetch API 提供了一个 JavaScript 接口，用于访问和操纵 HTTP 管道的一些具体部分，例如请求和响应。它还提供了一个全局 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch" target="_blank" rel="noopener"><code>fetch()</code></a> 方法，该方法提供了一种简单，合理的方式来跨网络异步获取资源。</p>
 <p>这种功能以前是使用 <code>XMLHttpRequest</code> 实现的。Fetch 提供了一个更理想的替代方案，可以很容易地被其他技术使用，例如 <code>Service Workers</code>。Fetch 还提供了专门的逻辑空间来定义其他与 HTTP 相关的概念，例如 CORS 和 HTTP 的扩展。</p>

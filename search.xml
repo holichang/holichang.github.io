@@ -3,7 +3,15 @@
   <entry>
     <title>关于Vue</title>
     <url>/2020/07/14/%E5%85%B3%E4%BA%8EVue/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>Vue2.x和Vue3.x实现数据侦测的区别：</p>
+<p>Vue2.x：通过属性的get,set实现数据侦测</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj,key,&#123;</span><br><span class="line">  configurable：<span class="literal">true</span>,</span><br><span class="line">  enumerable:!!enumerable,</span><br><span class="line">  value:val,</span><br><span class="line">  writable:<span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Vue3.x：通过proxy(ES6)</p>
+]]></content>
+      <tags>
+        <tag>Vue.js</tag>
+      </tags>
   </entry>
   <entry>
     <title>数据结构与算法</title>
@@ -845,10 +853,14 @@
 </tr>
 </tbody></table>
 </blockquote>
-<h4 id><a href="#" class="headerlink" title></a></h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-transition和animation的区别"><a href="#9-transition和animation的区别" class="headerlink" title="9. transition和animation的区别"></a>9. transition和animation的区别</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="23-css预处理器有什么？sass-scss"><a href="#23-css预处理器有什么？sass-scss" class="headerlink" title="23.css预处理器有什么？sass,scss"></a>23.css预处理器有什么？sass,scss</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4><ol start="2">
-<li>画一条0.5px的线</li>
-</ol>
-]]></content>
+<h4 id><a href="#" class="headerlink" title></a></h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-transition和animation的区别"><a href="#9-transition和animation的区别" class="headerlink" title="9. transition和animation的区别"></a>9. transition和animation的区别</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="23-css预处理器有什么？sass-scss"><a href="#23-css预处理器有什么？sass-scss" class="headerlink" title="23.css预处理器有什么？sass,scss"></a>23.css预处理器有什么？sass,scss</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4><h4 id="26-移动端适配"><a href="#26-移动端适配" class="headerlink" title="26. 移动端适配"></a>26. 移动端适配</h4><h5 id="26-1-viewport"><a href="#26-1-viewport" class="headerlink" title="26.1 viewport"></a>26.1 viewport</h5><h5 id="16-2-单位：rem-em-px"><a href="#16-2-单位：rem-em-px" class="headerlink" title="16.2 单位：rem,em,px"></a>16.2 单位：rem,em,px</h5><p>px:相对长度单位，相对于屏幕分辨率</p>
+<p>em:相对长度单位，相对于当前对象内文本字体大小，如果未被设置，则相对于浏览器的默认字体尺寸：</p>
+<ul>
+<li>em的值不是固定的</li>
+<li>em会继承父级元素的字体大小</li>
+</ul>
+<p>rem:（CSS3新增）相对于HTML根元素字体大小，避免了字体大小逐层复合的连锁反应</p>
+<h5 id="26-3-实现1px横线"><a href="#26-3-实现1px横线" class="headerlink" title="26.3 实现1px横线"></a>26.3 实现1px横线</h5>]]></content>
       <tags>
         <tag>CSS</tag>
       </tags>
@@ -1583,7 +1595,34 @@
 <h4 id="15-浏览器内核"><a href="#15-浏览器内核" class="headerlink" title="15. 浏览器内核"></a>15. 浏览器内核</h4><p>浏览器最重要的部分是浏览器的内核。浏览器内核是浏览器的核心，也称“渲染引擎”，用来解释网页语法并渲染到网页上。浏览器内核决定了浏览器该如何显示网页内容以及页面的格式信息。不同的浏览器内核对网页的语法解释也不同，因此网页开发者需要在不同内核的浏览器中测试网页的渲染效果。</p>
 <p>浏览器内核又可以分为两部分：渲染引擎和JS引擎（随着JS引擎越来越独立，内核就倾向于只指渲染引擎）<strong>常见的浏览器内核可以分为四种：Trident,Gecko,Blink,Webkit</strong></p>
 <p>（1）IE浏览器内核：Trident内核，也是俗称的IE内核；<br>（2）Chrome浏览器内核：统称为Chromium内核或Chrome内核，以前是Webkit内核，现在是Blink内核；<br>（3）Firefox浏览器内核：Gecko内核，俗称Firefox内核；<br>（4）Safari浏览器内核：Webkit内核；<br>（5）Opera浏览器内核：最初是自己的Presto内核，后来是Webkit，现在是Blink内核；<br>（6）360浏览器、猎豹浏览器内核：IE+Chrome双内核；<br>（7）搜狗、遨游、QQ浏览器内核：Trident（兼容模式）+Webkit（高速模式）；<br>（8）百度浏览器、世界之窗内核：IE内核；<br>（9）2345浏览器内核：以前是IE内核，现在也是IE+Chrome双内核；</p>
-<h4 id="16-Cookie和session的区别"><a href="#16-Cookie和session的区别" class="headerlink" title="16. Cookie和session的区别"></a>16. Cookie和session的区别</h4><h4 id="17-Cookie如何防范XSS攻击？"><a href="#17-Cookie如何防范XSS攻击？" class="headerlink" title="17. Cookie如何防范XSS攻击？"></a>17. Cookie如何防范XSS攻击？</h4>]]></content>
+<h4 id="16-接口鉴权之session-cookie-token"><a href="#16-接口鉴权之session-cookie-token" class="headerlink" title="16. 接口鉴权之session,cookie,token"></a>16. 接口鉴权之session,cookie,token</h4><ol>
+<li><p>什么是接口鉴权</p>
+<p>鉴权是指鉴定用户是否拥有访问系统的权限，也就是鉴定权限</p>
+</li>
+<li><p>为什么会有cookie,session和token</p>
+<p>因为http是无状态的，这一次的请求与上一次的请求之间没有任何联系</p>
+</li>
+<li><p>cookie和session</p>
+<ul>
+<li><p>cookie存一些非敏感信息，明文存储，存储空间有限，存在浏览器所在文件夹下，可以设置失效时间，可用于存储登录状态</p>
+</li>
+<li><p>session是服务器端生成的，</p>
+</li>
+<li><p>怎么实现登录后保持一段时间登录状态？</p>
+<p>客户端登录后发起post请求，将用户名和密码发给服务器端，验证通过后（即鉴权）会生成sessionID（会话标识）服务器端也需要存储该信息，将sessionID存在set-cookie中发回给客户端，之后客户端再发起请求将直接在head中带有cookie信息，如果与服务器端的session匹配上了则用户认证成功</p>
+</li>
+</ul>
+</li>
+<li><p>session和token</p>
+<ul>
+<li>session：服务器生成，存储，验证，以cookie的方式发送给客户端，客户端再以同样的方式发给服务器端，session有状态，会占用服务器内存，性能不好</li>
+<li>token：服务器生成，验证，以cookie或header的方式发给客户端，客户端以同样的方式发回给服务器端，token无状态，不需要在服务器端存储用户信息，可以自验证。</li>
+<li>token：服务器生成token时就会把签名带上，其他服务在鉴权时，只需要把header和payload进行验证生成签名，最后签名一致则通过鉴权，相当于token是把锁和钥匙都存在了客户端</li>
+<li>通过HMAC-SHA256算法对token进行加密</li>
+</ul>
+</li>
+</ol>
+<h4 id="17-Cookie如何防范XSS攻击？"><a href="#17-Cookie如何防范XSS攻击？" class="headerlink" title="17. Cookie如何防范XSS攻击？"></a>17. Cookie如何防范XSS攻击？</h4>]]></content>
       <tags>
         <tag>计算机网络</tag>
       </tags>

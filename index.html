@@ -177,6 +177,13 @@
 
               <time title="创建时间：2020-07-14 14:22:43" itemprop="dateCreated datePublished" datetime="2020-07-14T14:22:43+08:00">2020-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-16 08:17:38" itemprop="dateModified" datetime="2020-07-16T08:17:38+08:00">2020-07-16</time>
+              </span>
 
           
 
@@ -189,7 +196,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>Vue2.x和Vue3.x实现数据侦测的区别：</p>
+<p>Vue2.x：通过属性的get,set实现数据侦测</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj,key,&#123;</span><br><span class="line">  configurable：<span class="literal">true</span>,</span><br><span class="line">  enumerable:!!enumerable,</span><br><span class="line">  value:val,</span><br><span class="line">  writable:<span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Vue3.x：通过proxy(ES6)</p>
+
       
     </div>
 
@@ -1129,7 +1141,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-20 15:21:41" itemprop="dateModified" datetime="2020-04-20T15:21:41+08:00">2020-04-20</time>
+                <time title="修改时间：2020-07-16 08:17:04" itemprop="dateModified" datetime="2020-07-16T08:17:04+08:00">2020-07-16</time>
               </span>
 
           
@@ -1310,10 +1322,14 @@
 </tr>
 </tbody></table>
 </blockquote>
-<h4 id><a href="#" class="headerlink" title></a></h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-transition和animation的区别"><a href="#9-transition和animation的区别" class="headerlink" title="9. transition和animation的区别"></a>9. transition和animation的区别</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="23-css预处理器有什么？sass-scss"><a href="#23-css预处理器有什么？sass-scss" class="headerlink" title="23.css预处理器有什么？sass,scss"></a>23.css预处理器有什么？sass,scss</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4><ol start="2">
-<li>画一条0.5px的线</li>
-</ol>
-
+<h4 id><a href="#" class="headerlink" title></a></h4><h4 id="8-关于JS动画和CSS3动画的差异性"><a href="#8-关于JS动画和CSS3动画的差异性" class="headerlink" title="8. 关于JS动画和CSS3动画的差异性"></a>8. 关于JS动画和CSS3动画的差异性</h4><h4 id="9-transition和animation的区别"><a href="#9-transition和animation的区别" class="headerlink" title="9. transition和animation的区别"></a>9. transition和animation的区别</h4><h4 id="10-多行元素的文本省略号"><a href="#10-多行元素的文本省略号" class="headerlink" title="10. 多行元素的文本省略号"></a>10. 多行元素的文本省略号</h4><h4 id="11-visibility-hidden-opacity-0-display-none"><a href="#11-visibility-hidden-opacity-0-display-none" class="headerlink" title="11.  visibility=hidden,opacity=0,display : none"></a>11.  visibility=hidden,opacity=0,display : none</h4><h4 id="15-CSS3新特性"><a href="#15-CSS3新特性" class="headerlink" title="15. CSS3新特性"></a>15. CSS3新特性</h4><h4 id="16-CSS选择器有哪些，优先级如何？"><a href="#16-CSS选择器有哪些，优先级如何？" class="headerlink" title="16. CSS选择器有哪些，优先级如何？"></a>16. CSS选择器有哪些，优先级如何？</h4><h4 id="17-CSS3的溢出处理，overflow的原理"><a href="#17-CSS3的溢出处理，overflow的原理" class="headerlink" title="17.  CSS3的溢出处理，overflow的原理"></a>17.  CSS3的溢出处理，overflow的原理</h4><h4 id="19-calc属性"><a href="#19-calc属性" class="headerlink" title="19. calc属性"></a>19. calc属性</h4><h4 id="20-display-table和本身的table有什么区别"><a href="#20-display-table和本身的table有什么区别" class="headerlink" title="20. display: table和本身的table有什么区别"></a>20. display: table和本身的table有什么区别</h4><h4 id="21-用的最多的css属性是什么？"><a href="#21-用的最多的css属性是什么？" class="headerlink" title="21. 用的最多的css属性是什么？"></a>21. 用的最多的css属性是什么？</h4><h4 id="23-css预处理器有什么？sass-scss"><a href="#23-css预处理器有什么？sass-scss" class="headerlink" title="23.css预处理器有什么？sass,scss"></a>23.css预处理器有什么？sass,scss</h4><h4 id="24-设置一个元素的背景颜色，背景颜色会填充哪些区域？"><a href="#24-设置一个元素的背景颜色，背景颜色会填充哪些区域？" class="headerlink" title="24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？"></a>24. 设置一个元素的背景颜色，背景颜色会填充哪些区域？</h4><h4 id="25-CSS画正方体，三角形"><a href="#25-CSS画正方体，三角形" class="headerlink" title="25.CSS画正方体，三角形"></a>25.CSS画正方体，三角形</h4><h4 id="26-移动端适配"><a href="#26-移动端适配" class="headerlink" title="26. 移动端适配"></a>26. 移动端适配</h4><h5 id="26-1-viewport"><a href="#26-1-viewport" class="headerlink" title="26.1 viewport"></a>26.1 viewport</h5><h5 id="16-2-单位：rem-em-px"><a href="#16-2-单位：rem-em-px" class="headerlink" title="16.2 单位：rem,em,px"></a>16.2 单位：rem,em,px</h5><p>px:相对长度单位，相对于屏幕分辨率</p>
+<p>em:相对长度单位，相对于当前对象内文本字体大小，如果未被设置，则相对于浏览器的默认字体尺寸：</p>
+<ul>
+<li>em的值不是固定的</li>
+<li>em会继承父级元素的字体大小</li>
+</ul>
+<p>rem:（CSS3新增）相对于HTML根元素字体大小，避免了字体大小逐层复合的连锁反应</p>
+<h5 id="26-3-实现1px横线"><a href="#26-3-实现1px横线" class="headerlink" title="26.3 实现1px横线"></a>26.3 实现1px横线</h5>
       
     </div>
 
@@ -1806,7 +1822,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-16 18:57:52" itemprop="dateModified" datetime="2020-04-16T18:57:52+08:00">2020-04-16</time>
+                <time title="修改时间：2020-07-18 21:24:29" itemprop="dateModified" datetime="2020-07-18T21:24:29+08:00">2020-07-18</time>
               </span>
 
           
@@ -1921,7 +1937,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>

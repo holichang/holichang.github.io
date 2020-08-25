@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>for秋招</title>
+    <url>/2020/07/24/for%E7%A7%8B%E6%8B%9B/</url>
+    <content><![CDATA[<img src="/2020/07/24/for%E7%A7%8B%E6%8B%9B/Users\Lihang\AppData\Roaming\Typora\typora-user-images\image-20200729150956361.png" alt="image-20200729150956361" style="zoom: 200%;">
+
+<h3 id="1-代码题："><a href="#1-代码题：" class="headerlink" title="1. 代码题："></a>1. 代码题：</h3><h4 id="1-1-题目描述：根据给出的叶子节点过滤树"><a href="#1-1-题目描述：根据给出的叶子节点过滤树" class="headerlink" title="1.1 题目描述：根据给出的叶子节点过滤树"></a>1.1 题目描述：根据给出的叶子节点过滤树</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTree</span>(<span class="params">root, array=[]</span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">isOk</span>(<span class="params">r</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(!r.children)&#123;</span><br><span class="line">          <span class="keyword">return</span> arr.include(r.value)</span><br><span class="line">      &#125;</span><br><span class="line">      r.children = r.children.filter(isOk)</span><br><span class="line">      <span class="keyword">return</span> r.children.length&gt;<span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> root &amp;&amp; [root].filter(isOk)[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-知识点："><a href="#2-知识点：" class="headerlink" title="2. 知识点："></a>2. 知识点：</h3><h4 id="2-1-webSocket支持跨域吗"><a href="#2-1-webSocket支持跨域吗" class="headerlink" title="2.1 webSocket支持跨域吗"></a>2.1 webSocket支持跨域吗</h4><h4 id="2-2-sass-loader，style-loader原理"><a href="#2-2-sass-loader，style-loader原理" class="headerlink" title="2.2 sass-loader，style-loader原理"></a>2.2 sass-loader，style-loader原理</h4><h4 id="2-3-session-localStorage-分页共享数据吗"><a href="#2-3-session-localStorage-分页共享数据吗" class="headerlink" title="2.3 session-localStorage 分页共享数据吗"></a>2.3 session-localStorage 分页共享数据吗</h4>]]></content>
+  </entry>
+  <entry>
+    <title>手撕代码</title>
+    <url>/2020/07/22/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>关于Vue</title>
     <url>/2020/07/14/%E5%85%B3%E4%BA%8EVue/</url>
     <content><![CDATA[<p>Vue2.x和Vue3.x实现数据侦测的区别：</p>
@@ -759,7 +773,12 @@
 <p>它的行为就像 <strong>position:relative;</strong> 而当页面滚动超出目标区域时，它的表现就像 <strong>position:fixed;</strong>，它会固定在目标位置。</p>
 <p>元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。</p>
 <p>这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。</p>
-<h4 id="5-布局："><a href="#5-布局：" class="headerlink" title="5. 布局："></a>5. 布局：</h4><p><strong>5.1 flex布局</strong></p>
+<h4 id="5-布局："><a href="#5-布局：" class="headerlink" title="5. 布局："></a>5. 布局：</h4><blockquote>
+<p>float导致的文档流塌陷和position：absolute导致的文档流塌陷有什么区别？</p>
+<p>文字流？</p>
+<p>float和伪元素有什么区别，伪元素的原理</p>
+</blockquote>
+<p><strong>5.1 flex布局</strong></p>
 <p><strong>5.2 浮动布局</strong></p>
 <p><strong>浮动元素的特性：</strong></p>
 <p>（1）破坏性：父元素高度塌陷</p>
